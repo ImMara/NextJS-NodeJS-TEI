@@ -1,4 +1,4 @@
-const User = require('../database/schemas/user.model');
+const User = require('../database/models/user.model');
 
 // CREATE USER
 
@@ -80,7 +80,7 @@ exports.findUserAndUpdateWithPassword = async (id, user) => {
 
 exports.findAllUsers = () => {
 
-    return User.find({}, '-local.password');
+    return User.find();
 
 }
 

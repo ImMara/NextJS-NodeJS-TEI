@@ -12,9 +12,10 @@ export const getServerSideProps = async ({req,res})=>{
             },
         }
     }
-z
+
     return { props:{} };
 }
+
 function Index(props) {
 
     return (
