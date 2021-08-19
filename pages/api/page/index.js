@@ -51,5 +51,19 @@ export default async (req,res,next) =>{
                 // log server with error for dev
                 console.error(e)
             }
+            break;
+        case 'GET':
+            try {
+
+                // server request to find pages
+
+
+            }catch (e) {
+
+                // log server with error for dev
+                console.error(e);
+
+            }
+            break;
     }
 }
