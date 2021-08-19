@@ -11,7 +11,7 @@ const Navbar = (props) => {
                         </a>
                         <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                             <li>
-                                <a href="#" className="nav-link px-0 align-middle">
+                                <a href="/np-admin" className="nav-link px-0 align-middle">
                                     <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Dashboard</span> </a>
                             </li>
                             <li>
@@ -19,10 +19,10 @@ const Navbar = (props) => {
                                     <i className="fs-4 bi-table"></i> <span className="ms-1 d-none d-sm-inline">Pages</span></a>
                                 <ul className="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                     <li className="w-100">
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 1</a>
+                                        <a href="page" className="nav-link px-0"> <span className="d-none d-sm-inline">Liste de page</span> 1</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 2</a>
+                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">item </span> 2</a>
                                     </li>
                                 </ul>
                             </li>
@@ -31,7 +31,7 @@ const Navbar = (props) => {
                                     <i className="fs-4 bi-bootstrap"></i> <span className="ms-1 d-none d-sm-inline">Menu</span></a>
                                 <ul className="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                     <li className="w-100">
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 1</a>
+                                        <a href="menu" className="nav-link px-0"> <span className="d-none d-sm-inline">gestion du menu</span> 1</a>
                                     </li>
                                     <li>
                                         <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 2</a>
@@ -43,7 +43,7 @@ const Navbar = (props) => {
                                     <i className="fs-4 bi-grid"></i> <span className="ms-1 d-none d-sm-inline">Blog</span> </a>
                                 <ul className="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                     <li className="w-100">
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 1</a>
+                                        <a href="blog" className="nav-link px-0"> <span className="d-none d-sm-inline">Liste des articles</span> 1</a>
                                     </li>
                                     <li>
                                         <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 2</a>
@@ -57,22 +57,8 @@ const Navbar = (props) => {
                                 </ul>
                             </li>
                             <li>
-                                <a href="#submenu4" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
+                                <a href="params" className="nav-link px-0 align-middle">
                                     <i className="fs-4 bi-grid"></i> <span className="ms-1 d-none d-sm-inline">Site Params</span> </a>
-                                <ul className="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
-                                    <li className="w-100">
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 4</a>
-                                    </li>
-                                </ul>
                             </li>
                             <li>
                                 <a href="users" className="nav-link px-0 align-middle">
@@ -86,9 +72,7 @@ const Navbar = (props) => {
                                 <span className="d-none d-sm-inline mx-1">{ props.user ? props.user.username : "looser"}</span>
                             </a>
                             <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                                <li><a className="dropdown-item" href="#">New project...</a></li>
-                                <li><a className="dropdown-item" href="#">Settings</a></li>
-                                <li><a className="dropdown-item" href="#">Profile</a></li>
+                                <li><a className="dropdown-item" href="profile">Profile</a></li>
                                 <li>
                                     <hr className="dropdown-divider" />
                                 </li>
