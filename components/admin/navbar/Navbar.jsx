@@ -75,7 +75,7 @@ const Navbar = (props) => {
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" className="nav-link px-0 align-middle">
+                                <a href="users" className="nav-link px-0 align-middle">
                                     <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Users</span> </a>
                             </li>
                         </ul>

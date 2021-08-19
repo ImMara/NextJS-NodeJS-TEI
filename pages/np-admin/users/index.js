@@ -48,10 +48,9 @@ function Index(props) {
 }
 
 Index.getInitialProps = async ({req}) => {
-   const res = await findAllUsers();
     const user = await  req.user;
-    const parsed = JSON.stringify(res);
-   return { user };
+    const users = await findAllUsers();
+    return { user };
 }
 
 export default Index;

@@ -80,7 +80,7 @@ exports.findUserAndUpdateWithPassword = async (id, user) => {
 
 exports.findAllUsers = () => {
 
-    return User.find();
+    return User.find().exec();
 
 }
 
