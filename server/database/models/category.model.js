@@ -1,17 +1,24 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
+// TODO: change the message
+// Category models
 const categorySchema = schema({
-    title: {type: 'string'},
-    slug: {type: 'string'},
-    description: {type: 'string'}
+    title: {
+        type: 'string',
+        required:[true, "needs a title"]
+    },
+    description: {
+        type: 'string',
+        required:[true , "needs a description"]
+    }
 })
 
 let Category;
 
 function modelDeclared () {
     try {
-        mongoose.model('role')
+        mongoose.model('category')
         return true
     } catch (e) {
         return false
