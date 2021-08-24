@@ -29,7 +29,7 @@ export default async (req, res, next) => {
             }
             break;
 
-        // TODO: change succes message
+        // TODO: change success message
         case 'PATCH':
 
             try{
