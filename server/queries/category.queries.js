@@ -1,7 +1,6 @@
 const Category = require('../database/models/category.model');
 
-// CREATE CATEGORY
-
+// TODO: change function params to data
 exports.createCategory = async (cat) => {
     const newCategory = new Category(cat);
     return newCategory.save();

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
+// TODO: better types needed, rename needed
 const postSchema = schema({
     title: { type: 'string',required: true},
     date: { type: 'string'},

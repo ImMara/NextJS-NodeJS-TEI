@@ -1,4 +1,4 @@
-import {deleteCategory, getCategory , patchCategory} from "../../../../server/queries/category.queries";
+import {deleteCategory, getCategory , patchCategory} from "../../../../../server/queries/category.queries";
 
 
 export default async (req,res,next) => {
@@ -66,12 +66,6 @@ export default async (req,res,next) => {
 
             }
 
-            break;
-
-        case 'PUT':
-            res.json({
-                message:'Not active',
-            })
             break;
 
         case 'DELETE':

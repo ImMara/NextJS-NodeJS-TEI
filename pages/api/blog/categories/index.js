@@ -1,4 +1,4 @@
-import {getCategories,createCategory} from '../../../server/queries/category.queries';
+import {getCategories,createCategory} from '../../../../server/queries/category.queries';
 
 export default async  (req,res,next) => {
     switch (req.method) {
