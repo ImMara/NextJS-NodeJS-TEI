@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
+// TODO: needs types
 const commentsSchema = schema({
-
+    body: {type: 'string'},
+    date: {type: 'string'}
 })
 
 let Comments;

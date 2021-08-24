@@ -38,8 +38,6 @@ export default async  (req,res,next) => {
                 // SUCCESS MESSAGE
                 const string = `new category success : ${body.title}`
 
-                console.log(category)
-
                 // RESPONSE FROM API
                 res.json({
                     message: string,
