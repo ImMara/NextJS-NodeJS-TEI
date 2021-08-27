@@ -5,7 +5,7 @@ export default async (req,res,next) => {
 
         case 'GET':
             try {
-                //GET ALL POSTS
+                // GET ALL POSTS
                 const post = await getPosts();
 
                 // API RESPONSE

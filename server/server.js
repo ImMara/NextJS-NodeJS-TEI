@@ -24,7 +24,7 @@ app.prepare()
 
 
         // Using security on all page under admin
-        server.get('/admin/*' , ensureAuthenticated, (req,res,next)=>{
+        server.get('/np-admin/*' , ensureAuthenticated, (req,res,next)=>{
             return handle(req,res,next);
         })
 
