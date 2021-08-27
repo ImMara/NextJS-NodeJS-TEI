@@ -8,7 +8,7 @@ export default async  (req,res,next) => {
                 // GET ALL CATEGORIES
                 const category = await getCategories();
 
-                res.json({category})
+                res.json({data:category})
 
             } catch (e) {
 
