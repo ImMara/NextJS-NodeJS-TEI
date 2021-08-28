@@ -23,16 +23,16 @@ function modelDeclared () {
 
 if(!modelDeclared()){
     Settings = mongoose.model('settings',settingsSchema);
+    const S = new Settings;
+    S.title = "nodepress";
+    S.email = "nodepress@gmail.com";
+    S.url = "http://localhost:3000/";
+    S.defaultRoles="admin";
+    S.slogan="open source node js CMS";
+    S.comments=false;
 }else{
     Settings = mongoose.model('settings');
 }
 
-const S = new Settings;
-S.title = "nodepress";
-S.email = "nodepress@gmail.com";
-S.url = "http://localhost:3000/";
-S.defaultRoles="admin";
-S.slogan="open source node js CMS";
-S.comments=false;
 
 module.exports = Settings;
