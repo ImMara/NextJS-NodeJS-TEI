@@ -1,25 +1,21 @@
+import {createPage, getPages,} from "../../../server/queries/page.queries";
+
 const fs = require('fs');
 const path = require('path');
-const slugify = require('slugify');
 
 export default async (req,res,next) =>{
     switch(req.method) {
         case 'POST':
+            //TODO: needs regex for title
             try{
                 // getting body from request
                 const body = req.body;
 
-                // transform title into slug
-                const slug = slugify(body.title,{
-                    lower:true,
-                    strict:true
-                })
-
                 // create page in mongodb
-                const data = await createPage({...body,slug:slug})
+                const data = await createPage({...body})
 
                 // create JS file in system for pages
-                fs.writeFile(`./pages/${slug}.js`,
+                fs.writeFile(`./pages/${body.title}.js`,
                     `import React from 'react';
                             function ${body.title.replace(/\s/g, '')}(props) {
                                 return (
@@ -56,6 +52,12 @@ export default async (req,res,next) =>{
             try {
 
                 // server request to find pages
+                const page = await getPages();
+
+                // RESPONSE FROM API
+                res.json({
+                    data: page
+                })
 
 
             }catch (e) {
