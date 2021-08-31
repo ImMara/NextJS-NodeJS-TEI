@@ -22,7 +22,6 @@ app.prepare()
         // Setup token strategy  to connect
         require('./config/jwt.config');
 
-
         // Using security on all page under admin
         server.get('/np-admin/*' , ensureAuthenticated, (req,res,next)=>{
             return handle(req,res,next);

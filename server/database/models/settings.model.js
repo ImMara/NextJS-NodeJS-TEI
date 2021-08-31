@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const settingsSchema = schema({
-    title:{type: 'string'},
-    email:{type: 'string'},
-    url:{type: 'string'},
-    defaultRoles: {type: 'string'},
-    slogan: {type: 'string'},
-    comments : {type: 'boolean'},
+    title:{type: String},
+    email:{type: String},
+    url:{type: String},
+    defaultRoles: {type: String},
+    slogan: {type: String},
+    comments : {type: Boolean},
 })
 
 let Settings;
@@ -23,16 +23,8 @@ function modelDeclared () {
 
 if(!modelDeclared()){
     Settings = mongoose.model('settings',settingsSchema);
-    const S = new Settings;
-    S.title = "nodepress";
-    S.email = "nodepress@gmail.com";
-    S.url = "http://localhost:3000/";
-    S.defaultRoles="admin";
-    S.slogan="open source node js CMS";
-    S.comments=false;
 }else{
     Settings = mongoose.model('settings');
 }
-
 
 module.exports = Settings;
