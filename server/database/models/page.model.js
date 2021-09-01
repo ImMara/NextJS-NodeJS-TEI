@@ -2,13 +2,37 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const pageSchema = schema({
-    title: { type: 'string'},
-    date: { type: 'string'},
-    statics: {type: 'string'},
-    slug: { type: 'string'},
-    image: { type: 'string'},
-    layout: { type: 'string'},
-    body: { type: 'object'}
+    title: {
+        type: String,
+        minLength: [1,"title is too short"],
+        maxLength: [125,"title is too long"],
+        unique: true,
+        required: true,
+    },
+    date: {
+        type: Date,
+        required: true,
+    },
+    statics: {
+        type: String
+    },
+    slug: {
+        type: String,
+        unique: true,
+        required: true
+    },
+    image: {
+        type: String
+    },
+    layout: {
+        type: String,
+        required: true
+    },
+    body: {
+        type: Object,
+        required: true,
+    }
+
 })
 
 let Page;
