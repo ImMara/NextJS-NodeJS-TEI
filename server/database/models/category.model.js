@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-// TODO: change the message
-// Category models
 const categorySchema = schema({
     title: {
-        type: 'string',
-        required:[true, "needs a title"]
+        type: String,
+        minLength: [1,"title is too short"],
+        maxLength: [125,"title is too long"],
+        unique: true,
+        required:true
     },
     description: {
-        type: 'string',
-        required:[true , "needs a description"]
+        type: String,
+        minLength:[4,"description must be at least 4 characters"],
+        required:true
     }
 })
 

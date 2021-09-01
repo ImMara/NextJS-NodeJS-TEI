@@ -38,10 +38,12 @@ const postSchema = schema({
         required: true
     },
     status: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     allowComment: {
-        type: Boolean
+        type: Boolean,
+        default: false,
     },
 })
 
