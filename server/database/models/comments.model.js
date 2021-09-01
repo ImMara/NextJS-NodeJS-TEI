@@ -1,10 +1,27 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-// TODO: needs types
 const commentsSchema = schema({
-    body: {type: 'string'},
-    date: {type: 'string'}
+    body: {
+        type: String,
+        required:true,
+        maxLength:[140,"comments must be under 140 characters"],
+        minLength:[10,"comments must be between 10 and 140"]
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    post_id: {
+        type:schema.Types.ObjectId,
+        ref:"post",
+        required: true
+    },
+    author: {
+        type:schema.Types.ObjectId,
+        ref:"user",
+        required: true
+    }
 })
 
 let Comments;

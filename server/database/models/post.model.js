@@ -1,18 +1,48 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-// TODO: better types needed, rename needed
 const postSchema = schema({
-    title: { type: 'string',required: true},
-    date: { type: 'string'},
-    user: { type: 'string'},
-    category: { type: 'string'},
-    image: { type: 'string'},
-    short_description: { type: 'string'},
-    comments: { type: 'string'},
-    body: { type: 'string'},
-    status: { type: 'string'},
-    allowComment: { type: 'boolean'},
+    title: {
+        type: String,
+        minLength: [1,"title is too short"],
+        maxLength: [125,"title is too long"],
+        unique: true,
+        required: true,
+    },
+    date: {
+        type: Date,
+        required: true,
+    },
+    author: {
+        type: schema.Types.ObjectId,
+        ref:"user",
+        required: true
+    },
+    category: {
+        type: schema.Types.ObjectId,
+        ref:"category",
+        required: true
+    },
+    image: {
+        type: String
+    },
+    short_description: {
+        type: String,
+        minLength:[10,"short description must be at least 10 characters"],
+        maxLength:[125,"short description is too long"],
+        required: true
+    },
+    body: {
+        type: String,
+        minLength:[50,"body must be at least 50 characters"],
+        required: true
+    },
+    status: {
+        type: Boolean
+    },
+    allowComment: {
+        type: Boolean
+    },
 })
 
 let Post;
