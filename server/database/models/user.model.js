@@ -7,42 +7,60 @@ const userSchema = schema({
 
     username: {
         type: String,
-        required: [true, "L'utilisateur doit avoir un nom/pseudo"],
+        required: true,
         unique: true,
     },
-    firstName: {
-      type: String,
+    first_name: {
+        type: String,
+        required: true
     },
-    lastName:{
-      type: String,
+    last_name:{
+        type: String,
+        required: true
     },
     website:{
-      type: String,
+        type: String,
+        required: true
     },
     description: {
         type: String,
+        required: true
     },
     image: {
         type: String,
+        required: true
     },
     address: {
         type: String,
+        required: true
     },
     postalCode: {
-        type: String,
+        type: Number,
+        required: true
     },
     country: {
         type: String,
+        required: true
     },
     phoneNumber: {
-      type: String,
+        type: Number,
+        required: true
     },
     role : {
-      type: String,
+        type: schema.Types.ObjectId,
+        ref:"role",
+        required:true
     },
     local: {
-        email: {type: String, required: [true, "L'utilisateur doit avoir un email"], unique: true},
-        password: {type: String},
+        email: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        password: {
+            type: String,
+            required:true
+        },
     }
 
 })
