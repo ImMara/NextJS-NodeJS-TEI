@@ -2,12 +2,35 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const settingsSchema = schema({
-    title:{type: String},
-    email:{type: String},
-    url:{type: String},
-    defaultRoles: {type: String},
-    slogan: {type: String},
-    comments : {type: Boolean},
+    title:{
+        type: String,
+        minLength: [1,"title is too short"],
+        maxLength: [125,"title is too long"],
+        unique: true,
+        required: true,
+    },
+    email:{
+        type: String,
+        required: true
+    },
+    url:{
+        type: String,
+        required: true
+    },
+    defaultRoles: {
+        type: schema.Types.ObjectId,
+        ref:"role",
+        required: true
+    },
+    slogan: {
+        type: String,
+        minLength: [10,"slogan is too short"],
+        maxLength: [200,"slogan is too long"],
+        required: true
+    },
+    comments : {
+        type: Boolean
+    },
 })
 
 let Settings;
