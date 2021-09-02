@@ -7,10 +7,10 @@ const roleSchema = schema({
         required: true,
         unique: true,
     },
-    access:{
-        type: Array,
+    access:[{
+        type: String,
         required: true,
-    }
+    }]
 })
 
 let Role;
