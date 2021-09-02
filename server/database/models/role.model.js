@@ -2,7 +2,15 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const roleSchema = schema({
-
+    title:{
+        type: String,
+        required: true,
+        unique: true,
+    },
+    access:{
+        type: Array,
+        required: true,
+    }
 })
 
 let Role;
