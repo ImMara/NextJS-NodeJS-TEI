@@ -11,7 +11,7 @@ function Index(props) {
             <h1>Users</h1>
             <div className="h-25">
 
-                <a href="" className={"btn btn-danger mx-1"}>button</a>
+                <a href="users/add" className={"btn btn-danger mx-1"}>add user</a>
                 <a href="" className={"btn btn-danger mx-1"}>button</a>
                 <a href="" className={"btn btn-danger mx-1"}>button</a>
             </div>
