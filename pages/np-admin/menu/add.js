@@ -29,13 +29,14 @@ function Add(props) {
 
     return (
         <Navbar>
-            <label htmlFor="title">
-                title
-                <input type="text" onChange={handleChange} name={"title"}/>
-            </label>
-            <label htmlFor="page_id">
-                page
-                <select name="page_id" id="" onChange={handleChange}>
+            <div className="mb-3">
+                <label htmlFor="title" className="form-label">title</label>
+                <input type="text" className="form-control" id="title" onChange={handleChange} name={"title"}/>
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="page_id" className="form-label">page</label>
+                <select name="page_id" id="page_id" className="form-control" onChange={handleChange}>
                     {
                         pages.map((page,index) => (
                             <>
@@ -44,10 +45,11 @@ function Add(props) {
                         ))
                     }
                 </select>
-            </label>
-            <label htmlFor="parent">
-                parent
-                <select name="parent" id="parent">
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="parent" className="form-label">parent</label>
+                <select name="parent" onChange={handleChange} className="form-control" id="parent">
                     {
                         menus.map((menu,index) => (
                             <>
@@ -56,11 +58,25 @@ function Add(props) {
                         ))
                     }
                 </select>
-            </label>
-            <a
-                onClick={handleSubmit}
-                className="btn btn-danger"
-            >add</a>
+            </div>
+
+            <div className="mb-3">
+                <a
+                    onClick={handleSubmit}
+                    className="btn btn-danger"
+                >add</a>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
         </Navbar>
     );
 }

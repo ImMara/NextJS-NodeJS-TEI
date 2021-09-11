@@ -10,15 +10,34 @@ function Index(props) {
 
     return (
         <Navbar>
-            <h1>Menu</h1>
-            <a href="/np-admin/menu/add" className="btn btn-danger">add</a>
-            {
-                menus.map( (menu, index) =>(
-                    <div key={index}>
-                        <h1>{menu.title}</h1>
-                    </div>
-                ))
-            }
+            <div className="container">
+                <h1>Menu</h1>
+                <hr/>
+                <a href="/np-admin/menu/add" className="btn btn-danger">add</a>
+                <hr/>
+                    {
+                        menus.map( (menu, index) =>(
+                            !menu.parent && (
+                                <div className="row">
+                                    <div key={index} className="col-3 text-center">
+                                        <div className="border py-3 mb-3 border-info">
+                                            {menu.title}
+                                        </div>
+                                        {
+                                            menus.map((m,i) =>(
+                                                m.parent && (
+                                                    m.parent._id === menu._id && (
+                                                        <div className="mb-3 py-2 ms-4 border border-danger">{m.title}</div>
+                                                    )
+                                                )
+                                            ))
+                                        }
+                                    </div>
+                                </div>
+                            )
+                        ))
+                    }
+            </div>
         </Navbar>
 
     );
