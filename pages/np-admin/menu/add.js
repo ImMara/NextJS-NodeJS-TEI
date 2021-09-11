@@ -50,6 +50,7 @@ function Add(props) {
             <div className="mb-3">
                 <label htmlFor="parent" className="form-label">parent</label>
                 <select name="parent" onChange={handleChange} className="form-control" id="parent">
+                    <option disabled hidden>unset</option>
                     {
                         menus.map((menu,index) => (
                             <>
