@@ -2,6 +2,7 @@ import {createPage, getPages,} from "../../../server/queries/page.queries";
 
 const fs = require('fs');
 const path = require('path');
+const slugify = require('slugify');
 
 export default async (req,res,next) =>{
     switch(req.method) {
@@ -11,12 +12,17 @@ export default async (req,res,next) =>{
                 // getting body from request
                 const body = req.body;
 
+                // transform title into slug
+                const slug = slugify(body.title,{
+                    lower:true,
+                    strict:true
+                })
+
                 // create page in mongodb
-                const data = await createPage({...body})
+                const data = await createPage({...body,slug:slug})
 
                 // create JS file in system for pages
-                fs.writeFile(`./pages/${body.title}.js`,
-                    `import React from 'react';
+                fs.writeFile(`./pages/${slug}.js`,`import React from 'react';
                             function ${body.title.replace(/\s/g, '')}(props) {
                                 return (
                                     <div>

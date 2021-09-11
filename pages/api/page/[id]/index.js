@@ -69,7 +69,7 @@ export default async (req, res, next) => {
                 const id = req.query.id;
 
                 // GET PAGE WITH ID
-                const page = req.query.id;
+                const page = await getPage(id);
 
                 // DELETE PAGE IN FOLDER
                 fs.unlink(`./pages/${page.slug+".js"}`,(err=>err && console.log(err)));
