@@ -67,16 +67,6 @@ function Add(props) {
                 >add</a>
             </div>
 
-
-
-
-
-
-
-
-
-
-
         </Navbar>
     );
 }

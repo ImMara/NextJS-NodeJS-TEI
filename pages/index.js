@@ -17,9 +17,11 @@ function Index(props) {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 {
                   menus.map((menu,index)=>(
+                      menu.page_id && (
                       <li className="nav-item">
                         <a className="nav-link active" aria-current="page" href={menu.page_id.slug}>{menu.title}</a>
                       </li>
+                      )
                   ))
                 }
               </ul>
