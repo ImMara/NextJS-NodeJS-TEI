@@ -6,6 +6,7 @@ const { server } = require('../server');
 const createJwtToken = (user) => {
     return jwt.sign({
         sub: user._id.toString(),
+        username:user.username,
         exp: Math.floor(Date.now() / 1000) + 50000
     }, secret);
 }

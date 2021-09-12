@@ -1,14 +1,17 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 import axios from "axios";
 
-const MenuContext = createContext(undefined, undefined);
+const MenuContext = createContext();
 
 export function MenuWrapper(props){
-    const [menu,setMenu] = useState();
 
-    useEffect(()=>{
+    const [menu,setMenu] = useState([]);
+
+    useEffect(() => {
         axios.get('http://localhost:3000/api/settings/menu')
-            .then(r => setMenu(r.data.data));
+            .then(r => {
+                setMenu(r.data.data);
+            });
     },[])
 
     return(

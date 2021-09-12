@@ -1,11 +1,10 @@
 import React from 'react';
 import {useMenuContext} from "../context/menu";
+import {useState} from "react";
 
 export default function Index(props) {
 
-    const menus = useMenuContext();
-
-    console.log(menus);
+    const state = useMenuContext();
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,15 +15,13 @@ export default function Index(props) {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                {/*{*/}
-                {/*  menus.map((menu,index)=>(*/}
-                {/*      menu.page_id && (*/}
-                {/*      <li className="nav-item">*/}
-                {/*        <a className="nav-link active" aria-current="page" href={menu.page_id.slug}>{menu.title}</a>*/}
-                {/*      </li>*/}
-                {/*      )*/}
-                {/*  ))*/}
-                {/*}*/}
+                {
+                    state.map((menu,index)=> (
+                          <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/">{menu.title}</a>
+                          </li>
+                      ))
+                }
               </ul>
             </div>
           </div>

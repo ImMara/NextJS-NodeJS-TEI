@@ -1,4 +1,4 @@
-const Page = require('../database/models/page.model');
+const Page = require('../database/models/page.model')
 
 exports.createPage = async (data) => {
     const newPage = new Page(data);
