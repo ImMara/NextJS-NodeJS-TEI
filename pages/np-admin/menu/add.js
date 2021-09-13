@@ -37,6 +37,7 @@ function Add(props) {
             <div className="mb-3">
                 <label htmlFor="page_id" className="form-label">page</label>
                 <select name="page_id" id="page_id" className="form-control" onChange={handleChange}>
+                    <option disabled selected hidden>unset</option>
                     {
                         pages.map((page,index) => (
                             <>

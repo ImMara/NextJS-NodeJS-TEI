@@ -6,7 +6,8 @@ exports.createMenu = async (data) => {
 }
 
 exports.getMenus = async () => {
-    return Menu.find().populate('page_id').populate('parent');
+    return Menu.find();
+        // .populate('page_id').populate('parent');
 }
 
 exports.getMenu = async (id) => {

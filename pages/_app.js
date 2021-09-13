@@ -2,6 +2,7 @@
 import  Head  from 'next/head';
 import {MenuWrapper} from "../context/menu";
 import {AuthWrapper} from "../context/auth";
+import {SettingsWrapper} from "../context/settings";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,9 +14,11 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
         <AuthWrapper>
-            <MenuWrapper>
-                <Component {...pageProps} />
-            </MenuWrapper>
+            <SettingsWrapper>
+                <MenuWrapper>
+                    <Component {...pageProps} />
+                </MenuWrapper>
+            </SettingsWrapper>
         </AuthWrapper>
 
     </>
