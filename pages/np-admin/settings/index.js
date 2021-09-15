@@ -4,11 +4,12 @@ import Navbar from "../../../components/admin/navbar/Navbar";
 import {useState} from "react";
 import {getSettings} from "../../../server/queries/settings.queries";
 import axios from "axios";
+import {useSettingsContext} from "../../../context/settings";
 
 function Index(props) {
 
     const [body,setBody] = useState();
-    const [setting,setSetting] = useState(props.settings);
+    const setting = useSettingsContext();
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -30,29 +31,29 @@ function Index(props) {
 
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">title : </label>
-                    <input className="form-control" id="title" type="text" onChange={handleChange} defaultValue={setting[0].title} name="title"/>
+                    <input className="form-control" id="title" type="text" onChange={handleChange} defaultValue={setting&&setting[0].title} name="title"/>
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">email</label>
-                    <input className="form-control" id="email" type="email" onChange={handleChange} defaultValue={setting[0].email} name="email"/>
+                    <input className="form-control" id="email" type="email" onChange={handleChange} defaultValue={setting&&setting[0].email} name="email"/>
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="url" className="form-label">url</label>
-                    <input className="form-control" id="url" type="text" onChange={handleChange} defaultValue={setting[0].url} name="url"/>
+                    <input className="form-control" id="url" type="text" onChange={handleChange} defaultValue={setting&&setting[0].url} name="url"/>
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="role" className="form-label">role</label>
-                    <select className="form-control" id='role' name="defaultRoles" defaultValue={setting[0].role}>
+                    <select className="form-control" id='role' name="defaultRoles" defaultValue={setting&&setting[0].role}>
                         <option onChange={handleChange} value="role_admin">Admin</option>
                     </select>
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="slogan" className="form-label">slogan</label>
-                    <textarea className="form-control" id="slogan" onChange={handleChange} name="slogan" defaultValue={setting[0].slogan} cols="30" rows="10"/>
+                    <textarea className="form-control" id="slogan" onChange={handleChange} name="slogan" defaultValue={setting&&setting[0].slogan} cols="30" rows="10"/>
                 </div>
 
                 <div className="mb-3">

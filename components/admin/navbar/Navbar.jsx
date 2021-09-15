@@ -16,7 +16,7 @@ const Navbar = (props) => {
                         <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                             <li>
                                 <a href="/np-admin" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                                    <i className="fs-4 bi-speedometer2"/> <span className="ms-1 d-none d-sm-inline">Dashboard</span> </a>
                             </li>
                             <li>
                                 <a href="#submenu1" data-bs-toggle="collapse" className="nav-link px-0 align-middle">

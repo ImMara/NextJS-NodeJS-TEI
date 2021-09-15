@@ -8,6 +8,7 @@ import {getMenus} from "../../../server/queries/menu.queries";
 function Add(props) {
 
     const [body,setBody] = useState();
+
     const [pages,setPages] = useState(props.pages);
     const [menus,setMenus] = useState(props.menus);
 
@@ -22,7 +23,7 @@ function Add(props) {
 
     }
 
-    const handleSubmit = (event) =>{
+    const handleSubmit = (event) => {
         axios.post("http://localhost:3000/api/settings/menu",body)
             .then(r => console.log(r));
     }

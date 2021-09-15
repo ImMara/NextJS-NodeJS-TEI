@@ -8,10 +8,15 @@ const UpdateAuthContext = createContext(undefined);
 
 export function AuthWrapper(props){
 
-    let token = Cookies.get('jwt')
+    const [token,setToken] = useState();
+
+    useEffect(()=>{
+        setToken(Cookies.get('jwt'))
+    },[Cookies.get('jwt')])
+
     let user = jwt.decode(token)
 
-    console.log(user)
+    // console.log(user)
 
     return(
         <AuthContext.Provider value={user}>

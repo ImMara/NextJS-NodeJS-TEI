@@ -1,7 +1,11 @@
 import React from 'react';
 import Navbar from "../../../components/admin/navbar/Navbar";
+import {useState} from "react";
 
 function Add(props) {
+
+    const [post,setPost] = useState();
+
     return (
         <Navbar>
             <h1>Ajouter un article de blog</h1>

@@ -16,7 +16,7 @@ export function SettingsWrapper(props){
             .then((response)=>setSettings(response.data.data))
     },[])
 
-    console.log(settings)
+    // console.log(settings)
     return(
         <SettingsContext.Provider value={settings}>
             {props.children}
