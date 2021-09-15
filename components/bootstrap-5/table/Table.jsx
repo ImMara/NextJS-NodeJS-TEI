@@ -3,17 +3,7 @@ import {useState} from "react";
 
 function Table(props) {
 
-    const [fields,setFields] = useState([{
-        name:"Jean",
-        lastName:"Jacod",
-        handle:"yes",
-        email:"jeanjacob@gmail.com"
-    },{
-        name:"Menu",
-        lastName:"Beidou",
-        handle:"no",
-        email:"menube@gmail.com"
-    }]);
+    const [fields,setFields] = useState(props.data);
 
     return (
         <table className="table">
