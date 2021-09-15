@@ -3,6 +3,7 @@ import Navbar from "../../../components/admin/navbar/Navbar";
 import Table from "../../../components/bootstrap-5/table/Table";
 import {getPosts} from "../../../server/queries/post.queries";
 import Modal from "../../../components/bootstrap-5/modal/Modal";
+import Input from "../../../components/bootstrap-5/input/Input";
 
 function Index(props) {
     return (
@@ -32,8 +33,9 @@ function Index(props) {
                 handle:"no",
                 email:"menube@gmail.com"
             }]}/>
+
         </Navbar>
-    );
+    )
 }
 
 Index.getInitialProps = async ({req,res}) =>{
