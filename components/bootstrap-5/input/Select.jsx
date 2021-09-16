@@ -3,8 +3,15 @@ import React from 'react';
 function Select(props) {
     return (
         <>
-            <label htmlFor={props.name}>{props.label}</label>
-            <select className="form-select" aria-label={props.default}>
+            <label
+                htmlFor={props.name}
+            >{props.label}</label>
+            <select
+                className="form-select"
+                onChange={props.onChange}
+                aria-label={props.default}
+                name={props.name}
+            >
                 {props.children}
             </select>
         </>
