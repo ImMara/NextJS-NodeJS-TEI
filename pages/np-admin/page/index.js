@@ -4,6 +4,18 @@ import Table from "../../../components/admin/table/Table";
 import {getPages} from "../../../server/queries/page.queries";
 import {useState} from "react";
 import axios from "axios";
+import {getPosts} from "../../../server/queries/post.queries";
+import {hydration} from "../../../utils/hydration";
+
+
+export async function getStaticProps(context) {
+
+    const pages = await getPages();
+
+    return {
+        props: { pages: hydration(pages) }, // will be passed to the page component as props
+    }
+}
 
 function Index(props) {
 
@@ -38,10 +50,5 @@ function Index(props) {
     );
 }
 
-Index.getInitialProps = async ({req,res}) => {
-    const user = req.user;
-    const pages = await getPages();
-    return {pages,user};
-}
 
 export default Index;

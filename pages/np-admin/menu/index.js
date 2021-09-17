@@ -2,6 +2,19 @@ import React, {useState} from 'react';
 import Navbar from "../../../components/admin/navbar/Navbar";
 import {getMenus} from "../../../server/queries/menu.queries";
 import {getPages} from "../../../server/queries/page.queries";
+import {getPosts} from "../../../server/queries/post.queries";
+import {hydration} from "../../../utils/hydration";
+
+
+export async function getStaticProps(context) {
+
+    const menus = await getMenus();
+    const pages = await getPages();
+
+    return {
+        props: { menus: hydration(menus), pages : hydration(pages) }, // will be passed to the page component as props
+    }
+}
 
 function Index(props) {
 
@@ -109,12 +122,5 @@ function Index(props) {
     );
 }
 
-Index.getInitialProps = async ({req, res}) => {
-    const user = req.user;
-    const menus = await getMenus();
-    const pages = await getPages();
-
-    return {user, menus , pages};
-}
 
 export default Index;

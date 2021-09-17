@@ -60,7 +60,7 @@ function Add(props) {
 
     return (
         <Navbar>
-            <h1 className="bg-light mb-3 text-center rounded p-2">Add post</h1>
+            <h1 className="bg-light shadow mb-3 rounded p-2">Add post</h1>
             <hr/>
             {
                 message && (
@@ -70,7 +70,7 @@ function Add(props) {
                     />
                 )
             }
-            <div className="row bg-light rounded p-3 m-1">
+            <div className="row bg-light shadow rounded p-3 m-1">
 
                 <div className="mb-3">
                     <Input

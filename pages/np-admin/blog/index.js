@@ -52,7 +52,7 @@ function Index(props) {
         const topBar = () =>{
             return (
                 <>
-                        <div className="row bg-light rounded m-1 py-3">
+                        <div className="row bg-light rounded shadow m-1 py-3">
                             <div className="col">
                                 <Link href={"/np-admin/blog/add"}>
                                     <a className="btn btn-primary">Ajouter un article</a>
@@ -65,7 +65,7 @@ function Index(props) {
 
         const table = () =>{
             return (
-                <div className="table-responsive bg-light rounded p-2">
+                <div className="table-responsive bg-light shadow rounded p-2">
                     <table className="table table-hover">
                         <thead>
                         <tr>

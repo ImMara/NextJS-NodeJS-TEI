@@ -9,8 +9,6 @@ export function MenuWrapper(props){
 
     const [menu,setMenu] = useState([]);
 
-    console.log(props.category)
-
     useEffect(() => {
         axios.get('http://localhost:3000/api/settings/menu')
             .then(r => {

@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useMenuContext} from "../context/menu";
-import {useEffect} from "react";
 
+import { Value } from '@react-page/editor';
+import Editor from '@react-page/editor';
+
+// The rich text area plugin
+import slate from '@react-page/plugins-slate';
+// image
+import image from '@react-page/images';
+const cellPlugins = [slate(), image];
 
 function contact(props) {
 
-    const state = useMenuContext()
-    console.log(state)
+    const [value, setValue] = useState(null);
 
     return (
-        <div>
-            <h1>contact</h1>
-            <p>undefined</p>
-        </div>
+        <Editor cellPlugins={cellPlugins} value={value} onChange={setValue} />
     );
 }
 export default contact;

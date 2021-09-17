@@ -43,14 +43,14 @@ const Navbar = (props) => {
                                 <ul className="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                     <li className="w-100">
                                         <Link href="/np-admin/blog">
-                                            <a className="nav-link px-0"> <span className="d-none d-sm-inline">Articles</span>
-                                                <i className="bi bi-newspaper"/></a>
+                                            <a className="nav-link px-0"><i className="bi bi-newspaper"/> <span className="d-none d-sm-inline">Articles</span>
+                                                </a>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="/np-admin/blog/category">
-                                            <a className="nav-link px-0"> <span className="d-none d-sm-inline">Category</span>
-                                                <i className="fas fa-list-ul fa-1x"/></a>
+                                            <a className="nav-link px-0"><i className="fas fa-list-ul fa-1x"/> <span className="d-none d-sm-inline">Category</span>
+                                                </a>
                                         </Link>
                                     </li>
                                 </ul>
