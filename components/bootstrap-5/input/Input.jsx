@@ -13,6 +13,7 @@ function Input(props) {
                 onChange={props.onChange}
                 className="form-control"
                 id={props.name}
+                value={props.value}
                 name={props.name}
                 placeholder={props.placeholder}
                 aria-describedby={props.label}

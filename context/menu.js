@@ -1,11 +1,15 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 import axios from "axios";
+import {getCategories} from "../server/queries/category.queries";
+import {hydration} from "../utils/hydration";
 
 const MenuContext = createContext();
 
 export function MenuWrapper(props){
 
     const [menu,setMenu] = useState([]);
+
+    console.log(props.category)
 
     useEffect(() => {
         axios.get('http://localhost:3000/api/settings/menu')

@@ -4,6 +4,9 @@ import {useState} from "react";
 function Table(props) {
 
     const [fields,setFields] = useState(props.data);
+    const [keys,setKeys] = useState(Object.keys(fields[0]));
+    console.log(Object.keys(fields[0]));
+    console.log(keys)
 
     return (
         <table className="table">
@@ -11,7 +14,7 @@ function Table(props) {
                 <tr>
                     <th scope="col">#</th>
                     {
-                       Object.keys(fields[0]).map( (key, index) => (
+                      keys.map( (key, index) => (
                            <th scope="col" key={index}>{key}</th>
                        ))
                     }
@@ -21,10 +24,13 @@ function Table(props) {
                 {
                   fields.map((field, index) =>(
                       <tr key={index}>
-                          <th scope="row" key={index}>{index}</th>
-                          { Object.keys(fields[index]).map( (key, i) =>(
-                              <td key={i}>{field[key]}</td>
-                          ))}
+                          <th scope="row" key={index}>{index}</th>µ
+                          {/*{*/}
+                          {/*    keys.map( (key, i) =>(*/}
+                          {/*    <td key={i}>{field[key]}</td>*/}
+                          {/*       ))*/}
+                          {/*}*/}
+
                       </tr>
                   ))
                 }

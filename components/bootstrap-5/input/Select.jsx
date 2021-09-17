@@ -11,6 +11,7 @@ function Select(props) {
                 onChange={props.onChange}
                 aria-label={props.default}
                 name={props.name}
+                value={props.value}
             >
                 {props.children}
             </select>

@@ -6,6 +6,17 @@ import Input from "../../../../components/bootstrap-5/input/Input";
 import Textarea from "../../../../components/bootstrap-5/input/Textarea";
 import {useState} from "react";
 import axios from "axios";
+import {getPosts} from "../../../../server/queries/post.queries";
+import {hydration} from "../../../../utils/hydration";
+
+export async function getStaticProps(context) {
+
+    const category = await getCategories();
+
+    return {
+        props: { category: hydration(category) }, // will be passed to the page component as props
+    }
+}
 
 function Index(props) {
 
@@ -72,11 +83,6 @@ function Index(props) {
             </div>
         </Navbar>
     );
-}
-
-Index.getInitialProps = async ({req,res}) => {
-    const category = await getCategories();
-    return { category }
 }
 
 export default Index;

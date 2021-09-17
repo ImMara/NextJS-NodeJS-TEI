@@ -80,10 +80,7 @@ export default async (req, res, next) => {
                 const string = `Delete success`;
 
                 // JSON RESPONSE
-                res.json({
-                    message: string,
-                    data: post
-                })
+                res.json({success: string})
 
             } catch (e) {
 

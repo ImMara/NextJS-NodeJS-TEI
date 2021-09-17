@@ -28,13 +28,13 @@ const postSchema = schema({
     },
     short_description: {
         type: String,
-        minLength:[10,"short description must be at least 10 characters"],
+        minLength:[5,"short description must be at least 10 characters"],
         maxLength:[125,"short description is too long"],
         required: true
     },
     body: {
         type: String,
-        minLength:[50,"body must be at least 50 characters"],
+        minLength:[25,"body must be at least 50 characters"],
         required: true
     },
     status: {

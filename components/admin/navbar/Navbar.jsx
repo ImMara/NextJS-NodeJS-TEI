@@ -1,5 +1,7 @@
 import React from 'react';
 import {useAuthContext} from "../../../context/auth";
+import Link from "next/link";
+import style from "./Navbar.module.css";
 
 const Navbar = (props) => {
 
@@ -14,60 +16,59 @@ const Navbar = (props) => {
                             <span className="fs-5 d-none d-sm-inline">Menu</span>
                         </a>
                         <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+
                             <li>
                                 <a href="/np-admin" className="nav-link px-0 align-middle">
                                     <i className="fs-4 bi-speedometer2"/> <span className="ms-1 d-none d-sm-inline">Dashboard</span> </a>
                             </li>
+
                             <li>
-                                <a href="#submenu1" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-table"></i> <span className="ms-1 d-none d-sm-inline">Pages</span></a>
-                                <ul className="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                    <li className="w-100">
-                                        <a href="page" className="nav-link px-0"> <span className="d-none d-sm-inline">Liste de page</span> 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">item </span> 2</a>
-                                    </li>
-                                </ul>
+                                <Link href="/np-admin/page">
+                                    <a className="nav-link px-0 align-middle">
+                                        <i className="bi bi-file-earmark-break fs-4"/> <span className="ms-1 d-none d-sm-inline">Pages</span></a>
+                                </Link>
                             </li>
+
                             <li>
-                                <a href="#submenu2" data-bs-toggle="collapse" className="nav-link px-0 align-middle ">
-                                    <i className="fs-4 bi-bootstrap"></i> <span className="ms-1 d-none d-sm-inline">Menu</span></a>
-                                <ul className="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                    <li className="w-100">
-                                        <a href="menu" className="nav-link px-0"> <span className="d-none d-sm-inline">gestion du menu</span> 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 2</a>
-                                    </li>
-                                </ul>
+                                <Link href="/np-admin/menu">
+                                    <a className="nav-link px-0 align-middle ">
+                                        <i className="bi bi-menu-up fs-4"/><span className="ms-1 d-none d-sm-inline">Menu</span></a>
+                                </Link>
+
                             </li>
+
                             <li>
                                 <a href="#submenu3" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-grid"></i> <span className="ms-1 d-none d-sm-inline">Blog</span> </a>
+                                    <i className="bi bi-journals fs-4"/> <span className="ms-1 d-none d-sm-inline">Blog</span> </a>
                                 <ul className="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                     <li className="w-100">
-                                        <a href="blog" className="nav-link px-0"> <span className="d-none d-sm-inline">Liste des articles</span> 1</a>
+                                        <Link href="/np-admin/blog">
+                                            <a className="nav-link px-0"> <span className="d-none d-sm-inline">Articles</span>
+                                                <i className="bi bi-newspaper"/></a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 4</a>
+                                        <Link href="/np-admin/blog/category">
+                                            <a className="nav-link px-0"> <span className="d-none d-sm-inline">Category</span>
+                                                <i className="fas fa-list-ul fa-1x"/></a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </li>
+
                             <li>
-                                <a href="params" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-grid"></i> <span className="ms-1 d-none d-sm-inline">Site Params</span> </a>
+                                <Link href="/np-admin/settings">
+                                    <a  className="nav-link px-0 align-middle">
+                                        <i className="bi bi-gear fs-4"/> <span className="ms-1 d-none d-sm-inline">Settings</span> </a>
+                                </Link>
+
                             </li>
+
                             <li>
                                 <a href="users" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Users</span> </a>
+                                    <i className="fs-4 bi-people"/> <span className="ms-1 d-none d-sm-inline">Users</span> </a>
                             </li>
+
                         </ul>
                         <hr />
                         <div className="dropdown pb-4">
@@ -77,7 +78,7 @@ const Navbar = (props) => {
                                 }</span>
                             </a>
                             <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                                <li><a className="dropdown-item" href="profile">Profile</a></li>
+                                <li><a className="dropdown-item" href="/np-admin/users/">Profile</a></li>
                                 <li>
                                     <hr className="dropdown-divider" />
                                 </li>
@@ -86,7 +87,7 @@ const Navbar = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="col py-3">
+                <div className={"col py-3 "+style.bg}>
                     {props.children}
                 </div>
             </div>

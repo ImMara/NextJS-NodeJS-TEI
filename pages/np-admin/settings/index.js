@@ -66,9 +66,4 @@ function Index(props) {
     );
 }
 
-Index.getInitialProps = async ({req,res}) => {
-    const settings = await getSettings();
-    return {settings};
-}
-
 export default Index;

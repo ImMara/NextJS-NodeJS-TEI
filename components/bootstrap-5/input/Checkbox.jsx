@@ -8,6 +8,7 @@ function Checkbox(props) {
                 type="checkbox" id={props.name}
                 onChange={props.onChange}
                 name={props.name}
+                checked={props.value}
             />
             <label
                 className="form-check-label"

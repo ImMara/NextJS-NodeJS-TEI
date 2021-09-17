@@ -30,8 +30,15 @@ export default async (req,res,next) => {
                 // GETTING  BODY WITH DATA
                 const body = await req.body;
 
+                // GETTING USER FROM AUTH
+                const user = req.user;
+
                 // CREATE OBJECT WITH BODY
-                const post = body;
+                const post = {
+                    ...body,
+                    author:user._id,
+                    date:Date.now()
+                }
 
                 // CREATE DATA IN DATABASE
                 await createPost(post);
@@ -41,7 +48,7 @@ export default async (req,res,next) => {
 
                 //  RESPONSE FROM API
                 res.json({
-                    message:string,
+                    success:string,
                     data:post
                 })
 
