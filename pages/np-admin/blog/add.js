@@ -91,6 +91,10 @@ function Add(props) {
         ...defaultFonts
     ].sort();
 
+    const handleImageUpload = (targetImgElement, index, state, imageInfo, remainingFilesCount)=>{
+        console.log(targetImgElement, index, state, imageInfo, remainingFilesCount)
+    }
+
     return (
         <Navbar>
             <h1 className="bg-light shadow mb-3 rounded p-2">Add post</h1>
@@ -141,7 +145,7 @@ function Add(props) {
                             buttonList: [
                                 ["undo", "redo"],
                                 ["font", "fontSize"],
-                                // ['paragraphStyle', 'blockquote'],
+                                ['paragraphStyle', 'blockquote'],
                                 [
                                     "bold",
                                     "underline",
@@ -157,21 +161,23 @@ function Add(props) {
                                 ["table", "horizontalRule", "link", "image", "video"],
                                 // ['math'] //You must add the 'katex' library at options to use the 'math' plugin.
                                 // ['imageGallery'], // You must add the "imageGalleryUrl".
-                                // ["fullScreen", "showBlocks", "codeView"],
+                                ["fullScreen", "showBlocks", "codeView"],
                                 ["preview", "print"],
-                                ["removeFormat"]
+                                ["removeFormat"],
 
                                 // ['save', 'template'],
-                                // '/', Line break
+                                // '/', //Line break
                             ], // Or Array of button list, eg. [['font', 'align'], ['image']]}
                             defaultTag: "div",
                             minHeight: "300px",
                             showPathLabel: false,
                             font: sortedFontOptions
                         }}
+                        setContents={bodyEditor}
                         autoFocus={true}
                         onChange={handleBodyEditor}
                         height="500"
+                        onImageUpload={handleImageUpload}
                     />
                 </div>
 
