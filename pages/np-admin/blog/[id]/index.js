@@ -153,7 +153,7 @@ function Index(props) {
                                 ["table", "horizontalRule", "link", "image", "video"],
                                 // ['math'] //You must add the 'katex' library at options to use the 'math' plugin.
                                 // ['imageGallery'], // You must add the "imageGalleryUrl".
-                                // ["fullScreen", "showBlocks", "codeView"],
+                                ["fullScreen", "showBlocks", "codeView"],
                                 ["preview", "print"],
                                 ["removeFormat"]
 
@@ -168,6 +168,7 @@ function Index(props) {
                         autoFocus={true}
                         defaultValue={body.body}
                         onChange={handleBodyEditor}
+                        setContents={bodyEditor}
                     />
                 </div>
 

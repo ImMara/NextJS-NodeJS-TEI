@@ -91,10 +91,6 @@ function Add(props) {
         ...defaultFonts
     ].sort();
 
-    const handleImageUpload = (targetImgElement, index, state, imageInfo, remainingFilesCount)=>{
-        console.log(targetImgElement, index, state, imageInfo, remainingFilesCount)
-    }
-
     return (
         <Navbar>
             <h1 className="bg-light shadow mb-3 rounded p-2">Add post</h1>
@@ -177,7 +173,6 @@ function Add(props) {
                         autoFocus={true}
                         onChange={handleBodyEditor}
                         height="500"
-                        onImageUpload={handleImageUpload}
                     />
                 </div>
 
