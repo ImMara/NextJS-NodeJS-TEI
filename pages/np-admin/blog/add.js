@@ -10,6 +10,12 @@ import axios from "axios";
 import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
 import {hydration} from "../../../utils/hydration";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import 'suneditor/dist/css/suneditor.min.css';
+
+const SunEditor = dynamic(() => import("suneditor-react"), {
+    ssr: false,
+});
 
 export async function getStaticProps(context) {
 
@@ -34,6 +40,7 @@ function Add(props) {
     });
 
     const [message,setMessage] = useState();
+    const [bodyEditor,setBodyEditor] = useState();
 
     const handleChange = (event) => {
         const target = event.target;
@@ -42,9 +49,13 @@ function Add(props) {
         setBody({...body,[name]:value})
     }
 
+    const handleBodyEditor = (content) =>{
+        setBodyEditor(content);
+    }
+
     const handleSubmit = (event) => {
         axios
-            .post('http://localhost:3000/api/blog/post/',body)
+            .post('http://localhost:3000/api/blog/post/',{...body,body:bodyEditor})
             .then((r) => {
                 console.log(r);
                 setMessage(r.data);
@@ -99,12 +110,21 @@ function Add(props) {
                 </div>
 
                 <div className="mb-3">
-                    <Textarea
-                        label={"content"}
-                        name={"body"}
-                        value={body.body}
-                        row={"3"}
-                        onChange={handleChange}
+                    {/*<Textarea*/}
+                    {/*    label={"content"}*/}
+                    {/*    name={"body"}*/}
+                    {/*    value={body.body}*/}
+                    {/*    row={"3"}*/}
+                    {/*    onChange={handleChange}*/}
+                    {/*/>*/}
+                    <h6>Body</h6>
+                    <SunEditor
+                        lang="fr"
+                        name="body"
+                        placeholder="Please type here..."
+                        autoFocus={true}
+                        onChange={handleBodyEditor}
+                        height="500"
                     />
                 </div>
 

@@ -1,21 +1,33 @@
 import React, {useState} from 'react';
-import {useMenuContext} from "../context/menu";
+import dynamic from "next/dynamic";
+import 'suneditor/dist/css/suneditor.min.css';
 
-import { Value } from '@react-page/editor';
-import Editor from '@react-page/editor';
-
-// The rich text area plugin
-import slate from '@react-page/plugins-slate';
-// image
-import image from '@react-page/images';
-const cellPlugins = [slate(), image];
+const SunEditor = dynamic(() => import("suneditor-react"), {
+    ssr: false,
+});
 
 function contact(props) {
 
     const [value, setValue] = useState(null);
 
+    const handleChange = (content) =>{
+        console.log(content);
+        setValue(content)
+        console.log({value});
+    }
+
     return (
-        <Editor cellPlugins={cellPlugins} value={value} onChange={setValue} />
+        <>
+            <h1>wa</h1>
+            <div className="container">
+                <div className="row gx-1">
+                    <div className="col-8">
+
+                    </div>
+                </div>
+            </div>
+        </>
+
     );
 }
 export default contact;

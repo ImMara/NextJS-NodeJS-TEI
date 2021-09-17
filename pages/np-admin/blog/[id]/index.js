@@ -11,6 +11,12 @@ import {hydration} from "../../../../utils/hydration";
 import {useState} from "react";
 import {getPost} from "../../../../server/queries/post.queries";
 import axios from "axios";
+import dynamic from "next/dynamic";
+import 'suneditor/dist/css/suneditor.min.css';
+
+const SunEditor = dynamic(() => import("suneditor-react"), {
+    ssr: false,
+});
 
 export async function getServerSideProps(context) {
 
@@ -38,6 +44,7 @@ function Index(props) {
     });
 
     const [message,setMessage] = useState();
+    const [bodyEditor,setBodyEditor] = useState();
 
     const handleChange = (event) => {
         const target = event.target;
@@ -45,10 +52,13 @@ function Index(props) {
         const name = target.name;
         setBody({...body,[name]:value})
     }
+    const handleBodyEditor = (content) =>{
+        setBodyEditor(content);
+    }
 
     const handleSubmit = (event) => {
         axios
-            .patch("http://localhost:3000/api/blog/post/"+props.post._id,body)
+            .patch("http://localhost:3000/api/blog/post/"+props.post._id,{...body,body: bodyEditor})
             .then(r => {
                 console.log(r)
                 setMessage(r.data);
@@ -96,12 +106,22 @@ function Index(props) {
                 </div>
 
                 <div className="mb-3">
-                    <Textarea
-                        label={"content"}
-                        name={"body"}
-                        value={body.body}
-                        row={"3"}
-                        onChange={handleChange}
+                    {/*<Textarea*/}
+                    {/*    label={"content"}*/}
+                    {/*    name={"body"}*/}
+                    {/*    value={body.body}*/}
+                    {/*    row={"3"}*/}
+                    {/*    onChange={handleChange}*/}
+                    {/*/>*/}
+                    <h6>Body</h6>
+                    <SunEditor
+                        lang="fr"
+                        name="body"
+                        height="500"
+                        placeholder="Please type here..."
+                        autoFocus={true}
+                        defaultValue={body.body}
+                        onChange={handleBodyEditor}
                     />
                 </div>
 

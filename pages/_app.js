@@ -3,7 +3,6 @@ import  Head  from 'next/head';
 import {MenuWrapper} from "../context/menu";
 import {AuthWrapper} from "../context/auth";
 import {SettingsWrapper} from "../context/settings";
-import '@react-page/editor/lib/index.css';
 
 function MyApp({ Component, pageProps }) {
   return (
