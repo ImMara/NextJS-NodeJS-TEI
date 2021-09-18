@@ -79,17 +79,26 @@ function Index(props) {
                         />
                     </div>
                 </Modal>
-
-                <div className="row">
-                    <div className="col-6">
-                        {category.map(c => (
-                            <div>
-                                <h1>{c.title}</h1>
-                                <p>{c.description}</p>
-                            </div>
+                    <table className="table">
+                        <thead>
+                            <th>#</th>
+                            <th>titre</th>
+                            <td>action</td>
+                        </thead>
+                        <tbody>
+                        {category.map((c,index) => (
+                            <tr>
+                                <td>{index}</td>
+                                <td>{c.title}</td>
+                                <td>
+                                    <a className="btn btn-success">update</a>
+                                    <a className="btn btn-danger">supprimer</a>
+                                </td>
+                            </tr>
                         ))}
-                    </div>
-                </div>
+                        </tbody>
+                    </table>
+
             </Layout>
         </>
     );

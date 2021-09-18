@@ -11,7 +11,7 @@ const Navbar = (props) => {
         <>
                     <div className="container mt-5 shadow rounded bg-light">
 
-                        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                        <nav className="navbar navbar-expand-lg border-0 navbar-light bg-light">
                             <div className="container-fluid">
                                 <i className="bi bi-arrow-90deg-right d-block d-xxl-none" onClick={updateNavbarContext()}/>
                                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
