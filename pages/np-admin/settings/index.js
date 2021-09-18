@@ -25,7 +25,8 @@ function Index(props) {
     }
 
     return (
-        <Navbar>
+        <>
+        <Navbar/>
             <Layout>
                 <h1>Settings</h1>
                 <hr/>
@@ -65,7 +66,7 @@ function Index(props) {
                     <a className="btn btn-primary" onClick={handleSubmit}>Submit</a>
                 </form>
             </Layout>
-        </Navbar>
+        </>
     );
 }
 

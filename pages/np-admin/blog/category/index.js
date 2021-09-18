@@ -40,7 +40,8 @@ function Index(props) {
     }
 
     return (
-        <Navbar>
+        <>
+             <Navbar/>
             <Layout>
                 <h1>Categories</h1>
                 <hr/>
@@ -90,7 +91,7 @@ function Index(props) {
                     </div>
                 </div>
             </Layout>
-        </Navbar>
+        </>
     );
 }
 

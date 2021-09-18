@@ -4,6 +4,7 @@ import {useState} from "react";
 import {getPages} from "../../../server/queries/page.queries";
 import axios from "axios";
 import {getMenus} from "../../../server/queries/menu.queries";
+import Layout from "../../../components/admin/layout/Layout";
 
 function Add(props) {
 
@@ -29,7 +30,11 @@ function Add(props) {
     }
 
     return (
-        <Navbar>
+        <>
+        <Navbar/>
+        <Layout>
+
+
             <div className="mb-3">
                 <label htmlFor="title" className="form-label">title</label>
                 <input type="text" className="form-control" id="title" onChange={handleChange} name={"title"}/>
@@ -69,8 +74,8 @@ function Add(props) {
                     className="btn btn-danger"
                 >add</a>
             </div>
-
-        </Navbar>
+            </Layout>
+        </>
     );
 }
 

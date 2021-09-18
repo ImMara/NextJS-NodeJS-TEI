@@ -1,7 +1,5 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 import axios from "axios";
-import {getCategories} from "../server/queries/category.queries";
-import {hydration} from "../utils/hydration";
 
 const MenuContext = createContext();
 

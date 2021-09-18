@@ -93,7 +93,8 @@ function Add(props) {
     ].sort();
 
     return (
-        <Navbar>
+        <>
+            <Navbar/>
                 {
                     message && (
                         <Alerts
@@ -216,10 +217,9 @@ function Add(props) {
                         <Link href={"/np-admin/blog/"}>
                             <a className="btn btn-primary ms-2">Retour</a>
                         </Link>
-
                     </div>
                 </Layout>
-        </Navbar>
+        </>
 );
 }
 

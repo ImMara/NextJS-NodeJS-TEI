@@ -1,10 +1,12 @@
 import React from 'react';
 import Navbar from "../../../../components/admin/navbar/Navbar";
+import Layout from "../../../../components/admin/layout/Layout";
 
 function Index(props) {
     return (
-        <Navbar>
-            <div className="container">
+        <>
+        <Navbar/>
+            <Layout>
 
                 <div className="row">
 
@@ -39,9 +41,9 @@ function Index(props) {
 
                 </div>
 
-            </div>
 
-        </Navbar>
+        </Layout>
+        </>
     );
 }
 

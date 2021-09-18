@@ -6,6 +6,7 @@ import {useState} from "react";
 import axios from "axios";
 import {getPosts} from "../../../server/queries/post.queries";
 import {hydration} from "../../../utils/hydration";
+import Layout from "../../../components/admin/layout/Layout";
 
 
 export async function getStaticProps(context) {
@@ -30,7 +31,9 @@ function Index(props) {
     }
 
     return (
-        <Navbar>
+        <>
+        <Navbar/>
+        <Layout>
             <h1>Pages</h1>
             <div className="mb-5">
                 <a href="/np-admin/page/add" className="btn btn-danger">add</a>
@@ -46,7 +49,9 @@ function Index(props) {
                 ))
 
             }
-        </Navbar>
+        </Layout>
+
+        </>
     );
 }
 

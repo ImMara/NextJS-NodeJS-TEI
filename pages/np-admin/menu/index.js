@@ -4,6 +4,7 @@ import {getMenus} from "../../../server/queries/menu.queries";
 import {getPages} from "../../../server/queries/page.queries";
 import {getPosts} from "../../../server/queries/post.queries";
 import {hydration} from "../../../utils/hydration";
+import Layout from "../../../components/admin/layout/Layout";
 
 
 export async function getStaticProps(context) {
@@ -41,8 +42,9 @@ function Index(props) {
     }
 
     return (
-        <Navbar>
-            <div className="container">
+        <>
+        <Navbar/>
+        <Layout>
                 <h1>Menu</h1>
                 <hr/>
                 <a href="/np-admin/menu/add" className="btn btn-danger">add</a>
@@ -116,8 +118,8 @@ function Index(props) {
                         </div>
                     </div>
                 </div>
-            </div>
-        </Navbar>
+        </Layout>
+        </>
 
     );
 }

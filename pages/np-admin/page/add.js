@@ -3,6 +3,7 @@ import Navbar from "../../../components/admin/navbar/Navbar";
 import {useState} from "react";
 import axios from "axios";
 import Input from "../../../components/bootstrap-5/input/Input";
+import Layout from "../../../components/admin/layout/Layout";
 
 function Add(props) {
 
@@ -32,26 +33,28 @@ function Add(props) {
     }
 
     return (
-        <Navbar>
+        <>
+            <Navbar/>
+            <Layout>
+                <Input
+                    name={"title"}
+                    type={"text"}
+                    onChange={handleChange}
+                />
 
-            <Input
-                name={"title"}
-                type={"text"}
-                onChange={handleChange}
-            />
+                <Input
+                    name={"layout"}
+                    type={"text"}
+                    onChange={handleChange}
+                />
 
-            <Input
-                name={"layout"}
-                type={"text"}
-                onChange={handleChange}
-            />
+                <a
+                    className="btn btn-primary"
+                    onClick={handleSubmit}
+                >add</a>
+            </Layout>
 
-            <a
-                className="btn btn-primary"
-                onClick={handleSubmit}
-            >add</a>
-
-        </Navbar>
+        </>
     );
 
 }

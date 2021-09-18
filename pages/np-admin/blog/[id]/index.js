@@ -89,7 +89,8 @@ function Index(props) {
     ].sort();
 
     return (
-        <Navbar>
+        <>
+        <Navbar/>
             <Layout>
                 <h1 className="bg-light mb-3 rounded p-2">Edition de l'article {props.post.title}</h1>
                 <hr/>
@@ -212,7 +213,7 @@ function Index(props) {
                     </div>
                 </div>
             </Layout>
-        </Navbar>
+        </>
     );
 }
 

@@ -8,6 +8,7 @@ import {hydration} from "../../../utils/hydration";
 import axios from "axios";
 import {useRef} from "react";
 import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
+import Layout from "../../../components/admin/layout/Layout";
 
 export async function getStaticProps(context) {
 
@@ -117,9 +118,9 @@ function Index(props) {
         }
 
     return (
-        <Navbar>
-            <div className="container">
-                <div className="row bg-light shadow rounded p-3 my-1 g-3">
+        <>
+            <Navbar/>
+            <Layout>
                     <h1>Blog</h1>
                     <hr/>
                     <Modal
@@ -140,9 +141,8 @@ function Index(props) {
                         )
                     }
                     {table()}
-                </div>
-            </div>
-        </Navbar>
+            </Layout>
+        </>
     )
 }
 

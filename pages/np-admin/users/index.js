@@ -8,7 +8,8 @@ function Index(props) {
     const[users,setUsers] = useState(props.users);
 
     return (
-        <Navbar user={props.user}>
+        <>
+        <Navbar/>
             <Layout>
                 <h1>Users</h1>
                 <div className="h-25">
@@ -41,7 +42,7 @@ function Index(props) {
                     </tbody>
                 </table>
             </Layout>
-        </Navbar>
+        </>
     );
 }
 
