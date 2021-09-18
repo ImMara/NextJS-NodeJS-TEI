@@ -8,6 +8,8 @@ import {useState} from "react";
 import axios from "axios";
 import {getPosts} from "../../../../server/queries/post.queries";
 import {hydration} from "../../../../utils/hydration";
+import Layout from "../../../../components/admin/layout/Layout";
+import Link from 'next/link';
 
 export async function getStaticProps(context) {
 
@@ -39,48 +41,55 @@ function Index(props) {
 
     return (
         <Navbar>
-
-            <h1>Categories</h1>
-
-            <hr/>
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Launch demo modal
-            </button>
-            <hr/>
-
-            <Modal
-                target={"exampleModal"}
-                label={"exampleModalLabel"}
-                title={"Modal title"}
-                submit={handleSubmit}
-            >
-                <div className="mb-3">
-                    <Input
-                        name={"title"}
-                        onChange={handleChange}
-                        type={"text"}
-                        label={"title"}
-                    />
+            <Layout>
+                <h1>Categories</h1>
+                <hr/>
+                <div className={"mb-3"}>
+                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Ajouter une catégorie
+                    </button>
+                    <Link href={"/np-admin/blog/"}>
+                        <a className={"btn btn-primary ms-2"}>Liste des articles</a>
+                    </Link>
                 </div>
-                <div className="mb-3">
-                    <Textarea
-                        name={"description"}
-                        label={"description"}
-                        onChange={handleChange}
-                    />
-                </div>
-            </Modal>
 
-            <div className="row">
-                <div className="col-6">
-                    {category.map(c => (
-                        <div>
-                            <h1>{c.title}</h1>
-                            <p>{c.description}</p>
-                        </div>
-                    ))}
+                <hr/>
+
+                <Modal
+                    target={"exampleModal"}
+                    label={"exampleModalLabel"}
+                    title={"Modal title"}
+                    btn={"Ajouter"}
+                    submit={handleSubmit}
+                >
+                    <div className="mb-3">
+                        <Input
+                            name={"title"}
+                            onChange={handleChange}
+                            type={"text"}
+                            label={"title"}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <Textarea
+                            name={"description"}
+                            label={"description"}
+                            onChange={handleChange}
+                        />
+                    </div>
+                </Modal>
+
+                <div className="row">
+                    <div className="col-6">
+                        {category.map(c => (
+                            <div>
+                                <h1>{c.title}</h1>
+                                <p>{c.description}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            </Layout>
         </Navbar>
     );
 }

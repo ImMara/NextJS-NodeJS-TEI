@@ -12,6 +12,7 @@ import {hydration} from "../../../utils/hydration";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import 'suneditor/dist/css/suneditor.min.css';
+import Layout from "../../../components/admin/layout/Layout";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
     ssr: false,
@@ -93,117 +94,131 @@ function Add(props) {
 
     return (
         <Navbar>
-            <h1 className="bg-light shadow mb-3 rounded p-2">Add post</h1>
-            <hr/>
-            {
-                message && (
-                    <Alerts
-                        style={message.error ? "danger":"success"}
-                        message={message.error || message.success}
-                    />
-                )
-            }
-            <div className="row bg-light shadow rounded p-3 m-1">
+                {
+                    message && (
+                        <Alerts
+                            style={message.error ? "danger":"success"}
+                            message={message.error || message.success}
+                        />
+                    )
+                }
+                <Layout>
 
-                <div className="mb-3">
-                    <Input
-                        type="text"
-                        name={"title"}
-                        value={body.title}
-                        placeholder={"titre de votre article"}
-                        onChange={handleChange}
-                    />
-                </div>
+                    <div className="mb-3 col row">
+                        <h1>Ajouter un article</h1>
+                    </div>
 
-                <div className="mb-3">
-                    <Select
-                        name={"category"}
-                        label="category"
-                        value={body.category}
-                        onChange={handleChange}
-                    >
-                        <option>Open this select menu</option>
-                        {
-                            category.map( c => (
-                                <option value={c._id}>{c.title}</option>
-                            ))
-                        }
-                    </Select>
-                </div>
+                    <hr />
 
-                <div className="mb-3">
-                    <h6>Body</h6>
-                    <SunEditor
-                        lang="fr"
-                        name="body"
-                        placeholder="Please type here..."
-                        setOptions={{
-                            buttonList: [
-                                ["undo", "redo"],
-                                ["font", "fontSize"],
-                                ['paragraphStyle', 'blockquote'],
-                                [
-                                    "bold",
-                                    "underline",
-                                    "italic",
-                                    "strike",
-                                    "subscript",
-                                    "superscript"
-                                ],
-                                ["fontColor", "hiliteColor"],
-                                ["align", "list", "lineHeight"],
-                                ["outdent", "indent"],
+                    <div className="mb-3 col-xl-6">
+                        <Input
+                            type="text"
+                            name={"title"}
+                            label={"Titre de l'article"}
+                            value={body.title}
+                            placeholder={"titre de votre article"}
+                            onChange={handleChange}
+                        />
+                    </div>
 
-                                ["table", "horizontalRule", "link", "image", "video"],
-                                // ['math'] //You must add the 'katex' library at options to use the 'math' plugin.
-                                // ['imageGallery'], // You must add the "imageGalleryUrl".
-                                ["fullScreen", "showBlocks", "codeView"],
-                                ["preview", "print"],
-                                ["removeFormat"],
+                    <div className="mb-3 col-xl-6">
+                        <Select
+                            name={"category"}
+                            label="Categorie d'article"
+                            value={body.category}
+                            onChange={handleChange}
+                        >
+                            <option>Open this select menu</option>
+                            {
+                                category.map( c => (
+                                    <option value={c._id}>{c.title}</option>
+                                ))
+                            }
+                        </Select>
+                    </div>
 
-                                // ['save', 'template'],
-                                // '/', //Line break
-                            ], // Or Array of button list, eg. [['font', 'align'], ['image']]}
-                            defaultTag: "div",
-                            minHeight: "300px",
-                            showPathLabel: false,
-                            font: sortedFontOptions
-                        }}
-                        setContents={bodyEditor}
-                        autoFocus={true}
-                        onChange={handleBodyEditor}
-                        height="500"
-                    />
-                </div>
+                    <div className="mb-3 col-12">
+                        <h6 className="mb-2 py-1">Contenus de l'article</h6>
+                        <SunEditor
+                            lang="fr"
+                            name="body"
+                            placeholder="Please type here..."
+                            setOptions={{
+                                buttonList: [
+                                    ["undo", "redo"],
+                                    ["font", "fontSize"],
+                                    ['paragraphStyle', 'blockquote'],
+                                    [
+                                        "bold",
+                                        "underline",
+                                        "italic",
+                                        "strike",
+                                        "subscript",
+                                        "superscript"
+                                    ],
+                                    ["fontColor", "hiliteColor"],
+                                    ["align", "list", "lineHeight"],
+                                    ["outdent", "indent"],
 
-                <div className="mb-3">
-                    <Textarea
-                        value={body.short_description}
-                        label={"short description"}
-                        name={"short_description"}
-                        row={"3"}
-                        onChange={handleChange}
-                    />
-                </div>
+                                    ["table", "horizontalRule", "link", "image", "video"],
+                                    // ['math'] //You must add the 'katex' library at options to use the 'math' plugin.
+                                    // ['imageGallery'], // You must add the "imageGalleryUrl".
+                                    ["fullScreen", "showBlocks", "codeView"],
+                                    ["preview", "print"],
+                                    ["removeFormat"],
 
-                <div className="form-check mb-3 ms-3">
-                    <Checkbox
-                        value={body.allowComment}
-                        label="allow comments"
-                        name={"allowComment"}
-                        onChange={handleChange}
-                    />
-                </div>
+                                    // ['save', 'template'],
+                                    // '/', //Line break
+                                ], // Or Array of button list, eg. [['font', 'align'], ['image']]}
+                                defaultTag: "div",
+                                minHeight: "300px",
+                                showPathLabel: false,
+                                font: sortedFontOptions
+                            }}
+                            setContents={bodyEditor}
+                            autoFocus={true}
+                            onChange={handleBodyEditor}
+                            height="500"
+                        />
+                    </div>
 
-                <div className="mb-3">
-                    <button className="btn btn-danger" onClick={handleSubmit}>Ajouter un article</button>
-                    <Link href={"/np-admin/blog/"}>
-                        <a className="btn btn-primary ms-2">Retour</a>
-                    </Link>
+                    <div className="mb-3 col-12">
+                        <Textarea
+                            value={body.short_description}
+                            label={"short description"}
+                            name={"short_description"}
+                            row={"3"}
+                            onChange={handleChange}
+                        />
+                    </div>
 
-                </div>
+                    <div className="form-check mb-3 ms-3 col-6 d-flex">
+                        <div>
+                            <Checkbox
+                                value={body.allowComment}
+                                label="allow comments"
+                                name={"allowComment"}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div>
+                            <Checkbox
+                                value={body.status}
+                                label="publié"
+                                name={"status"}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
 
-            </div>
+                    <div className="mb-3">
+                        <button className="btn btn-danger" onClick={handleSubmit}>Ajouter un article</button>
+                        <Link href={"/np-admin/blog/"}>
+                            <a className="btn btn-primary ms-2">Retour</a>
+                        </Link>
+
+                    </div>
+                </Layout>
         </Navbar>
 );
 }

@@ -6,7 +6,7 @@ exports.createPost = async (data) => {
 }
 
 exports.getPosts = async () => {
-    return Post.find();
+    return Post.find().populate("category");
 }
 
 exports.getPost = async (id) => {

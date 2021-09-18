@@ -5,6 +5,7 @@ function Select(props) {
         <>
             <label
                 htmlFor={props.name}
+                className="form-label"
             >{props.label}</label>
             <select
                 className="form-select"

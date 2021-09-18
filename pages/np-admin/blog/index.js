@@ -34,7 +34,6 @@ function Index(props) {
             setId(id);
             setIndex(index);
         }
-
         const handleSubmit = () => {
 
             axios
@@ -52,10 +51,13 @@ function Index(props) {
         const topBar = () =>{
             return (
                 <>
-                        <div className="row bg-light rounded shadow m-1 py-3">
+                        <div className="row">
                             <div className="col">
                                 <Link href={"/np-admin/blog/add"}>
                                     <a className="btn btn-primary">Ajouter un article</a>
+                                </Link>
+                                <Link href={"/np-admin/blog/category"}>
+                                    <a className="btn btn-primary mx-2">Ajouter une categorie</a>
                                 </Link>
                             </div>
                         </div>
@@ -65,13 +67,17 @@ function Index(props) {
 
         const table = () =>{
             return (
-                <div className="table-responsive bg-light shadow rounded p-2">
+                <div className="table-responsive bg-light rounded p-2">
                     <table className="table table-hover">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th scope="col">title</th>
-                            <th scope="col">action</th>
+                            <th scope="col">Titre</th>
+                            <th scope="col">Commentaire</th>
+                            <th scope="col"></th>
+                            <th scope="col">Publié</th>
+                            <th scope="col">Categorie</th>
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -80,18 +86,26 @@ function Index(props) {
                                 <tr>
                                     <th scope="row">{index}</th>
                                     <td>{post.title}</td>
+                                    <td>{post.allowComment.toString()}</td>
                                     <td>
+                                        <Link href={"/np-admin/blog/comments/"+post._id}>
+                                            <a className={"btn btn-primary"}>Commentaires</a>
+                                        </Link>
+                                    </td>
+                                    <td>{post.status.toString()}</td>
+                                    <td>{post.category.title}</td>
+                                    <td>
+                                        <Link href={"/np-admin/blog/"+post._id}>
+                                            <a className="btn btn-success rounded-start rounded-0">update</a>
+                                        </Link>
                                         <button
                                             type="button"
-                                            className="btn btn-danger me-2"
+                                            className="btn btn-danger rounded-end rounded-0 px-3"
                                             data-bs-toggle="modal"
                                             onClick={()=>handleBtn(post._id,index)}
                                             data-bs-target="#delete-post">
-                                            X
+                                            delete
                                         </button>
-                                        <Link href={"/np-admin/blog/"+post._id}>
-                                            <a className="btn btn-primary">E</a>
-                                        </Link>
                                     </td>
                                 </tr>
                             ))
@@ -104,26 +118,30 @@ function Index(props) {
 
     return (
         <Navbar>
-            <h1>Blog</h1>
-            <hr/>
-            <Modal
-                target={"delete-post"}
-                label={"exampleModalLabel"}
-                title={"delete post"}
-                btn={"delete"}
-                submit={handleSubmit}
-            >are you sure?</Modal>
-            {topBar()}
-            <hr/>
-            {
-                message && (
-                    <Alerts
-                        style={message.error ? "danger":"success"}
-                        message={message.error || message.success}
-                    />
-                )
-            }
-            {table()}
+            <div className="container">
+                <div className="row bg-light shadow rounded p-3 my-1 g-3">
+                    <h1>Blog</h1>
+                    <hr/>
+                    <Modal
+                        target={"delete-post"}
+                        label={"exampleModalLabel"}
+                        title={"delete post"}
+                        btn={"delete"}
+                        submit={handleSubmit}
+                    >are you sure?</Modal>
+                    {topBar()}
+                    <hr/>
+                    {
+                        message && (
+                            <Alerts
+                                style={message.error ? "danger":"success"}
+                                message={message.error || message.success}
+                            />
+                        )
+                    }
+                    {table()}
+                </div>
+            </div>
         </Navbar>
     )
 }
