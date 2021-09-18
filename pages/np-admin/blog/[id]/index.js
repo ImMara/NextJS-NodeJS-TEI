@@ -102,9 +102,9 @@ function Index(props) {
                         />
                     )
                 }
-                <div className="row bg-light rounded p-3 m-1">
+                <div className="row">
 
-                    <div className="mb-3">
+                    <div className="mb-3 col-xl-6">
                         <Input
                             type="text"
                             name={"title"}
@@ -114,7 +114,7 @@ function Index(props) {
                         />
                     </div>
 
-                    <div className="mb-3">
+                    <div className="mb-3 col-xl-6">
                         <Select
                             name={"category"}
                             label="category"
@@ -130,8 +130,8 @@ function Index(props) {
                         </Select>
                     </div>
 
-                    <div className="mb-3">
-                        <h6>Body</h6>
+                    <div className="mb-3 col-12">
+                        <h6 className="mb-2 py-1">Contenus de l'article</h6>
                         <SunEditor
                             lang="fr"
                             name="body"
@@ -176,7 +176,7 @@ function Index(props) {
                         />
                     </div>
 
-                    <div className="mb-3">
+                    <div className="mb-3 col-12">
                         <Textarea
                             value={body.short_description}
                             label={"short description"}
