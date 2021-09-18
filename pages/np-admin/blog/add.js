@@ -60,13 +60,16 @@ function Add(props) {
             .then((r) => {
                 console.log(r);
                 setMessage(r.data);
-                !r.data.error && setBody({
-                    title:"",
-                    body:"",
-                    category:"",
-                    short_description:"",
-                    allowComment: false
-                });
+                if(!r.data.error){
+                    setBody({
+                                title:"",
+                                body:"",
+                                category:"",
+                                short_description:"",
+                                allowComment: false
+                            })
+                    setBodyEditor("")
+                }
             })
     }
 
@@ -176,7 +179,8 @@ function Add(props) {
                                     defaultTag: "div",
                                     minHeight: "300px",
                                     showPathLabel: false,
-                                    font: sortedFontOptions
+                                    font: sortedFontOptions,
+                                    imageSizeOnlyPercentage: true,
                                 }}
                                 setContents={bodyEditor}
                                 autoFocus={true}

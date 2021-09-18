@@ -167,7 +167,8 @@ function Index(props) {
                                 defaultTag: "div",
                                 minHeight: "300px",
                                 showPathLabel: false,
-                                font: sortedFontOptions
+                                font: sortedFontOptions,
+                                imageSizeOnlyPercentage: true,
                             }}
                             autoFocus={true}
                             defaultValue={body.body}
