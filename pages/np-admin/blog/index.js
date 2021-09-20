@@ -11,38 +11,48 @@ import Layout from "../../../components/layout/Layout";
 
 export async function getStaticProps(context) {
 
+    // db call to get all posts
     const posts = await getPosts();
 
     return {
+        // cleaning the object as json for nextJS hydrate security
         props: { posts: hydration(posts) }, // will be passed to the page component as props
     }
 }
 
 function Index(props) {
 
-    /* STATE */
+    /* START STATE */
 
         const [posts,setPosts] = useState(props.posts);
         const [id,setId] = useState("");
         const [index,setIndex] = useState("");
         const [message,setMessage] = useState("");
 
-    /* LOGIC FUNCTIONS */
+     /* END STATE */
+
+    /* START LOGIC */
+
+        // when clicked put index and id into appropriate state
         const handleBtn = (id,index) =>{
             setId(id);
             setIndex(index);
         }
+
+        // handle the delete of the post in the db
         const handleSubmit = () => {
 
             axios
                 .delete("http://localhost:3000/api/blog/post/" + id)
                 .then(r  => {
-                    const array = [...posts]
-                    array.splice(index,1)
-                    setPosts(array)
+                    // delete locally
+                    posts.splice(index,1)
+                    // set message
                     setMessage(r.data);
                 })
         }
+
+    /* END LOGIC*/
 
     /* RENDER HTML */
 

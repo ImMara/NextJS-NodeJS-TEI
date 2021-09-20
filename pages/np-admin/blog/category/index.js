@@ -62,16 +62,17 @@ function Index(props) {
                     .then((r) =>{
                         console.log(r)
                         setMessage(r.data);
+                        // update locally the state
+                        category[categoryIndex] = editCategory;
+                        // reset index state
+                        setCategoryIndex(null)
+                        // reset edit state
+                        setEditCategory({
+                            title:"",
+                            description:"",
+                        })
                     })
-                // update locally the state
-                category[categoryIndex] = editCategory;
-                // reset index state
-                setCategoryIndex(null)
-                // reset edit state
-                setEditCategory({
-                    title:"",
-                    description:"",
-                })
+
             }
 
             // handle the close btn and reset the values
@@ -105,14 +106,15 @@ function Index(props) {
                     .then(r=> {
                         console.log(r)
                         setMessage(r.data);
+                        // update locally the state
+                        setCategory([...category,body]);
+                        // reset values
+                        setBody({
+                            title:"",
+                            description:""
+                        })
                     });
-                // update locally the state
-                setCategory([...category,body]);
-                // reset values
-                setBody({
-                    title:"",
-                    description:""
-                })
+
             }
 
         // Add end
@@ -127,16 +129,16 @@ function Index(props) {
                     .then(r => {
                         console.log(r)
                         setMessage(r.data);
+                        // update state
+                        category.splice(categoryIndex, 1)
+                        // reset values
+                        setEditCategory({
+                            title:"",
+                            description:"",
+                        })
+                        setCategoryId(null)
+                        setCategoryIndex(null)
                     });
-                // update state
-                category.splice(categoryIndex, 1)
-                // reset values
-                setEditCategory({
-                    title:"",
-                    description:"",
-                })
-                setCategoryId(null)
-                setCategoryIndex(null)
             }
 
         // Delete end
