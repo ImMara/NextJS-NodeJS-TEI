@@ -39,10 +39,7 @@ export default async  (req,res,next) => {
                 const string = `new category success : ${body.title}`
 
                 // RESPONSE FROM API
-                res.json({
-                    message: string,
-                    data: category
-                });
+                res.json({success: string,});
 
             } catch (e) {
 

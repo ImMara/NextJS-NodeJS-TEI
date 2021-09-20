@@ -51,10 +51,7 @@ export default async (req,res,next) => {
                 const string = `Update success`
 
                 // RESPONSE FROM API
-                res.json({
-                    message:string,
-                    data:category
-                });
+                res.json({success:string});
 
             }catch (e) {
 
@@ -84,10 +81,7 @@ export default async (req,res,next) => {
                 const string = `Delete success`
 
                 // JSON RESPONSE
-                res.json({
-                    message: string,
-                    data: category
-                })
+                res.json({success: string,})
 
             }catch (e) {
 

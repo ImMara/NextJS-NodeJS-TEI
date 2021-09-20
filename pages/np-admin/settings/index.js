@@ -1,11 +1,9 @@
 import React from 'react';
-import Table from "../../../components/admin/table/Table";
 import Navbar from "../../../components/admin/navbar/Navbar";
 import {useState} from "react";
-import {getSettings} from "../../../server/queries/settings.queries";
 import axios from "axios";
 import {useSettingsContext} from "../../../context/settings";
-import Layout from "../../../components/admin/layout/Layout";
+import Layout from "../../../components/layout/Layout";
 
 function Index(props) {
 

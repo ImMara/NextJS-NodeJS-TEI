@@ -1,7 +1,6 @@
 import React from 'react';
 import {useAuthContext} from "../../../context/auth";
 import Link from "next/link";
-import {updateNavbarContext} from "../../../context/navbar";
 
 const Navbar = (props) => {
 
@@ -13,41 +12,59 @@ const Navbar = (props) => {
 
                         <nav className="navbar navbar-expand-lg border-0 navbar-light bg-light">
                             <div className="container-fluid">
-                                <i className="bi bi-arrow-90deg-right d-block d-xxl-none" onClick={updateNavbarContext()}/>
-                                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#navbarColor03" aria-controls="navbarColor03"
-                                        aria-expanded="false" aria-label="Toggle navigation">
-                                    <span className="navbar-toggler-icon"/>
-                                </button>
-
                                 <div className="collapse navbar-collapse" id="navbarColor03">
                                     <ul className="navbar-nav me-auto">
+
                                         <li className="nav-item">
-                                            <a className="nav-link active" href="#">Home
-                                                <span className="visually-hidden">(current)</span>
-                                            </a>
+                                            <Link href="/np-admin/dashboard">
+                                                <a className="nav-link" >Dashboard</a>
+                                            </Link>
                                         </li>
+
                                         <li className="nav-item">
-                                            <a className="nav-link" href="#">Features</a>
+                                            <Link href="/np-admin/blog">
+                                                <a className="nav-link" >Blog</a>
+                                            </Link>
                                         </li>
+
                                         <li className="nav-item">
-                                            <a className="nav-link" href="#">Pricing</a>
+                                            <Link href="/np-admin/page">
+                                                <a className="nav-link" >Page</a>
+                                            </Link>
                                         </li>
+
                                         <li className="nav-item">
-                                            <a className="nav-link" href="#">About</a>
+                                            <Link href="/np-admin/menu">
+                                                <a className="nav-link" >Menu</a>
+                                            </Link>
                                         </li>
-                                        <li className="nav-item dropdown">
+
+                                        <li className="nav-item">
+                                            <Link href="/np-admin/page">
+                                                <a className="nav-link" >Users</a>
+                                            </Link>
+                                        </li>
+
+                                        <li className="nav-item">
+                                            <Link href="/np-admin/settings">
+                                                <a className="nav-link" >Settings</a>
+                                            </Link>
+                                        </li>
+
+                                    </ul>
+
+                                    <ul className="navbar-nav">
+                                        <li className="nav-item dropdown ">
                                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-                                               role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                               role="button" aria-haspopup="true" aria-expanded="false">{user && user.username}</a>
                                             <div className="dropdown-menu">
-                                                <a className="dropdown-item" href="#">Action</a>
-                                                <a className="dropdown-item" href="#">Another action</a>
-                                                <a className="dropdown-item" href="#">Something else here</a>
+                                                <a className="dropdown-item" href="#">Profile</a>
                                                 <div className="dropdown-divider"/>
-                                                <a className="dropdown-item" href="#">Separated link</a>
+                                                <a className="dropdown-item" href="#">Logout</a>
                                             </div>
                                         </li>
                                     </ul>
+
                                 </div>
                             </div>
                         </nav>

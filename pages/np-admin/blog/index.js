@@ -6,9 +6,8 @@ import Link from 'next/link';
 import {useState} from "react";
 import {hydration} from "../../../utils/hydration";
 import axios from "axios";
-import {useRef} from "react";
 import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
-import Layout from "../../../components/admin/layout/Layout";
+import Layout from "../../../components/layout/Layout";
 
 export async function getStaticProps(context) {
 
@@ -20,8 +19,6 @@ export async function getStaticProps(context) {
 }
 
 function Index(props) {
-
-        const modal = useRef();
 
     /* STATE */
 
@@ -94,7 +91,7 @@ function Index(props) {
                                         </Link>
                                     </td>
                                     <td>{post.status.toString()}</td>
-                                    <td>{post.category.title}</td>
+                                    <td>{post.category &&post.category.title}</td>
                                     <td>
                                         <Link href={"/np-admin/blog/"+post._id}>
                                             <a className="btn btn-success rounded-start rounded-0">update</a>

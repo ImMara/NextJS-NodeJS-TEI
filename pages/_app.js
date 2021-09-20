@@ -4,7 +4,6 @@ import {MenuWrapper} from "../context/menu";
 import {AuthWrapper} from "../context/auth";
 import {SettingsWrapper} from "../context/settings";
 import "/styles/globals.css";
-import {NavbarWrapper} from "../context/navbar";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -20,13 +19,11 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
         <AuthWrapper>
-            <NavbarWrapper>
                 <SettingsWrapper>
                     <MenuWrapper>
                         <Component {...pageProps} />
                     </MenuWrapper>
                 </SettingsWrapper>
-            </NavbarWrapper>
         </AuthWrapper>
 
     </>

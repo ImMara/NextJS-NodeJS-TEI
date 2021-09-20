@@ -4,7 +4,7 @@ import {useState} from "react";
 import {getPages} from "../../../server/queries/page.queries";
 import axios from "axios";
 import {getMenus} from "../../../server/queries/menu.queries";
-import Layout from "../../../components/admin/layout/Layout";
+import Layout from "../../../components/layout/Layout";
 
 function Add(props) {
 

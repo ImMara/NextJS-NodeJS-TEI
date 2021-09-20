@@ -13,7 +13,7 @@ import {getPost} from "../../../../server/queries/post.queries";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import 'suneditor/dist/css/suneditor.min.css';
-import Layout from "../../../../components/admin/layout/Layout";
+import Layout from "../../../../components/layout/Layout";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
     ssr: false,
@@ -161,7 +161,7 @@ function Index(props) {
                                     ["preview", "print"],
                                     ["removeFormat"]
 
-                                    // ['save', 'template'],
+                                    // ['save', 'templates'],
                                     // '/', Line break
                                 ], // Or Array of button list, eg. [['font', 'align'], ['image']]}
                                 defaultTag: "div",

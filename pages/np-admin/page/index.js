@@ -1,12 +1,10 @@
 import React from 'react';
 import Navbar from "../../../components/admin/navbar/Navbar";
-import Table from "../../../components/admin/table/Table";
 import {getPages} from "../../../server/queries/page.queries";
 import {useState} from "react";
 import axios from "axios";
-import {getPosts} from "../../../server/queries/post.queries";
 import {hydration} from "../../../utils/hydration";
-import Layout from "../../../components/admin/layout/Layout";
+import Layout from "../../../components/layout/Layout";
 
 
 export async function getStaticProps(context) {

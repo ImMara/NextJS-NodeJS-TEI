@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Navbar from "../../../components/admin/navbar/Navbar";
 import {findAllUsers} from "../../../server/queries/user.queries";
-import Layout from "../../../components/admin/layout/Layout";
+import Layout from "../../../components/layout/Layout";
 
 function Index(props) {
 
