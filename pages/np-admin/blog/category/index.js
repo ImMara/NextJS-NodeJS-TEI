@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from "../../../../components/admin/navbar/Navbar";
 import {getCategories} from "../../../../server/queries/category.queries";
 import Modal from "../../../../components/bootstrap-5/modal/Modal";
 import Input from "../../../../components/bootstrap-5/input/Input";
 import Textarea from "../../../../components/bootstrap-5/input/Textarea";
-import {useState} from "react";
 import axios from "axios";
 import {hydration} from "../../../../utils/hydration";
 import Layout from "../../../../components/layout/Layout";
@@ -18,7 +17,7 @@ export async function getStaticProps(context) {
 
     return {
         // cleaning the object as json for nextJS hydrate security
-        props: { category: hydration(category) }, // will be passed to the page component as props
+        props: {category: hydration(category)}, // will be passed to the page component as props
     }
 }
 
@@ -26,133 +25,133 @@ function Index(props) {
 
     /* START STATE */
 
-        const [category,setCategory] = useState(props.category);
-        const [body,setBody] = useState({
-            title:"",
-            description:""
-        });
-        const [editCategory , setEditCategory] = useState({
-            title:"",
-            description:"",
-        });
-        const [categoryIndex,setCategoryIndex] = useState(null);
-        const [categoryId,setCategoryId] = useState(null);
-        const [message,setMessage] = useState();
+    const [category, setCategory] = useState(props.category);
+    const [body, setBody] = useState({
+        title: "",
+        description: ""
+    });
+    const [editCategory, setEditCategory] = useState({
+        title: "",
+        description: "",
+    });
+    const [categoryIndex, setCategoryIndex] = useState(null);
+    const [categoryId, setCategoryId] = useState(null);
+    const [message, setMessage] = useState();
 
     /* END STATE */
 
     /* START LOGIC */
 
-        // Edit start
+    // Edit start
 
-            // handle update state with input value
-            const handleEditChange = (event) =>{
-                const target = event.target;
-                const value = target.type === 'checkbox' ? target.checked : target.value;
-                const name = target.name;
+    // handle update state with input value
+    const handleEditChange = (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
 
-                setEditCategory({...editCategory,[name]:value})
-            }
+        setEditCategory({...editCategory, [name]: value})
+    }
 
-            // handle submit of the update
-            const handleSubmitEdit = (event) =>{
-                // update the database with edit state values
-                 axios
-                    .patch('http://localhost:3000/api/blog/categories/'+editCategory._id,editCategory)
-                    .then((r) =>{
-                        console.log(r)
-                        setMessage(r.data);
-                        // update locally the state
-                        category[categoryIndex] = editCategory;
-                        // reset index state
-                        setCategoryIndex(null)
-                        // reset edit state
-                        setEditCategory({
-                            title:"",
-                            description:"",
-                        })
-                    })
-
-            }
-
-            // handle the close btn and reset the values
-            const handleCloseEdit = () =>{
+    // handle submit of the update
+    const handleSubmitEdit = (event) => {
+        // update the database with edit state values
+        axios
+            .patch('http://localhost:3000/api/blog/categories/' + editCategory._id, editCategory)
+            .then((r) => {
+                console.log(r)
+                setMessage(r.data);
+                // update locally the state
+                category[categoryIndex] = editCategory;
                 // reset index state
                 setCategoryIndex(null)
                 // reset edit state
                 setEditCategory({
-                    title:"",
-                    description:"",
+                    title: "",
+                    description: "",
                 })
-            }
+            })
 
-        // Edit end
+    }
 
-        // Add start
+    // handle the close btn and reset the values
+    const handleCloseEdit = () => {
+        // reset index state
+        setCategoryIndex(null)
+        // reset edit state
+        setEditCategory({
+            title: "",
+            description: "",
+        })
+    }
 
-            // handle input changes for new category
-            const handleChange = (event) =>{
-                const target = event.target;
-                const value = target.type === 'checkbox' ? target.checked : target.value;
-                const name = target.name;
+    // Edit end
 
-                setBody({...body,[name]:value})
-            }
+    // Add start
 
-            // handle submit and add new category to db
-            const handleSubmit = (event) => {
-                // post new category to db
-                axios.post("http://localhost:3000/api/blog/categories",body)
-                    .then(r=> {
-                        console.log(r)
-                        setMessage(r.data);
-                        // update locally the state
-                        setCategory([...category,body]);
-                        // reset values
-                        setBody({
-                            title:"",
-                            description:""
-                        })
-                    });
+    // handle input changes for new category
+    const handleChange = (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
 
-            }
+        setBody({...body, [name]: value})
+    }
 
-        // Add end
+    // handle submit and add new category to db
+    const handleSubmit = (event) => {
+        // post new category to db
+        axios.post("http://localhost:3000/api/blog/categories", body)
+            .then(r => {
+                console.log(r)
+                setMessage(r.data);
+                // update locally the state
+                setCategory([...category, body]);
+                // reset values
+                setBody({
+                    title: "",
+                    description: ""
+                })
+            });
 
-        // Delete start
+    }
 
-            // handle delete to db
-            const handleDelete = (event) => {
-                // delete category in DB
-                axios
-                    .delete("http://localhost:3000/api/blog/categories/"+categoryId)
-                    .then(r => {
-                        console.log(r)
-                        setMessage(r.data);
-                        // update state
-                        category.splice(categoryIndex, 1)
-                        // reset values
-                        setEditCategory({
-                            title:"",
-                            description:"",
-                        })
-                        setCategoryId(null)
-                        setCategoryIndex(null)
-                    });
-            }
+    // Add end
 
-        // Delete end
+    // Delete start
+
+    // handle delete to db
+    const handleDelete = (event) => {
+        // delete category in DB
+        axios
+            .delete("http://localhost:3000/api/blog/categories/" + categoryId)
+            .then(r => {
+                console.log(r)
+                setMessage(r.data);
+                // update state
+                category.splice(categoryIndex, 1)
+                // reset values
+                setEditCategory({
+                    title: "",
+                    description: "",
+                })
+                setCategoryId(null)
+                setCategoryIndex(null)
+            });
+    }
+
+    // Delete end
 
     /* END LOGIC */
 
     return (
         <>
-             <Navbar/>
+            <Navbar/>
             <Layout>
                 {
                     message && (
                         <Alerts
-                            style={message.error ? "danger":"success"}
+                            style={message.error ? "danger" : "success"}
                             message={message.error || message.success}
                         />
                     )
@@ -215,7 +214,7 @@ function Index(props) {
                             <td>action</td>
                             </thead>
                             <tbody>
-                            {category.map((c,index) => (
+                            {category.map((c, index) => (
                                 <tr>
                                     <td>{index}</td>
                                     <td>{c.title}</td>
@@ -223,14 +222,21 @@ function Index(props) {
                                         {
                                             c._id && (
                                                 <>
-                                                    <a className="btn btn-success" onClick={()=>{setEditCategory(c); setCategoryIndex(index)}}>update</a>
+                                                    <a className="btn btn-success" onClick={() => {
+                                                        setEditCategory(c);
+                                                        setCategoryIndex(index)
+                                                    }}>update</a>
 
                                                     <button
-                                                    className="btn btn-danger"
-                                                    onClick={() =>{setCategoryIndex(index);setCategoryId(c._id)}}
-                                                    data-bs-toggle="modal" data-bs-target="#delete"
+                                                        className="btn btn-danger"
+                                                        onClick={() => {
+                                                            setCategoryIndex(index);
+                                                            setCategoryId(c._id)
+                                                        }}
+                                                        data-bs-toggle="modal" data-bs-target="#delete"
                                                     >
-                                                    delete</button>
+                                                        delete
+                                                    </button>
                                                 </>
                                             )}
 
