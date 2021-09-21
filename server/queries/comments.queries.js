@@ -12,6 +12,10 @@ exports.getComment = async (id) => {
     return Comments.findById(id);
 }
 
+exports.getCommentsPost = async (id) => {
+    return Comments.find({"post_id":id})
+}
+
 exports.deleteComment = async (id) => {
     return Comments.findByIdAndDelete(id).exec();
 }

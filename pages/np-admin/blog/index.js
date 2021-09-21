@@ -67,6 +67,9 @@ function Index(props) {
                         <Link href={"/np-admin/blog/category"}>
                             <a className="btn btn-primary mx-2">Ajouter une categorie</a>
                         </Link>
+                        <Link href={"/np-admin/blog/comments"}>
+                            <a className="btn btn-primary mx-2">Voir tous les commentaires</a>
+                        </Link>
                     </div>
                 </div>
             </>
@@ -96,7 +99,7 @@ function Index(props) {
                                 <td>{post.title}</td>
                                 <td>{post.allowComment.toString()}</td>
                                 <td>
-                                    <Link href={"/np-admin/blog/comments/" + post._id}>
+                                    <Link href={"/np-admin/blog/" + post._id+"/comments"}>
                                         <a className={"btn btn-primary"}>Commentaires</a>
                                     </Link>
                                 </td>

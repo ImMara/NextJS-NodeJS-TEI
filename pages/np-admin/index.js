@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios";
+import Layout from "../../components/layout/Layout";
 
 export const getServerSideProps = async ({req,res})=>{
     const user = req.user;
@@ -19,7 +20,7 @@ export const getServerSideProps = async ({req,res})=>{
 function Index(props) {
 
     return (
-        <div className="container">
+        <Layout>
             <form method="post" action="/api/auth/login">
                 <div className="mb-3">
                     <label htmlFor="email">Email:</label>
@@ -31,7 +32,7 @@ function Index(props) {
                 </div>
                 <button className={"btn btn-primary"}>submit</button>
             </form>
-        </div>
+        </Layout>
     );
 }
 
