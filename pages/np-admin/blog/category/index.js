@@ -101,7 +101,8 @@ function Index(props) {
     // handle submit and add new category to db
     const handleSubmit = (event) => {
         // post new category to db
-        axios.post("http://localhost:3000/api/blog/categories", body)
+        axios
+            .post("http://localhost:3000/api/blog/categories", body)
             .then(r => {
                 console.log(r)
                 setMessage(r.data);
@@ -231,7 +232,7 @@ function Index(props) {
                                                         className="btn btn-danger"
                                                         onClick={() => {
                                                             setCategoryIndex(index);
-                                                            setCategoryId(c._id)
+                                                            setCategoryId(c._id);
                                                         }}
                                                         data-bs-toggle="modal" data-bs-target="#delete"
                                                     >

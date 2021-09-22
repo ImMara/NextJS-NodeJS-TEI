@@ -62,7 +62,6 @@ export default async (req,res,next) => {
                 console.error(e)
 
             }
-
             break;
 
         case 'DELETE':
