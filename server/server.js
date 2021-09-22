@@ -1,6 +1,7 @@
 const express = require('express');
 const next = require('next');
 const cookieParser = require('cookie-parser');
+const fs = require("fs");
 const {ensureAuthenticated} = require("./config/security.config");
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -65,5 +66,4 @@ app.prepare()
             if (err) throw err;
             console.log('> Ready on http://localhost:3000');
         })
-
     })

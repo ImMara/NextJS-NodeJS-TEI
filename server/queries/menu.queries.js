@@ -6,8 +6,8 @@ exports.createMenu = async (data) => {
 }
 
 exports.getMenus = async () => {
-    return Menu.find()
-        .populate('page_id');
+    return Menu.find();
+        // .populate('page_id');
 }
 
 exports.getMenu = async (id) => {
