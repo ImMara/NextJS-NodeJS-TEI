@@ -35,11 +35,8 @@ export default async (req, res, next) => {
                 // GET BODY WITH DATA
                 const body = req.body;
 
-                // GET ROLE WITH ID
-                const role = await getRole(id);
-
                 // UPDATE ROLE
-                await patchRole(id,body);
+                const role = await patchRole(id,body);
 
                 // MESSAGE
                 const string = `Update success`
@@ -47,7 +44,7 @@ export default async (req, res, next) => {
                 // RESPONSE FROM API
                 res.json({
                     message: string,
-                    data:body
+                    data:role
                 })
 
             } catch (e) {

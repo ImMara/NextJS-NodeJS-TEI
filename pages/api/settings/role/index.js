@@ -31,7 +31,7 @@ export default async (req, res, next) => {
                 const body = await req.body;
 
                 // CREATE DATA IN DATABASE
-                await createRole(body);
+                const role = await createRole(body);
 
                 // SUCCESS MESSAGE
                 const string = `new role success ${body.title}`
@@ -39,7 +39,7 @@ export default async (req, res, next) => {
                 // RESPONSE FROM API
                 res.json({
                     message:string,
-                    data:body
+                    data:role
                 })
 
             } catch (e) {

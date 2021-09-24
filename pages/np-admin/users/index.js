@@ -104,6 +104,26 @@ function Index(props) {
                 })
         }
 
+        // handle update role
+        const handleSubmitUpdateRole = (event) => {
+            // update the db with body values
+            axios
+                .patch('/api/settings/role/'+bodyRole._id,bodyRole)
+                .then(r => {
+                    console.log(r);
+                    setMessage(r.data);
+                    // update locally the state
+                    roles[roleIndex] = bodyRole;
+                    // reset index state
+                    setRoleIndex(null);
+                    // reset body state
+                    setBodyRole({
+                        title:"",
+                        access:[]
+                    })
+                })
+        }
+
     // END ROLE
 
     return (
@@ -180,6 +200,12 @@ function Index(props) {
                         <hr/>
                         <div className="mb-3">
                             <a
+                                onClick={()=>{
+                                    setBodyRole({
+                                        title:"",
+                                        access:[]
+                                    })
+                                }}
                                 data-bs-toggle="modal"
                                 data-bs-target={"#addRoleModal"}
                                 className="btn btn-success"
@@ -216,6 +242,35 @@ s                              value={bodyRole.title}
                         </Modal>
 
                         <Modal
+                            target="updateRole"
+                            title="Update role"
+                            label="update role"
+                            btn={"update"}
+                            submit={handleSubmitUpdateRole}
+                        >
+                            <Input
+                                label={"titre du role"}
+                                type={"text"}
+                                name={"title"}
+                                s                              value={bodyRole.title}
+                                onChange={handleChangeRole}
+                            />
+                            <Select
+                                name={"access"}
+                                label={"autorisation"}
+                                multiple={true}
+                                value={bodyRole.access}
+                                onChange={handleChangeRoleMulti}
+                            >
+                                <option value="Blog">Blog</option>
+                                <option value="Page">Page</option>
+                                <option value="Menu">Menu</option>
+                                <option value="Users">Users</option>
+                                <option value="Settings">Settings</option>
+                            </Select>
+                        </Modal>
+
+                        <Modal
                             target={'deleteRole'}
                             title={"supprimer un role"}
                             label={"delete modal"}
@@ -242,13 +297,19 @@ s                              value={bodyRole.title}
                                         <td>{index+1}</td>
                                         <td>{role.title}</td>
                                         <td>{role.access.map( (a,i) => (
-                                            <span key={i}>{a}</span>
+                                            <span className={"me-2"} key={i}>{a},</span>
                                         ))}</td>
                                         <td>
-                                            <a
-
+                                            <button
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#updateRole"
+                                                onClick={()=> {
+                                                    setBodyRole(role)
+                                                    setRoleIndex(index)
+                                                    setRoleId(role._id)
+                                                }}
                                                 className={"btn btn-success"}
-                                            >Update</a>
+                                            >Update</button>
                                             <a
                                                 onClick={()=> {
                                                     setRoleIndex(index)
