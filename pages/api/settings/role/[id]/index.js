@@ -1,4 +1,4 @@
-import {getRole, patchRole} from "../../../../../server/queries/role.queries";
+import {deleteRole, getRole, patchRole} from "../../../../../server/queries/role.queries";
 
 
 export default async (req, res, next) => {
@@ -54,6 +54,31 @@ export default async (req, res, next) => {
 
                 // API RETURNS ERROR
                 res.json({error: e.message})
+
+                // SERVER RETURNS ERROR
+                console.error(e)
+
+            }
+            break;
+        case 'DELETE':
+            try{
+
+                // GET ID FROM URL
+                const id = req.query.id;
+
+                // DELETE ROLE WITH ID
+                await deleteRole(id);
+
+                // SUCCESS MESSAGE
+                const string = `Delete success`
+
+                // JSON RESPONSE
+                res.json({success: string,})
+
+            }catch (e) {
+
+                // API RETURNS ERROR
+                res.json({error: e})
 
                 // SERVER RETURNS ERROR
                 console.error(e)

@@ -30,7 +30,8 @@ export default async (req, res, next) => {
                 const data = await createMenu(body);
 
                 res.json({
-                    success:"test"
+                    success:"test",
+                    data:data
                 });
 
             }catch (e) {

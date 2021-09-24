@@ -13,18 +13,15 @@ export default async (req, res, next) => {
                 // GET BODY WITH DATA
                 const body = req.body;
 
-                // GET MENU WITH ID
-                const menu = await getMenu(id);
-
                 // UPDATE MENU
-                await patchMenu(id,body);
+                const menu = await patchMenu(id,body);
 
                 // MESSAGE
                 const string = `Update success`;
 
                 // RESPONSE FROM API
                 res.json({
-                    message: string,
+                    success: string,
                     data:menu
                 });
 
@@ -54,7 +51,9 @@ export default async (req, res, next) => {
                 const string = `Delete success`
 
                 // JSON RESPONSE
-                res.json({success: string,})
+                res.json({
+                    success: string
+                })
 
             }catch (e) {
 

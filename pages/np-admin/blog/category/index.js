@@ -71,7 +71,6 @@ function Index(props) {
                     description: "",
                 })
             })
-
     }
 
     // handle the close btn and reset the values

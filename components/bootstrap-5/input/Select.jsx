@@ -3,11 +3,16 @@ import React from 'react';
 function Select(props) {
     return (
         <>
-            <label
-                htmlFor={props.name}
-                className="form-label"
-            >{props.label}</label>
+            {
+                props.label && (
+                    <label
+                        htmlFor={props.name}
+                        className="form-label"
+                    >{props.label}</label>
+                )
+            }
             <select
+                multiple={props.multiple}
                 className="form-select"
                 onChange={props.onChange}
                 aria-label={props.default}

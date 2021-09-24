@@ -40,7 +40,7 @@ const Navbar = (props) => {
                                         </li>
 
                                         <li className="nav-item">
-                                            <Link href="/np-admin/page">
+                                            <Link href="/np-admin/users">
                                                 <a className="nav-link" >Users</a>
                                             </Link>
                                         </li>

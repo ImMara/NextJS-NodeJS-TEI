@@ -29,14 +29,14 @@ function Index(props) {
     const [pages, setPages] = useState(props.pages);
     const [body,setBody] = useState({
         title: "",
-        page: "",
+        page_id: "",
     });
     const [menuIndex,setMenuIndex] = useState(null);
     const [menuId,setMenuId] = useState(null);
     const [message, setMessage] = useState();
     const [updateMenu, setUpdateMenu] = useState({
         title: "",
-        page: "",
+        page_id: "",
     });
 
     /* END STATE */
@@ -61,15 +61,17 @@ function Index(props) {
             .patch("http://localhost:3000/api/settings/menu/" + updateMenu._id, updateMenu)
             .then((r) => {
                 console.log(r);
-                // update locally the state
                 setMessage(r.data);
+
                 if(!r.data.error){
+                    // update locally the state
+                    menus[menuIndex] = {...menus[menuIndex], ...updateMenu};
                     // reset index state
                     setMenuIndex(null);
                     // reset update state
                     setUpdateMenu({
                         title: "",
-                        page: "",
+                        page_id: "",
                     })
                 }
             })
@@ -81,7 +83,7 @@ function Index(props) {
             // reset update state
             setUpdateMenu({
                 title: "",
-                page: "",
+                page_id: "",
             })
         }
 
@@ -108,12 +110,12 @@ function Index(props) {
                     setMessage(r.data);
                     if(!r.data.error) {
                         // update locally the state
-                        setMenus([...menus, body]);
+                        setMenus([...menus, r.data.data]);
                     }
                     // reset values
                     setBody({
                         title: "",
-                        page: "",
+                        page_id: "",
                     })
                 })
         }

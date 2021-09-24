@@ -12,39 +12,30 @@ const userSchema = schema({
     },
     first_name: {
         type: String,
-        required: true
     },
     last_name:{
         type: String,
-        required: true
     },
     website:{
         type: String,
-        required: true
     },
     description: {
         type: String,
-        required: true
     },
     image: {
         type: String,
-        required: true
     },
     address: {
         type: String,
-        required: true
     },
     postalCode: {
         type: Number,
-        required: true
     },
     country: {
         type: String,
-        required: true
     },
     phoneNumber: {
         type: Number,
-        required: true
     },
     role : {
         type: schema.Types.ObjectId,
