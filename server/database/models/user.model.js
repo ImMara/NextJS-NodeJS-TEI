@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const bcrypt = require('bcryptjs');
+const {getRoles} = require("../../queries/role.queries");
 
 const userSchema = schema({
 
@@ -40,7 +41,8 @@ const userSchema = schema({
     role : {
         type: schema.Types.ObjectId,
         ref:"role",
-        required:true
+        required: true,
+        default:"user"
     },
     local: {
         email: {
@@ -52,13 +54,17 @@ const userSchema = schema({
             type: String,
             required:true
         },
+    },
+    delete:{
+        type:Boolean,
+        default:true,
     }
 
 })
 
-userSchema.statics.hashPassword = (password) => {
+userSchema.statics.hashPassword = async (password) => {
 
-    return bcrypt.hash(password, 12);
+    return await bcrypt.hash(password, 12);
 
 }
 

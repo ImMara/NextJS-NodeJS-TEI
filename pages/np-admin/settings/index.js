@@ -46,10 +46,8 @@ function Index(props) {
                     </div>
 
                     <div className="mb-3 col-6">
-                        <label htmlFor="role" className="form-label">role</label>
-                        <select className="form-control" id='role' name="defaultRoles" defaultValue={setting&&setting[0].role}>
-                            <option onChange={handleChange} value="role_admin">Admin</option>
-                        </select>
+                        <input id="comments" className="form-check-input" onChange={handleChange} type="checkbox" name="comments"/>
+                        <label htmlFor="comments" className="form-check-label"> comments </label>
                     </div>
 
                     <div className="mb-3 col-12">
@@ -57,10 +55,6 @@ function Index(props) {
                         <textarea className="form-control" id="slogan" onChange={handleChange} name="slogan" defaultValue={setting&&setting[0].slogan} cols="30" rows="10"/>
                     </div>
 
-                    <div className="mb-3 col-12">
-                        <input id="comments" className="form-check-input" onChange={handleChange} type="checkbox" name="comments"/>
-                        <label htmlFor="comments" className="form-check-label"> comments </label>
-                    </div>
                     <a className="btn btn-primary" onClick={handleSubmit}>Submit</a>
                 </div>
             </Layout>

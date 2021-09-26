@@ -10,6 +10,7 @@ import Select from "../../../components/bootstrap-5/input/Select";
 import {getRoles} from "../../../server/queries/role.queries";
 import axios from "axios";
 import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
+import Link from "next/link";
 
 
 export async function getStaticProps(context) {
@@ -25,19 +26,95 @@ export async function getStaticProps(context) {
 
 function Index(props) {
 
+    /* START STATE */
+
     const [authUser,setAuthUser] = useState(useAuthContext())
-    const [users,setUsers] = useState(props.users);
 
     const [bodyRole,setBodyRole] = useState({
         title:"",
         access:[],
     });
     const [roles,setRoles] = useState(props.roles);
-    const [roleId,setRoleId] = useState();
-    const [roleIndex,setRoleIndex] = useState();
+    const [roleId,setRoleId] = useState(null);
+    const [roleIndex,setRoleIndex] = useState(null);
+
+    const [bodyUser,setBodyUser] = useState({
+        username: "",
+        email: "",
+        password: "",
+        role:"",
+    });
+    const [users,setUsers] = useState(props.users);
+    const [userId,setUserId] = useState(null);
+    const [userIndex,setUserIndex] = useState(null);
+    const [userRole,setUserRole] = useState();
 
     const [message, setMessage] = useState();
 
+    /* END STATE */
+
+    /* START LOGIC */
+
+    // USER
+
+    // handle change user
+    const handleChangeUser = (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        setBodyUser({...bodyUser,[name]:value});
+    }
+
+    // handle submit new user
+    const handleSubmitUser = (event) => {
+        axios
+            .post('http://localhost:3000/api/users',bodyUser)
+            .then(r =>{
+                console.log(r);
+                setMessage(r.data);
+                // update locally the state
+                setUsers([...users,r.data.data]);
+                // reset values
+                setBodyUser({
+                    username:"",
+                    email:"",
+                    password:"",
+                    role:"",
+                })
+            })
+    }
+
+    // handle delete user
+    const handleDelete = (event) => {
+        // delete user in db
+        axios
+            .delete('http://localhost:3000/api/users/'+userId)
+            .then(r =>{
+                console.log(r);
+                setMessage(r.data);
+                // update state
+                users.splice(userIndex, 1);
+                // reset values
+                setUserIndex(null);
+                setUserId(null);
+            })
+    }
+
+    // handle change user role
+    const handleChangeUserRole = async (event,user,index) => {
+        const target = await event.target;
+        const value = await target.type === 'checkbox' ? target.checked : target.value;
+        const name = await target.name;
+
+        axios.patch('http://localhost:3000/api/users/'+user._id, {[name]:value})
+            .then(r =>{
+                console.log(r);
+                setMessage(r.data);
+            })
+    }
+
+    // END USER
 
     // ROLE
         // handle change role
@@ -126,6 +203,8 @@ function Index(props) {
 
     // END ROLE
 
+    /* END LOGIC */
+
     return (
         <>
             <Navbar/>
@@ -143,11 +222,69 @@ function Index(props) {
                 <div className="row">
 
                     <div className="col-6">
-                        <h2>Roles</h2>
+                        <h2>Utilisateurs</h2>
                         <hr/>
                         <div className="mb-3">
-                            <a className="btn btn-success">Ajouter un role</a>
+                            <a
+                                data-bs-toggle="modal"
+                                data-bs-target={"#addUser"}
+                                className="btn btn-success"
+                            >Ajouter un utilisateur</a>
                         </div>
+
+                        <Modal
+                            target={"deleteUser"}
+                            title={"supprimer un utilisateur"}
+                            label="exampleModalLabel"
+                            btn={"delete"}
+                            submit={handleDelete}
+                        >are you sure?</Modal>
+                        <Modal
+                            target={"addUser"}
+                            title={"Ajouter un utilisateur"}
+                            label="exampleModalLabel"
+                            btn={"Ajouter"}
+                            submit={handleSubmitUser}
+                        >
+
+                            <Input
+                                type={"email"}
+                                name="email"
+                                label="email"
+                                onChange={handleChangeUser}
+                                value={bodyUser.email}
+                            />
+
+                            <Input
+                                type="text"
+                                name="username"
+                                label="username"
+                                onChange={handleChangeUser}
+                                value={bodyUser.username}
+                            />
+
+                            <Input
+                                type="password"
+                                name="password"
+                                label="password"
+                                onChange={handleChangeUser}
+                                value={bodyUser.password}
+                            />
+
+                            <Select
+                                label="role"
+                                name={"role"}
+                                onChange={handleChangeUser}
+                                value={bodyUser.role}
+                            >
+                                <option selected >unset</option>
+                                {roles.map((role,index) =>(
+                                    <option value={role._id} key={index}>{role.title}</option>
+                                ))}
+                            </Select>
+
+                        </Modal>
+
                         <hr/>
                         <table className="table">
                             <thead>
@@ -167,25 +304,43 @@ function Index(props) {
                                         <td>{user.username}</td>
                                         <td>{user.local.email}</td>
                                         <td>
-                                            <Select
-                                                value={user.role}
-                                                name={"role"}
-                                            >
-                                                {roles.map((role,index) =>(
-                                                    <option value={role._id} key={index}>{role.title}</option>
-                                                ))}
-                                            </Select>
+                                            {
+                                                user.delete ? (
+                                                    <Select
+                                                        name={"role"}
+                                                        onChange={(event)=>handleChangeUserRole(event,user,index)}
+                                                    >
+                                                        {roles.map((role,index) =>(
+                                                                <option value={role._id} key={index}>{role.title}</option>
+                                                            )
+                                                        )}
+                                                    </Select>
+                                                ):(
+                                                    <span>admin</span>
+                                                )
+                                            }
                                         </td>
                                         <td>
                                             {
-                                                authUser ? (
+                                                authUser && (
                                                  user._id !== authUser.sub ? (
-                                                    <a className={"btn btn-danger"}>Delete</a>
-                                                ) : (
-                                                    <a className={"btn btn-primary"}>Profile</a>
-                                                )):(
-                                                    <p>loading</p>
-                                                )
+                                                     user.delete &&(
+                                                    <a
+                                                        onClick={()=>{
+                                                            setUserId(user._id);
+                                                            setUserIndex(index);
+                                                        }}
+                                                        className={"btn btn-danger"}
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#deleteUser"
+                                                    >Delete</a>
+                                                )) : (
+                                                    <Link href="/np-admin/profile">
+                                                        <a
+                                                            className={"btn btn-primary"}
+                                                        >Profile</a>
+                                                    </Link>
+                                                ))
                                             }
                                         </td>
                                     </tr>
@@ -252,7 +407,7 @@ s                              value={bodyRole.title}
                                 label={"titre du role"}
                                 type={"text"}
                                 name={"title"}
-                                s                              value={bodyRole.title}
+                                value={bodyRole.title}
                                 onChange={handleChangeRole}
                             />
                             <Select
@@ -300,24 +455,29 @@ s                              value={bodyRole.title}
                                             <span className={"me-2"} key={i}>{a},</span>
                                         ))}</td>
                                         <td>
-                                            <button
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#updateRole"
-                                                onClick={()=> {
-                                                    setBodyRole(role)
-                                                    setRoleIndex(index)
-                                                    setRoleId(role._id)
-                                                }}
-                                                className={"btn btn-success"}
-                                            >Update</button>
-                                            <a
-                                                onClick={()=> {
-                                                    setRoleIndex(index)
-                                                    setRoleId(role._id)
-                                                }}
-                                                className={"btn btn-danger"}
-                                                data-bs-toggle="modal" data-bs-target="#deleteRole"
-                                            >Delete</a>
+                                            {
+                                                role.delete && (
+                                                    <>
+                                                    <button
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#updateRole"
+                                                        onClick={()=> {
+                                                            setBodyRole(role)
+                                                            setRoleIndex(index)
+                                                        }}
+                                                        className={"btn btn-success"}
+                                                    >Update</button>
+                                                    <a
+                                                    onClick={()=> {
+                                                            setRoleIndex(index)
+                                                            setRoleId(role._id)
+                                                        }}
+                                                    className={"btn btn-danger"}
+                                                    data-bs-toggle="modal" data-bs-target="#deleteRole"
+                                                    >Delete</a>
+                                                    </>
+                                                )
+                                            }
                                         </td>
                                     </tr>
                                 ))

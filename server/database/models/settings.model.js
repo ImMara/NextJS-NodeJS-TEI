@@ -17,11 +17,6 @@ const settingsSchema = schema({
         type: String,
         required: true
     },
-    defaultRoles: {
-        type: schema.Types.ObjectId,
-        ref:"role",
-        required: true
-    },
     slogan: {
         type: String,
         minLength: [10,"slogan is too short"],

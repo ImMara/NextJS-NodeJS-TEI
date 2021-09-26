@@ -10,7 +10,11 @@ const roleSchema = schema({
     access:[{
         type: String,
         required: true,
-    }]
+    }],
+    delete:{
+        type: Boolean,
+        default: true,
+    }
 })
 
 let Role;

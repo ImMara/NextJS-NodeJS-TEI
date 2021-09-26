@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const {createRole} = require("../server/queries/role.queries");
+const {createUser} = require("../server/queries/user.queries");
 const {createSettings} = require("../server/queries/settings.queries");
 
 
@@ -12,15 +14,31 @@ mongoose
         useFindAndModify: false,
         useCreateIndex: true
     })
-    .then(() => {
+    .then( async () => {
         console.log('MongoDB Connected')
-        const newSettings = createSettings({
+        const newSettings = await createSettings({
             title:'NodePress',
             email:"nodepress@gmail.com",
             url:"http://localhost:3000/",
-            defaultRoles:"admin",
             slogan:"open source node js CMS",
             comments:false
+        })
+        const adminRole = await createRole({
+            title:"admin",
+            access:["Blog","Page","Menu","Users","settings"],
+            delete:false
+        })
+        const userRole = await createRole({
+            title:"user",
+            access:[],
+            delete:false
+        })
+        const newUser = await createUser({
+            username: 'admin',
+            password:'admin',
+            email: 'admin@admin.com',
+            role:adminRole._id,
+            delete: false,
         })
     })
     .catch(err => console.log(err));

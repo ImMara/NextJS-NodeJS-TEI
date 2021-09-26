@@ -21,17 +21,19 @@ function Index(props) {
 
     return (
         <Layout>
-            <form method="post" action="/api/auth/login">
-                <div className="mb-3">
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" name="email" className="form-control" id="email"/>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" name="password" className="form-control" id="password"/>
-                </div>
-                <button className={"btn btn-primary"}>submit</button>
-            </form>
+            <div className="d-flex justify-content-center align-items-center h-100">
+                <form method="post" action="/api/auth/login">
+                    <div className="mb-3">
+                        <label htmlFor="email">Email:</label>
+                        <input type="email" name="email" className="form-control" id="email"/>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="password" className="form-label">Password</label>
+                        <input type="password" name="password" className="form-control" id="password"/>
+                    </div>
+                    <button className={"btn btn-primary"}>submit</button>
+                </form>
+            </div>
         </Layout>
     );
 }

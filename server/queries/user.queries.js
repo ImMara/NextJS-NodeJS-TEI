@@ -12,7 +12,9 @@ exports.createUser = async (user) => {
             local: {
                 email: user.email,
                 password: hashedPassword
-            }
+            },
+            role:user.role,
+            delete:user.delete
         })
 
         return newUser.save();
@@ -55,7 +57,8 @@ exports.findUserAndUpdate = async (id, user, password) => {
             local: {
                 email: user.email,
                 password: password
-            }
+            },
+            delete:user.delete
         }
     });
 }
@@ -71,9 +74,14 @@ exports.findUserAndUpdateWithPassword = async (id, user) => {
             local: {
                 email: user.email,
                 password: hashedPassword
-            }
+            },
+            delete:user.delete
         }
     });
+}
+
+exports.updateSpecificFields = async (id,body) =>{
+    return User.findByIdAndUpdate(id, { $set :{body}})
 }
 
 // ALL USER
@@ -87,7 +95,7 @@ exports.findAllUsers = () => {
 
 // DELETE USER
 
-exports.deleteUsers = (id) => {
+exports.deleteUser = (id) => {
 
     return User.findByIdAndDelete(id).exec();
 

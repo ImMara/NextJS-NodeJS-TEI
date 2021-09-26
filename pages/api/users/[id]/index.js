@@ -1,23 +1,27 @@
-import {deleteRole, getRole, patchRole} from "../../../../../server/queries/role.queries";
+import {
+    deleteUser,
+    findUser,
+    findUserAndUpdateWithPassword,
+    updateSpecificFields
+} from "../../../../server/queries/user.queries";
 
-
-export default async (req, res, next) => {
-    switch (req.method) {
+export default async(req,res,next) => {
+    switch(req.method) {
         case 'GET':
-            try {
+            try{
 
                 // GET ID FROM URL
                 const id = req.query.id;
 
-                // GET ROLE WITH ID
-                const role = await getRole(id);
+                // GET USER WITH ID
+                const user = await findUser(id);
 
                 // RESPONSE FROM API
                 res.json({
-                    data:role
-                });
+                    data:user
+                })
 
-            } catch (e) {
+            }catch (e) {
 
                 // API RETURNS ERROR
                 res.json({error: e.message})
@@ -36,16 +40,16 @@ export default async (req, res, next) => {
                 // GET BODY WITH DATA
                 const body = req.body;
 
-                // UPDATE ROLE
-                const role = await patchRole(id,body);
+                // UPDATE USER
+                const user = await updateSpecificFields(id,body);
 
                 // MESSAGE
-                const string = `Update success`
+                const string = `update success`
 
                 // RESPONSE FROM API
                 res.json({
-                    message: string,
-                    data:role
+                    success: string,
+                    data:user
                 })
 
             } catch (e) {
@@ -64,8 +68,8 @@ export default async (req, res, next) => {
                 // GET ID FROM URL
                 const id = req.query.id;
 
-                // DELETE ROLE WITH ID
-                await deleteRole(id);
+                // DELETE USER WITH ID
+                await deleteUser(id);
 
                 // SUCCESS MESSAGE
                 const string = `Delete success`
@@ -76,11 +80,12 @@ export default async (req, res, next) => {
             }catch (e) {
 
                 // API RETURNS ERROR
-                res.json({error: e})
+                res.json({error: e.message})
 
                 // SERVER RETURNS ERROR
                 console.error(e)
 
             }
+            break;
     }
 }
