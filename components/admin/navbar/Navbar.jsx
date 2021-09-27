@@ -60,7 +60,7 @@ const Navbar = (props) => {
                                             <div className="dropdown-menu">
                                                 <a className="dropdown-item" href="#">Profile</a>
                                                 <div className="dropdown-divider"/>
-                                                <a className="dropdown-item" href="#">Logout</a>
+                                                <a className="dropdown-item" href="/api/auth/logout">Logout</a>
                                             </div>
                                         </li>
                                     </ul>

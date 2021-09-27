@@ -20,8 +20,8 @@ export const getServerSideProps = async ({req,res})=>{
 function Index(props) {
 
     return (
-        <Layout>
-            <div className="d-flex justify-content-center align-items-center h-100">
+        <div className="d-flex justify-content-center align-items-center h-100">
+            <Layout>
                 <form method="post" action="/api/auth/login">
                     <div className="mb-3">
                         <label htmlFor="email">Email:</label>
@@ -33,8 +33,8 @@ function Index(props) {
                     </div>
                     <button className={"btn btn-primary"}>submit</button>
                 </form>
-            </div>
-        </Layout>
+            </Layout>
+        </div>
     );
 }
 
