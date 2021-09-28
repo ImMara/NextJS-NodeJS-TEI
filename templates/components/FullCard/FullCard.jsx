@@ -29,16 +29,38 @@ function FullCard(props) {
                             }}
                             href="#">Title of random card</a>
                     </h2>
-                    <ul
-                        className="nav nav-divider"
-                        style={{
-                            textShadow:"black 0.1em 0.1em 0.2em"
-                        }}
-                    >
-                        <li>by random user</li>
-                        <li>Nov 15,2021</li>
-                        <li>5 min read</li>
-                    </ul>
+                    {
+                        !props.short && (
+                            // lorem 25
+                            <p style={{
+                                textShadow:"black 0.1em 0.1em 0.2em"
+                            }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur, deleniti deserunt est, expedita iste, nisi officiis quas quisquam reiciendis reprehenderit sequi similique vitae voluptate!</p>
+                        )
+                    }
+                    <div className={"d-flex align-items-center"}  style={{
+                        textShadow:"black 0.1em 0.1em 0.2em"
+                    }}>
+                        {
+                            !props.short && (
+                                <img
+                                    src="https://i.pravatar.cc/200"
+                                    className={"avatar-md rounded-circle float-start me-2"}
+                                    alt=""
+                                    style={{
+                                        height:"3rem",
+                                        width: "3rem",
+                                        position: "relative",
+                                    }}
+                                />
+                            )
+                        }
+                        <h5 className="me-3">Judy Nguyen</h5>
+                        {
+                            !props.short && (
+                                <span className="small">June 18, 2021 at 11:55 am</span>
+                            )
+                        }
+                    </div>
                 </div>
             </div>
         </div>

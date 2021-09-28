@@ -13,40 +13,97 @@ function ContentLayout(props) {
                 </div>
 
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                         <div className="position-relative">
                             <img className={"rounded"} src="https://picsum.photos/400/500" style={{height:"200px",width:"100%",objectFit:"cover"}} alt=""/>
                             <a href="#" className={"position-absolute bottom-0 start-0 link-dark ms-3 mb-3 badge bg-primary me-2 small fw-bold"}><i className="fas fa-circle me-2 small fw-bold"/>Sports</a>
                         </div>
                         <h4>12 worst types of business accounts you follow on Twitter</h4>
                         <p>He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty gay assistance joy. Unaffected at ye of compliment alteration to</p>
+                        <div className={"d-flex align-items-center"}>
+                            <img
+                                src="https://i.pravatar.cc/200"
+                                className={"avatar-md rounded-circle float-start me-2"}
+                                alt=""
+                                style={{
+                                    height:"3rem",
+                                    width: "3rem",
+                                    position: "relative",
+                                }}
+                            />
+                            <h5 className="me-3">Judy Nguyen</h5>
+                            <span className="small">June 18, 2021 at 11:55 am</span>
+                        </div>
+
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                         <div className="position-relative">
                             <img className={"rounded"} src="https://picsum.photos/510/500" style={{height:"200px",width:"100%",objectFit:"cover"}} alt=""/>
                             <a href="#" className={"position-absolute bottom-0 start-0 link-dark ms-3 mb-3 badge bg-danger me-2 small fw-bold"}><i className="fas fa-circle me-2 small fw-bold"/>Travel</a>
                         </div>
                         <h4>Dirty little secrets about the business industry</h4>
                         <p>He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty gay assistance joy. Unaffected at ye of compliment alteration to</p>
+                        <div className={"d-flex align-items-center"}>
+                            <img
+                                src="https://i.pravatar.cc/200"
+                                className={"avatar-md rounded-circle float-start me-2"}
+                                alt=""
+                                style={{
+                                    height:"3rem",
+                                    width: "3rem",
+                                    position: "relative",
+                                }}
+                            />
+                            <h5 className="me-3">Judy Nguyen</h5>
+                            <span className="small">June 18, 2021 at 11:55 am</span>
+                        </div>
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                         <div className="position-relative">
                             <img className={"rounded"} src="https://picsum.photos/520/500" style={{height:"200px",width:"100%",objectFit:"cover"}} alt=""/>
                             <a href="#" className={"position-absolute bottom-0 start-0 ms-3 link-dark mb-3 badge bg-success me-2 small fw-bold"}><i className="fas fa-circle me-2 small fw-bold"/>Photography</a>
                         </div>
                         <h4>Dirty little secrets about the business industry</h4>
                         <p>He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty gay assistance joy. Unaffected at ye of compliment alteration to</p>
+                        <div className={"d-flex align-items-center"}>
+                            <img
+                                src="https://i.pravatar.cc/200"
+                                className={"avatar-md rounded-circle float-start me-2"}
+                                alt=""
+                                style={{
+                                    height:"3rem",
+                                    width: "3rem",
+                                    position: "relative",
+                                }}
+                            />
+                            <h5 className="me-3">Judy Nguyen</h5>
+                            <span className="small">June 18, 2021 at 11:55 am</span>
+                        </div>
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                         <div className="position-relative">
                             <img className={"rounded"} src="https://picsum.photos/530/500" style={{height:"200px",width:"100%",objectFit:"cover"}} alt=""/>
                             <a href="#" className={"position-absolute bottom-0 start-0 ms-3 link-dark mb-3 badge bg-primary me-2 small fw-bold"}><i className="fas fa-circle me-2 small fw-bold"/>Sports</a>
                         </div>
                         <h4>Dirty little secrets about the business industry</h4>
                         <p>He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty gay assistance joy. Unaffected at ye of compliment alteration to</p>
+                        <div className={"d-flex align-items-center"}>
+                            <img
+                                src="https://i.pravatar.cc/200"
+                                className={"avatar-md rounded-circle float-start me-2"}
+                                alt=""
+                                style={{
+                                    height:"3rem",
+                                    width: "3rem",
+                                    position: "relative",
+                                }}
+                            />
+                            <h5 className="me-3">Judy Nguyen</h5>
+                            <span className="small">June 18, 2021 at 11:55 am</span>
+                        </div>
                     </div>
                 </div>
                 

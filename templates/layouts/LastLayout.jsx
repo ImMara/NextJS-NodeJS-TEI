@@ -12,13 +12,13 @@ function LastLayout(props) {
             <div className="col-lg-6">
                 <div className="row g-4">
                     <div className="col-12">
-                        <FullCard image={"https://picsum.photos/210/300"} height="320px"/>
+                        <FullCard short={true} image={"https://picsum.photos/210/300"} height="320px"/>
                     </div>
                     <div className="col-6">
-                        <FullCard image={"https://picsum.photos/200/310"} height="220px"/>
+                        <FullCard short={true} image={"https://picsum.photos/200/310"} height="220px"/>
                     </div>
                     <div className="col-6">
-                        <FullCard image={"https://picsum.photos/200/320"} height="220px"/>
+                        <FullCard short={true} image={"https://picsum.photos/200/320"} height="220px"/>
                     </div>
                 </div>
             </div>
