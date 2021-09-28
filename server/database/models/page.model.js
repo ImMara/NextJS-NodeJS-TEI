@@ -13,26 +13,19 @@ const pageSchema = schema({
         type: Date,
         required: true,
     },
-    statics: {
-        type: String
-    },
     slug: {
         type: String,
         unique: true,
         required: true
     },
-    image: {
-        type: String
-    },
-    layout: {
-        type: String,
-        required: true
-    },
     body: {
         type: Object,
         required: true,
+    },
+    editable: {
+        type: Boolean,
+        default: true,
     }
-
 })
 
 let Page;

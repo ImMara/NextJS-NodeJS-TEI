@@ -20,7 +20,7 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
 
 export async function getStaticProps(context) {
 
-    // get all categories from db
+    // get all CategoriesWidget from db
     const category = await getCategories();
 
     return {

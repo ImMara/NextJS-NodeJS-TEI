@@ -12,7 +12,7 @@ import Alerts from "../../../../components/bootstrap-5/alerts/Alerts";
 
 export async function getStaticProps(context) {
 
-    // DB call to get all categories
+    // DB call to get all CategoriesWidget
     const category = await getCategories();
 
     return {
