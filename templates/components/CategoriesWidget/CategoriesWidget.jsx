@@ -5,18 +5,18 @@ function CategoriesWidget(props) {
         <div className="col-lg-3 mt-5 mt-lg-0">
             <div className="row g-2">
                 <div className="col-4">
-                    <div className="bg-danger rounded" style={{height:"100px"}}>
-
+                    <div className="bg-danger rounded d-flex justify-content-center align-items-center" style={{height:"100px"}}>
+                        <i className="bi bi-instagram" style={{fontSize: "2rem"}}/>
                     </div>
                 </div>
                 <div className="col-4">
-                    <div className="bg-primary rounded" style={{height:"100px"}}>
-
+                    <div className="bg-primary rounded d-flex justify-content-center align-items-center" style={{height:"100px"}}>
+                        <i className="bi bi-facebook" style={{fontSize: "2rem"}}/>
                     </div>
                 </div>
                 <div className="col-4">
-                    <div className="bg-success rounded" style={{height:"100px"}}>
-
+                    <div className="bg-success rounded d-flex justify-content-center align-items-center" style={{height:"100px"}}>
+                        <i className="bi bi-twitter" style={{fontSize: "2rem"}}/>
                     </div>
                 </div>
             </div>

@@ -5,6 +5,8 @@ import CarouselFeatured from "../../../templates/components/CarouselFeatured/Car
 import Footer from "../../../templates/components/Footer/Footer";
 import {hydration} from "../../../utils/hydration";
 import {getPosts} from "../../../server/queries/post.queries";
+import Comments from "../../../templates/components/Comments/Comments";
+import FormComment from "../../../templates/components/FormComment/FormComment";
 
 export async function getServerSideProps(context) {
 
@@ -38,11 +40,13 @@ function Index(props) {
                     <div className="row mb-3">
                         <div className="col-lg-9 mb-5">
                             <h1>{props.posts[0].title}</h1>
-                            <div className="body"  dangerouslySetInnerHTML={createMarkup()}>
-
-                            </div>
+                            <div className="body"  dangerouslySetInnerHTML={createMarkup()}/>
                        </div>
                         <CategoriesWidget/>
+                    </div>
+                    <div className="col-md-9">
+                        <Comments/>
+                        <FormComment/>
                     </div>
                 </div>
                 <hr/>
