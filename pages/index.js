@@ -10,7 +10,7 @@ export default function Index(props) {
     return (
         <>
             <Navbar/>
-            <div className="container">
+            <div className="container text-white">
                 <LastLayout/>
                 <ContentLayout/>
             </div>

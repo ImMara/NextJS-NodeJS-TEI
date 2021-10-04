@@ -20,20 +20,22 @@ export const getServerSideProps = async ({req,res})=>{
 function Index(props) {
 
     return (
-        <div className="d-flex justify-content-center align-items-center h-100">
-            <Layout>
-                <form method="post" action="/api/auth/login">
-                    <div className="mb-3">
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" name="email" className="form-control" id="email"/>
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="password" className="form-label">Password</label>
-                        <input type="password" name="password" className="form-control" id="password"/>
-                    </div>
-                    <button className={"btn btn-primary"}>submit</button>
-                </form>
-            </Layout>
+        <div className="container">
+            <div className="d-flex justify-content-center align-items-center w-50 h-100" style={{minHeight:"100vh"}}>
+                <Layout>
+                    <form method="post" action="/api/auth/login">
+                        <div className="mb-3">
+                            <label htmlFor="email">Email:</label>
+                            <input type="email" name="email" className="form-control" id="email"/>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <input type="password" name="password" className="form-control" id="password"/>
+                        </div>
+                        <button className={"btn btn-primary"}>submit</button>
+                    </form>
+                </Layout>
+            </div>
         </div>
     );
 }

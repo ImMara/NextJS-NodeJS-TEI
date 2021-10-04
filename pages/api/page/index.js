@@ -4,34 +4,61 @@ const fs = require('fs');
 const path = require('path');
 const slugify = require('slugify');
 
-export default async (req,res,next) =>{
-    switch(req.method) {
+export default async (req, res, next) => {
+    switch (req.method) {
         case 'POST':
             //TODO: needs regex for title
-            try{
+            try {
                 // getting body from request
                 const body = req.body;
 
                 // transform title into slug
-                const slug = slugify(body.title,{
-                    lower:true,
-                    strict:true
+                const slug = slugify(body.title, {
+                    lower: true,
+                    strict: true
                 })
 
                 // create page in mongodb
-                const data = await createPage({...body,slug:slug})
+                const data = await createPage({...body, slug: slug})
 
                 // create JS file in system for pages
-                fs.writeFile(`./pages/${slug}.js`,`import React from 'react';
-                            function ${body.title.replace(/\s/g, '')}(props) {
-                                return (
-                                    <div>
-                                        <h1>${body.title}</h1>
-                                        <p>${body.content}</p>
-                                    </div>
-                                );
-                            }
-                            export default ${body.title.replace(/\s/g, '')};`
+                fs.writeFile(`./pages/${slug}.js`,
+`
+import React from 'react';
+import {getPage} from "../server/queries/page.queries";
+import {hydration} from "../utils/hydration";
+import Navbar from "../templates/components/Navbar/Navbar";
+
+export async function getStaticProps(context) {
+
+    const id = "${data._id}";
+    // get all CategoriesWidget from db
+    const page = await getPage(id);
+
+    return {
+        // cleaning the object as json for nextJS hydrate security
+        props: {page: hydration(page)}, // will be passed to the page component as props
+        }
+    }
+    function ${body.title.replace(/\s/g, '')}(props) {
+        function createMarkup() {
+            return {
+                __html: props.page.body
+            };
+        }
+
+    return (
+        <>
+            <Navbar/>
+            <div className="container text-white" dangerouslySetInnerHTML={createMarkup()}>
+
+            </div>
+        </>
+    );
+}
+
+export default ${body.title.replace(/\s/g, '')};
+`
                     , (err) => {
                         if (err) throw err;
                         console.log('page build done!');
@@ -39,15 +66,15 @@ export default async (req,res,next) =>{
 
                 // return json for success messages
                 return res.json({
-                    status:200,
+                    status: 200,
                     data: data,
                 })
 
-            }catch (e) {
+            } catch (e) {
 
                 // if error return json with error
                 res.json({
-                    status:e
+                    status: e
                 })
 
                 // log server with error for dev
@@ -66,7 +93,7 @@ export default async (req,res,next) =>{
                 })
 
 
-            }catch (e) {
+            } catch (e) {
 
                 // log server with error for dev
                 console.error(e);

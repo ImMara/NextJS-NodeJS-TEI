@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer(props) {
     return (
-        <footer className={"bg-dark mt-5 border-top  border-secondary"}
+        <footer className={"bg-dark mt-5 border-top text-white border-secondary"}
             style={{
                 padding:"2.5rem 0",
                 textAlign:"center",

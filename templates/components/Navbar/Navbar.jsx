@@ -1,5 +1,6 @@
 import React from 'react';
 import {useMenuContext} from "../../../context/menu";
+import Link from 'next/link';
 
 function Navbar(props) {
 
@@ -16,10 +17,15 @@ function Navbar(props) {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li className="nav-item">
+                                    <Link href="/">
+                                        <a className="nav-link active" aria-current="page" >Home</a>
+                                    </Link>
+                                </li>
                                 {
                                     state.map((menu,index)=> (
                                         <li className="nav-item">
-                                            <a className="nav-link active" aria-current="page" href="/">{menu.title}</a>
+                                            <a className="nav-link active" aria-current="page" href={menu.title ? "/"+menu.title : "#"}>{menu.title}</a>
                                         </li>
                                     ))
                                 }

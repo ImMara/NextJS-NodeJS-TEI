@@ -19,7 +19,7 @@ const pageSchema = schema({
         required: true
     },
     body: {
-        type: Object,
+        type: String,
         required: true,
     },
     editable: {
