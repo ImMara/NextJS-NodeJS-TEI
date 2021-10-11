@@ -58,7 +58,7 @@ const Navbar = (props) => {
                                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
                                                role="button" aria-haspopup="true" aria-expanded="false">{user && user.username}</a>
                                             <div className="dropdown-menu">
-                                                <a className="dropdown-item" href="#">Profile</a>
+                                                <a className="dropdown-item" href="/np-admin/profile">Profile</a>
                                                 <div className="dropdown-divider"/>
                                                 <a className="dropdown-item" href="/api/auth/logout">Logout</a>
                                             </div>
