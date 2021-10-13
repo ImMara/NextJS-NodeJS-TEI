@@ -23,19 +23,10 @@ const userSchema = schema({
     description: {
         type: String,
     },
-    image: {
-        type: String,
-    },
     address: {
         type: String,
     },
     postalCode: {
-        type: Number,
-    },
-    country: {
-        type: String,
-    },
-    phoneNumber: {
         type: Number,
     },
     role : {

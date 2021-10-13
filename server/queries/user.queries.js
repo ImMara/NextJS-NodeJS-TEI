@@ -36,13 +36,13 @@ exports.findUser = (id) => {
 
 exports.findUserPerEmail = (email) => {
 
-    return User.findOne({'local.email': email}).exec();
+    return User.findOne({'local.email': email}).populate('role').exec();
 
 }
 
 exports.findUserPerId = (id) => {
 
-    return User.findOne({ _id:id }).exec();
+    return User.findOne({ _id:id }).populate('role').exec();
 
 }
 
@@ -52,8 +52,12 @@ exports.findUserAndUpdate = async (id, user, password) => {
     return User.findByIdAndUpdate(id, {
         $set: {
             username: user.username,
-            name: user.name,
-            phone: user.phone,
+            first_name: user.name,
+            last_name:user.last_name,
+            website:user.website,
+            description: user.description,
+            address: user.address,
+            postalCode: user.postal_code,
             local: {
                 email: user.email,
                 password: password
@@ -69,8 +73,12 @@ exports.findUserAndUpdateWithPassword = async (id, user) => {
     return User.findByIdAndUpdate(id, {
         $set: {
             username: user.username,
-            name: user.name,
-            phone: user.phone,
+            first_name: user.name,
+            last_name:user.last_name,
+            website:user.website,
+            description: user.description,
+            address: user.address,
+            postalCode: user.postal_code,
             local: {
                 email: user.email,
                 password: hashedPassword
@@ -81,7 +89,54 @@ exports.findUserAndUpdateWithPassword = async (id, user) => {
 }
 
 exports.updateSpecificFields = async (id,body) =>{
-    return User.findByIdAndUpdate(id, { $set :{body}})
+
+    const user = await User.findById(id);
+    let object = {}
+
+    if(body.email){
+
+        if(body.password){
+            const hashedPassword = await User.hashPassword(body.password);
+            object = {
+                ...body,
+                local:{
+                    password: hashedPassword,
+                    email: body.email,
+                },
+                delete:user.delete
+            }
+        }else{
+            object = {
+                ...body,
+                local:{
+                    ...user.local,
+                    email: body.email,
+                },
+                delete:user.delete
+            }
+        }
+
+    }else{
+
+        if(body.password) {
+            const hashedPassword = await User.hashPassword(body.password);
+            object = {
+                ...body,
+                local: {
+                    ...user.local,
+                    password: hashedPassword,
+                },
+                delete: user.delete
+            }
+        }else{
+            object = {...body}
+        }
+
+    }
+
+    return User.findByIdAndUpdate(id, {
+        $set :object,
+    })
 }
 
 // ALL USER

@@ -25,7 +25,7 @@ const pageSchema = schema({
     editable: {
         type: Boolean,
         default: true,
-    }
+    },
 })
 
 let Page;

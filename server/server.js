@@ -2,7 +2,13 @@ const express = require('express');
 const next = require('next');
 const cookieParser = require('cookie-parser');
 const fs = require("fs");
+const {ensureRoleAllowsSettings} = require("./config/security.config");
+const {ensureRoleAllowsUsers} = require("./config/security.config");
+const {ensureRoleAllowsMenu} = require("./config/security.config");
+const {ensureRoleAllowsPage} = require("./config/security.config");
+const {ensureRoleAllowsBlog} = require("./config/security.config");
 const {ensureAuthenticated} = require("./config/security.config");
+const {uploadBlogs} = require('./config/multer.config')
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -22,6 +28,26 @@ app.prepare()
 
         // Setup token strategy  to connect
         require('./config/jwt.config');
+
+        server.get('/np-admin/blog',ensureAuthenticated,ensureRoleAllowsBlog,(req, res, next) => {
+            return handle(req, res, next);
+        })
+
+        server.get('/np-admin/page',ensureAuthenticated,ensureRoleAllowsPage,(req, res, next) => {
+            return handle(req, res, next);
+        })
+
+        server.get('/np-admin/menu',ensureAuthenticated,ensureRoleAllowsMenu,(req, res, next) => {
+            return handle(req, res, next);
+        })
+
+        server.get('/np-admin/users',ensureAuthenticated,ensureRoleAllowsUsers,(req, res, next) => {
+            return handle(req, res, next);
+        })
+
+        server.get('/np-admin/settings',ensureAuthenticated,ensureRoleAllowsSettings,(req, res, next) => {
+            return handle(req, res, next);
+        })
 
         // Using security on all page under admin
         server.get('/np-admin/*' , ensureAuthenticated, (req,res,next)=>{

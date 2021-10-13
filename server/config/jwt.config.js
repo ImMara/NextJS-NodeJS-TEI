@@ -1,12 +1,15 @@
 const secret = 'a2463421-b798-470a-b4ee-fd23783ec69d';
 const jwt = require('jsonwebtoken');
+const {getRole} = require("../queries/role.queries");
 const { findUserPerId } = require('../queries/user.queries');
 const { server } = require('../server');
 
 const createJwtToken = (user) => {
+
     return jwt.sign({
         sub: user._id.toString(),
         username:user.username,
+        role:user.role,
         exp: Math.floor(Date.now() / 1000) + 50000
     }, secret);
 }

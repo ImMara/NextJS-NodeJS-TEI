@@ -1,6 +1,6 @@
 import {
     deleteUser,
-    findUser,
+    findUser, findUserAndUpdate,
     findUserAndUpdateWithPassword,
     updateSpecificFields
 } from "../../../../server/queries/user.queries";
@@ -38,10 +38,10 @@ export default async(req,res,next) => {
                 const id = req.query.id;
 
                 // GET BODY WITH DATA
-                const body = req.body;
+                const body = await req.body;
 
                 // UPDATE USER
-                const user = await updateSpecificFields(id,body);
+                await updateSpecificFields(id,body);
 
                 // MESSAGE
                 const string = `update success`
@@ -49,7 +49,6 @@ export default async(req,res,next) => {
                 // RESPONSE FROM API
                 res.json({
                     success: string,
-                    data:user
                 })
 
             } catch (e) {

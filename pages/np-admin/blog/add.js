@@ -37,11 +37,13 @@ function Add(props) {
     const [category, setCategory] = useState(props.category);
     const [body, setBody] = useState({
         title: "",
-        body: "",
         category: "",
         short_description: "",
-        allowComment: false
+        allowComment: false,
+        status:false,
+        featured:false,
     });
+    const [fileSelected,setFileSelected] = useState();
     const [message, setMessage] = useState();
     const [bodyEditor, setBodyEditor] = useState();
 
@@ -61,11 +63,15 @@ function Add(props) {
     }
 
     const handleSubmit = (event) => {
+
+
+
         axios
-            .post('http://localhost:3000/api/blog/post/', {...body, body: bodyEditor})
+            .post('http://localhost:3000/api/blog/post/',{...body,body:bodyEditor})
             .then((r) => {
                 console.log(r);
                 setMessage(r.data);
+                setFileSelected(null)
                 if (!r.data.error) {
                     setBody({
                         title: "",
@@ -218,6 +224,14 @@ function Add(props) {
                                 value={body.status}
                                 label="publié"
                                 name={"status"}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div>
+                            <Checkbox
+                                value={body.featured}
+                                label="featured"
+                                name={"featured"}
                                 onChange={handleChange}
                             />
                         </div>

@@ -388,11 +388,11 @@ s                              value={bodyRole.title}
                               value={bodyRole.access}
                               onChange={handleChangeRoleMulti}
                           >
-                              <option value="Blog">Blog</option>
-                              <option value="Page">Page</option>
-                              <option value="Menu">Menu</option>
-                              <option value="Users">Users</option>
-                              <option value="Settings">Settings</option>
+                              <option value="blog">blog</option>
+                              <option value="page">page</option>
+                              <option value="menu">menu</option>
+                              <option value="users">users</option>
+                              <option value="settings">settings</option>
                           </Select>
                         </Modal>
 

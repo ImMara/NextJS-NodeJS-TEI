@@ -16,8 +16,12 @@ function Add(props) {
 
     const [body, setBody] = useState({
         title: "",
-        date: Date.now(),
-        body: {}
+        body: {},
+        category: "",
+        short_description: "",
+        allowComment: false,
+        status:false,
+        featured:false,
     });
 
     const handleChange = (event) => {

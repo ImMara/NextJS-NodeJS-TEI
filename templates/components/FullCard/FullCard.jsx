@@ -27,14 +27,14 @@ function FullCard(props) {
                             style={{
                                 textShadow:"black 0.1em 0.1em 0.2em"
                             }}
-                            href="#">Title of random card</a>
+                            href={"/post/"+props.post._id}>{props.post.title}</a>
                     </h2>
                     {
                         !props.short && (
                             // lorem 25
                             <p style={{
                                 textShadow:"black 0.1em 0.1em 0.2em"
-                            }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur, deleniti deserunt est, expedita iste, nisi officiis quas quisquam reiciendis reprehenderit sequi similique vitae voluptate!</p>
+                            }}>{props.post.short_description}</p>
                         )
                     }
                     <div className={"d-flex align-items-center"}  style={{

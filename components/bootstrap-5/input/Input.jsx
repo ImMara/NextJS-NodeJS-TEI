@@ -13,6 +13,7 @@ function Input(props) {
                 onChange={props.onChange}
                 className="form-control"
                 id={props.name}
+                defaultValue={props.defaultValue}
                 value={props.value}
                 name={props.name}
                 placeholder={props.placeholder}

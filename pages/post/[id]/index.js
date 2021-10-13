@@ -32,7 +32,7 @@ function Index(props) {
     return (
         <>
             <Navbar/>
-            <div className="container">
+            <div className="container text-white">
                 <div className="row g-4 mb-3">
                     <div className="col-12 pt-4 mb-5" style={{height:'400px' }}>
                         <img alt={""} src="https://picsum.photos/510/500" style={{objectFit:"cover", height:'100%',width:'100%'}} />

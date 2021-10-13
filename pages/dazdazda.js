@@ -3,6 +3,7 @@ import React from 'react';
 import {getPage} from "../server/queries/page.queries";
 import {hydration} from "../utils/hydration";
 import Navbar from "../templates/components/Navbar/Navbar";
+import BasicLayout from "../templates/layouts/BasicLayout";
 
 export async function getStaticProps(context) {
 
@@ -25,9 +26,11 @@ export async function getStaticProps(context) {
     return (
         <>
             <Navbar/>
-            <div className="container text-white" dangerouslySetInnerHTML={createMarkup()}>
+            <BasicLayout>
+                <div className="container text-white" dangerouslySetInnerHTML={createMarkup()}>
 
-            </div>
+                </div>
+            </BasicLayout>
         </>
     );
 }

@@ -23,9 +23,6 @@ const postSchema = schema({
         ref:"category",
         required: true
     },
-    image: {
-        type: String
-    },
     short_description: {
         type: String,
         minLength:[5,"short description must be at least 10 characters"],
@@ -45,6 +42,10 @@ const postSchema = schema({
         type: Boolean,
         default: false,
     },
+    featured:{
+        type: Boolean,
+        default: false,
+    }
 })
 
 let Post;

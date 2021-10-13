@@ -25,7 +25,7 @@ mongoose
         })
         const adminRole = await createRole({
             title:"admin",
-            access:["Blog","Page","Menu","Users","settings"],
+            access:["blog","page","menu","users","settings"],
             delete:false
         })
         const userRole = await createRole({

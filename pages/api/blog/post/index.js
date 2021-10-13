@@ -1,6 +1,6 @@
 import {createPost, getPosts} from '../../../../server/queries/post.queries'
 
-export default async (req,res,next) => {
+export default async (req,res,next,error) => {
     switch (req.method) {
 
         case 'GET':
@@ -24,7 +24,6 @@ export default async (req,res,next) => {
             }
             break;
 
-        // TODO: improve message
         case 'POST':
             try {
                 // GETTING  BODY WITH DATA
@@ -33,15 +32,12 @@ export default async (req,res,next) => {
                 // GETTING USER FROM AUTH
                 const user = req.user;
 
-                // CREATE OBJECT WITH BODY
-                const post = {
+                // CREATE DATA IN DATABASE
+                await createPost({
                     ...body,
                     author:user._id,
-                    date:Date.now()
-                }
-
-                // CREATE DATA IN DATABASE
-                await createPost(post);
+                    date:Date.now(),
+                })
 
                 // SUCCESS MESSAGE
                 const string = `new post success ${body.title}`;
@@ -49,7 +45,6 @@ export default async (req,res,next) => {
                 //  RESPONSE FROM API
                 res.json({
                     success:string,
-                    data:post
                 })
 
             } catch (e) {
@@ -59,7 +54,6 @@ export default async (req,res,next) => {
 
                 // SERVER RETURNS ERROR
                 console.error(e.message);
-
             }
             break;
 

@@ -43,6 +43,7 @@ function Index(props) {
         short_description:props.post.short_description,
         allowComment: props.post.allowComment,
         status:props.post.status,
+        featured:props.post.featured,
     });
 
     const [message,setMessage] = useState();
@@ -54,6 +55,7 @@ function Index(props) {
         const name = target.name;
         setBody({...body,[name]:value})
     }
+
     const handleBodyEditor = (content) =>{
         setBodyEditor(content);
     }
@@ -108,6 +110,7 @@ function Index(props) {
                         <Input
                             type="text"
                             name={"title"}
+                            label={"title"}
                             value={body.title}
                             placeholder={"titre de votre article"}
                             onChange={handleChange}
@@ -201,6 +204,14 @@ function Index(props) {
                                 value={body.status}
                                 label="publié"
                                 name={"status"}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div>
+                            <Checkbox
+                                value={body.featured}
+                                label="featured"
+                                name={"featured"}
                                 onChange={handleChange}
                             />
                         </div>

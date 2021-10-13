@@ -21,35 +21,55 @@ const Navbar = (props) => {
                                             </Link>
                                         </li>
 
-                                        <li className="nav-item">
-                                            <Link href="/np-admin/blog">
-                                                <a className="nav-link" >Blog</a>
-                                            </Link>
-                                        </li>
+                                        {
+                                           user && user.role.access.includes('blog') && (
+                                                <li className="nav-item">
+                                                    <Link href="/np-admin/blog">
+                                                        <a className="nav-link" >Blog</a>
+                                                    </Link>
+                                                </li>
+                                            )
+                                        }
 
-                                        <li className="nav-item">
-                                            <Link href="/np-admin/page">
-                                                <a className="nav-link" >Page</a>
-                                            </Link>
-                                        </li>
+                                        {
+                                            user && user.role.access.includes('page') && (
+                                                <li className="nav-item">
+                                                    <Link href="/np-admin/page">
+                                                        <a className="nav-link" >Page</a>
+                                                    </Link>
+                                                </li>
+                                            )
+                                        }
 
-                                        <li className="nav-item">
-                                            <Link href="/np-admin/menu">
-                                                <a className="nav-link" >Menu</a>
-                                            </Link>
-                                        </li>
+                                        {
+                                            user && user.role.access.includes('menu') && (
+                                                <li className="nav-item">
+                                                    <Link href="/np-admin/menu">
+                                                        <a className="nav-link" >Menu</a>
+                                                    </Link>
+                                                </li>
+                                            )
+                                        }
 
-                                        <li className="nav-item">
-                                            <Link href="/np-admin/users">
-                                                <a className="nav-link" >Users</a>
-                                            </Link>
-                                        </li>
+                                        {
+                                            user && user.role.access.includes('users') && (
+                                                <li className="nav-item">
+                                                    <Link href="/np-admin/users">
+                                                        <a className="nav-link" >Users</a>
+                                                    </Link>
+                                                </li>
+                                            )
+                                        }
 
-                                        <li className="nav-item">
-                                            <Link href="/np-admin/settings">
-                                                <a className="nav-link" >Settings</a>
-                                            </Link>
-                                        </li>
+                                        {
+                                            user && user.role.access.includes('settings') && (
+                                                <li className="nav-item">
+                                                    <Link href="/np-admin/settings">
+                                                        <a className="nav-link" >Settings</a>
+                                                    </Link>
+                                                </li>
+                                            )
+                                        }
 
                                     </ul>
 
