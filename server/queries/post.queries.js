@@ -14,7 +14,7 @@ exports.getPost = async (id) => {
 }
 
 exports.getPostsWithAuthorAndCategory = () =>{
-    return Post.find().populate("category").populate("author");
+    return Post.find( {status:true}).populate("category").populate("author");
 }
 
 exports.deletePost = async (id) => {
@@ -26,9 +26,13 @@ exports.patchPost = async (id,data) => {
 }
 
 exports.getFeatured = () =>{
-    return Post.find({featured:true});
+    return Post.find({featured:true,status:true});
 }
 
 exports.getLastPosts = (limit)=>{
-    return Post.find( {status:true}).sort({"date":-1}).limit(limit).exec();
+    return Post.find( {status:true}).sort({"date":-1}).limit(limit).populate('author').populate('category').exec();
+}
+
+exports.getPostsByCategory = (id) =>{
+    return Post.find({"category":id}).populate("author")
 }

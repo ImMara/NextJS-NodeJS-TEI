@@ -4,28 +4,35 @@ import CategoriesWidget from "../../../templates/components/CategoriesWidget/Cat
 import CarouselFeatured from "../../../templates/components/CarouselFeatured/CarouselFeatured";
 import Footer from "../../../templates/components/Footer/Footer";
 import {hydration} from "../../../utils/hydration";
-import {getPosts} from "../../../server/queries/post.queries";
+import {getFeatured, getPost, getPosts} from "../../../server/queries/post.queries";
 import Comments from "../../../templates/components/Comments/Comments";
 import FormComment from "../../../templates/components/FormComment/FormComment";
+import {getCategories} from "../../../server/queries/category.queries";
 
 export async function getServerSideProps(context) {
 
+    const id = context.params.id;
     // db call to get all posts
-    const posts = await getPosts();
+    const post = await getPost(id);
+    const categories = await getCategories();
+    const featured = await getFeatured();
 
     return {
         // cleaning the object as json for nextJS hydrate security
-        props: {posts: hydration(posts)}, // will be passed to the page component as props
+        props: {
+            post: hydration(post),
+            categories: hydration(categories),
+            featured:hydration(featured)
+        }, // will be passed to the page component as props
     }
 }
 
 function Index(props) {
 
-    console.log(props.posts[0])
 
     function createMarkup() {
         return {
-            __html: props.posts[0].body
+            __html: props.post.body
         };
     }
 
@@ -39,10 +46,10 @@ function Index(props) {
                     </div>
                     <div className="row mb-3">
                         <div className="col-lg-9 mb-5">
-                            <h1>{props.posts[0].title}</h1>
+                            <h1>{props.post.title}</h1>
                             <div className="body"  dangerouslySetInnerHTML={createMarkup()}/>
                        </div>
-                        <CategoriesWidget/>
+                        <CategoriesWidget categories={props.categories} />
                     </div>
                     <div className="col-md-9">
                         <Comments/>
@@ -50,7 +57,9 @@ function Index(props) {
                     </div>
                 </div>
                 <hr/>
-                <CarouselFeatured/>
+                <CarouselFeatured
+                    featured={props.featured}
+                />
             </div>
             <Footer/>
         </>

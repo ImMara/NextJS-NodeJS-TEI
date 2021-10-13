@@ -9,6 +9,7 @@ const {ensureRoleAllowsPage} = require("./config/security.config");
 const {ensureRoleAllowsBlog} = require("./config/security.config");
 const {ensureAuthenticated} = require("./config/security.config");
 const {uploadBlogs} = require('./config/multer.config')
+const bodyParser = require("body-parser");
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -22,6 +23,9 @@ app.prepare()
         // Create server express and export to use it in different files
         const server = express();
         exports.server = server;
+
+        server.use(bodyParser.json({limit:"50mb"}))
+        server.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
 
         // Cookie parser to allow token in cookies
         server.use(cookieParser());

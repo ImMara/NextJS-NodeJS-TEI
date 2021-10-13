@@ -21,3 +21,7 @@ exports.patchCategory = async (id,data) => {
     return Category.findByIdAndUpdate(id,{$set:data},{runValidators:true});
 }
 
+exports.getCategoryByName = async (name) => {
+    return Category.find({'title':name})
+}
+

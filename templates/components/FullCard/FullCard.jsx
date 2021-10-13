@@ -19,7 +19,7 @@ function FullCard(props) {
                     <a href="mb-2">
                         <span
                             className="badge bg-danger"
-                        >Lifestyle</span>
+                        >{props.post.category ? props.post.category.name : "no category"}</span>
                     </a>
                     <h2 className="card-title">
                         <a
@@ -40,24 +40,10 @@ function FullCard(props) {
                     <div className={"d-flex align-items-center"}  style={{
                         textShadow:"black 0.1em 0.1em 0.2em"
                     }}>
+                        <h5 className="me-3">{props.post.author ? props.post.author.name : "anonymous"}</h5>
                         {
                             !props.short && (
-                                <img
-                                    src="https://i.pravatar.cc/200"
-                                    className={"avatar-md rounded-circle float-start me-2"}
-                                    alt=""
-                                    style={{
-                                        height:"3rem",
-                                        width: "3rem",
-                                        position: "relative",
-                                    }}
-                                />
-                            )
-                        }
-                        <h5 className="me-3">Judy Nguyen</h5>
-                        {
-                            !props.short && (
-                                <span className="small">June 18, 2021 at 11:55 am</span>
+                                <span className="small">{props.post.date}</span>
                             )
                         }
                     </div>

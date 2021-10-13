@@ -32,12 +32,17 @@ function CategoriesWidget(props) {
                 <h4 className={"mt-4 mb-3"}>Trending topics</h4>
                 {
                     props.categories.map((cat,index)=>(
-                        <div key={index}
-                            style={{backgroundImage:"url('https://picsum.photos/53/50')",backgroundSize:"cover",textShadow:"black 0.1em 0.1em 0.2em"}}
-                            className={"text-center mb-3 rounded bg-dark p-3"}
-                        >
-                            {cat.title}
-                        </div>
+                        <Link href={"/category/"+cat.title}>
+                            <a className={"link-light"}>
+                                <div key={index}
+                                     style={{backgroundImage:"url('https://picsum.photos/53/50')",backgroundSize:"cover",textShadow:"black 0.1em 0.1em 0.2em"}}
+                                     className={"text-center mb-3 rounded bg-dark p-3"}
+                                >
+                                    {cat.title}
+                                </div>
+                            </a>
+                        </Link>
+
                     ))
                 }
 

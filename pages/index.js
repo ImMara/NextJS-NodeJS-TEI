@@ -7,7 +7,7 @@ import {getCategories} from "../server/queries/category.queries";
 import {hydration} from "../utils/hydration";
 import {getFeatured, getLastPosts, getPostsWithAuthorAndCategory} from "../server/queries/post.queries";
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
     // get all CategoriesWidget from db
     const categories = await getCategories();
@@ -21,7 +21,7 @@ export async function getStaticProps(context) {
             categories: hydration(categories),
             posts:hydration(posts),
             featured:hydration(featured),
-            lastPosts:hydration(lastPosts)
+            lastPosts:hydration(lastPosts),
         }, // will be passed to the page component as props
     }
 }

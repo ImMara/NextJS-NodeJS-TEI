@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import Link from "next/link";
 
 function CarouselFeatured(props) {
 
@@ -30,15 +31,21 @@ function CarouselFeatured(props) {
                             {
                                 featured.map((post,index) =>
                                     (
-                                        <div className={index === 0 ? "carousel-item active":"carousel-item"}>
-                                            <img src="https://picsum.photos/581/500" style={{height:"200px", objectFit:"cover"}} className="d-block w-100" alt="..."/>
-                                            <div className="carousel-caption d-none d-md-block" style={{
-                                                textShadow:"black 0.1em 0.1em 0.2em"
-                                            }}>
-                                                <h5>{post.title}</h5>
-                                                <p>{post.short_description}</p>
+
+                                            <div className={index === 0 ? "carousel-item active":"carousel-item"} >
+                                                <img src="https://picsum.photos/581/500" style={{height:"200px", objectFit:"cover"}} className="d-block w-100" alt="..."/>
+                                                <div className="carousel-caption d-none d-md-block" style={{
+                                                    textShadow:"black 0.1em 0.1em 0.2em",
+                                                    cursor:"pointer"
+                                                }}>
+                                                    <Link href={"/post/"+post._id}>
+                                                        <div>
+                                                            <h5>{post.title}</h5>
+                                                            <p>{post.short_description}</p>
+                                                        </div>
+                                                    </Link>
+                                                </div>
                                             </div>
-                                        </div>
                                     )
                                 )
                             }
