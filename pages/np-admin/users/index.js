@@ -294,8 +294,8 @@ function Index(props) {
                             <tr>
                                 <th>#</th>
                                 <th>username</th>
-                                <th>email</th>
-                                <th>role</th>
+                                <th className={"table-none"}>email</th>
+                                <th className={"table-none"}>role</th>
                                 <th>action</th>
                             </tr>
                             </thead>
@@ -305,8 +305,8 @@ function Index(props) {
                                     <tr key={index}>
                                         <td>{index}</td>
                                         <td>{user.username}</td>
-                                        <td>{user.local.email}</td>
-                                        <td>
+                                        <td className={"table-none"}>{user.local.email}</td>
+                                        <td className={"table-none"}>
                                             {
                                                 user.delete ? (
                                                     <Select
@@ -444,7 +444,7 @@ function Index(props) {
                             <tr>
                                 <th>#</th>
                                 <th>role</th>
-                                <th>access</th>
+                                <th className={"table-none"}>access</th>
                                 <th>action</th>
                             </tr>
                             </thead>
@@ -454,7 +454,7 @@ function Index(props) {
                                     <tr key={index}>
                                         <td>{index+1}</td>
                                         <td>{role.title}</td>
-                                        <td>{role.access.map( (a,i) => (
+                                        <td className={"table-none"}>{role.access.map( (a,i) => (
                                             <span className={"me-2"} key={i}>{a},</span>
                                         ))}</td>
                                         <td>

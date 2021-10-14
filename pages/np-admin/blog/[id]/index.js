@@ -190,16 +190,16 @@ function Index(props) {
                         />
                     </div>
 
-                    <div className="form-check mb-3 ms-3 col-6 d-flex">
-                        <div className="me-5">
+                    <div className="form-check mb-3 ms-3 col-6 row">
+                        <div className="col-12">
                             <Checkbox
                                 value={body.allowComment}
-                                label="allow comments"
-                                name={"allowComment"}
+                                label="comments"
+                                name={"allowComments"}
                                 onChange={handleChange}
                             />
                         </div>
-                        <div>
+                        <div className="col-12">
                             <Checkbox
                                 value={body.status}
                                 label="publié"
@@ -207,7 +207,7 @@ function Index(props) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div>
+                        <div className="col-12">
                             <Checkbox
                                 value={body.featured}
                                 label="featured"

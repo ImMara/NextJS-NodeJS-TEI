@@ -60,16 +60,22 @@ function Index(props) {
         return (
             <>
                 <div className="row">
-                    <div className="col">
-                        <Link href={"/np-admin/blog/add"}>
-                            <a className="btn btn-primary">Ajouter un article</a>
-                        </Link>
-                        <Link href={"/np-admin/blog/category"}>
-                            <a className="btn btn-primary mx-2">Ajouter une categorie</a>
-                        </Link>
-                        <Link href={"/np-admin/blog/comments"}>
-                            <a className="btn btn-primary mx-2">Voir tous les commentaires</a>
-                        </Link>
+                    <div className="col-12 row">
+                        <div className="col-12 col-md-4 mb-1">
+                            <Link href={"/np-admin/blog/add"}>
+                                <a className="btn btn-primary w-100">Ajouter un article</a>
+                            </Link>
+                        </div>
+                        <div className="col-12 col-md-4 mb-1">
+                            <Link href={"/np-admin/blog/category"}>
+                                <a className="btn btn-primary mx-md-2 w-100">Ajouter une categorie</a>
+                            </Link>
+                        </div>
+                        <div className="col-12 col-md-4 mb-1">
+                            <Link href={"/np-admin/blog/comments"}>
+                                <a className="btn btn-primary mx-md-2 w-100">Voir tous les commentaires</a>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </>
@@ -84,10 +90,10 @@ function Index(props) {
                     <tr>
                         <th>#</th>
                         <th scope="col">Titre</th>
-                        <th scope="col">Commentaire</th>
-                        <th scope="col"></th>
-                        <th scope="col">Publié</th>
-                        <th scope="col">Categorie</th>
+                        <th scope="col" className={"table-none"}>Commentaire</th>
+                        <th scope="col" className={"table-none"}></th>
+                        <th scope="col" className={"table-none"}>Publié</th>
+                        <th scope="col" className={"table-none"}>Categorie</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -97,14 +103,14 @@ function Index(props) {
                             <tr>
                                 <th scope="row">{index}</th>
                                 <td>{post.title}</td>
-                                <td>{post.allowComment.toString()}</td>
-                                <td>
+                                <td className={"table-none"}>{post.allowComment.toString()}</td>
+                                <td className={"table-none"}>
                                     <Link href={"/np-admin/blog/" + post._id+"/comments"}>
                                         <a className={"btn btn-primary"}>Commentaires</a>
                                     </Link>
                                 </td>
-                                <td>{post.status.toString()}</td>
-                                <td>{post.category && post.category.title}</td>
+                                <td className={"table-none"}>{post.status.toString()}</td>
+                                <td className={"table-none"}>{post.category && post.category.title}</td>
                                 <td>
                                     <Link href={"/np-admin/blog/" + post._id}>
                                         <a className="btn btn-success rounded-start rounded-0">update</a>

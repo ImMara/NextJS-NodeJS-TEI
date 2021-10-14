@@ -9,3 +9,13 @@ body {
 #__next{
   min-height: 100vh;
 }
+
+.table-none{
+  display:none;
+}
+
+@media (min-width: 768px) {
+  .table-none{
+    display: table-cell;
+  }
+}
