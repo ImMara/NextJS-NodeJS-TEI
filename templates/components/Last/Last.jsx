@@ -7,16 +7,20 @@ function Last(props) {
 
 
             <div className="col-lg-6">
-                <FullCard post={props.posts[0]} image={"https://picsum.photos/260/300"} height="100%"/>
+                {
+                    props.posts[0] && (
+                        <FullCard post={props.posts[0]} image={"/images/blogs/resized/"+props.posts[0].image} height="100%"/>
+                    )
+                }
+
             </div>
 
             <div className="col-lg-6">
                 <div className="row g-4">
-
                     {
                         props.posts[1] && (
                             <div className="col-12">
-                                <FullCard short={true} post={props.posts[1]} image={"https://picsum.photos/210/300"} height="320px"/>
+                                <FullCard short={true} post={props.posts[1]} image={"/images/blogs/resized/"+props.posts[1].image} height="320px"/>
                             </div>
                         )
                     }
@@ -24,7 +28,7 @@ function Last(props) {
                     {
                         props.posts[2] && (
                             <div className="col-6">
-                                <FullCard short={true} post={props.posts[2]} image={"https://picsum.photos/200/310"} height="220px"/>
+                                <FullCard short={true} post={props.posts[2]} image={"/images/blogs/resized/"+props.posts[2].image} height="220px"/>
                             </div>
                         )
                     }
@@ -32,7 +36,7 @@ function Last(props) {
                     {
                         props.posts[3] && (
                             <div className="col-6">
-                                <FullCard short={true} post={props.posts[3]} image={"https://picsum.photos/200/320"} height="220px"/>
+                                <FullCard short={true} post={props.posts[3]} image={"/images/blogs/resized/"+props.posts[3].image} height="220px"/>
                             </div>
                         )
                     }

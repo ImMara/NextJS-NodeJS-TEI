@@ -35,7 +35,7 @@ function Posts(props) {
                                 <Link href={"/post/" + post._id}>
                                     <div className="col-md-6 mb-3" style={{cursor: "pointer"}} key={index}>
                                         <div className="position-relative">
-                                            <img className={"rounded"} src="https://picsum.photos/400/500" style={{height:"200px",width:"100%",objectFit:"cover"}} alt=""/>
+                                            <img className={"rounded"} src={"/images/blogs/resized/"+post.image} style={{height:"200px",width:"100%",objectFit:"cover"}} alt=""/>
                                             <a href="#" className={"position-absolute bottom-0 start-0 link-dark ms-3 mb-3 badge bg-primary me-2 small fw-bold"}><i className="fas fa-circle me-2 small fw-bold"/>{props.category ? props.category.title : "no category"}</a>
                                         </div>
                                         <h4 className={"mt-1"}>{post.title}</h4>

@@ -31,9 +31,8 @@ function CarouselFeatured(props) {
                             {
                                 featured.map((post,index) =>
                                     (
-
                                             <div className={index === 0 ? "carousel-item active":"carousel-item"} >
-                                                <img src="https://picsum.photos/581/500" style={{height:"200px", objectFit:"cover"}} className="d-block w-100" alt="..."/>
+                                                <img src={"/images/blogs/resized/"+post.image} style={{height:"200px", objectFit:"cover"}} className="d-block w-100" alt="..."/>
                                                 <div className="carousel-caption d-none d-md-block" style={{
                                                     textShadow:"black 0.1em 0.1em 0.2em",
                                                     cursor:"pointer"

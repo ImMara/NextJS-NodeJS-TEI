@@ -23,9 +23,9 @@ function Navbar(props) {
                                     </Link>
                                 </li>
                                 {
-                                    state.map((menu,index)=> (
+                                    state && state.map((menu,index)=> (
                                         <li className="nav-item">
-                                            <a className="nav-link active" aria-current="page" href={menu.title ? "/"+menu.title : "#"}>{menu.title}</a>
+                                            <a className="nav-link active" aria-current="page" href={menu.page_id ? "/"+menu.page_id.slug : "#"}>{menu.title}</a>
                                         </li>
                                     ))
                                 }

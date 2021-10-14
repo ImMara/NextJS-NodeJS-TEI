@@ -1,4 +1,7 @@
 import {createPost, getPosts} from '../../../../server/queries/post.queries'
+const path = require("path");
+const sharp = require('sharp');
+const fs = require('fs');
 
 export default async (req,res,next,error) => {
     switch (req.method) {
@@ -32,12 +35,23 @@ export default async (req,res,next,error) => {
                 // GETTING USER FROM AUTH
                 const user = req.user;
 
-                // CREATE DATA IN DATABASE
-                await createPost({
-                    ...body,
-                    author:user._id,
-                    date:Date.now(),
-                })
+                if (req.file) {
+
+                    const {filename: image} = req.file;
+                    await sharp(req.file.path)
+                        .resize(800)
+                        .webp({quality: 90})
+                        .toFile(path.resolve(req.file.destination, "resized", image))
+                    fs.unlinkSync(req.file.path);
+
+                    await createPost({
+                        ...body,
+                        author:user._id,
+                        image: req.file.filename,
+                        date:Date.now(),
+                    })
+
+                }
 
                 // SUCCESS MESSAGE
                 const string = `new post success ${body.title}`;
@@ -48,6 +62,11 @@ export default async (req,res,next,error) => {
                 })
 
             } catch (e) {
+
+                if (req.file) {
+                    const {filename: image} = req.file;
+                    fs.unlinkSync(path.resolve(req.file.destination, "resized", image))
+                }
 
                 // API RETURNS ERROR
                 res.json({error: e.message});

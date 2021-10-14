@@ -44,7 +44,7 @@ export default async  (req,res,next) => {
             } catch (e) {
 
                 // API RETURNS ERROR
-                res.json({error: e})
+                res.json({error: e.message})
 
                 // SERVER RETURNS ERROR
                 console.error(e)

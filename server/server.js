@@ -10,6 +10,8 @@ const {ensureRoleAllowsBlog} = require("./config/security.config");
 const {ensureAuthenticated} = require("./config/security.config");
 const {uploadBlogs} = require('./config/multer.config')
 const bodyParser = require("body-parser");
+const path = require("path");
+const multer = require('multer');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -61,6 +63,26 @@ app.prepare()
         // All pages handle by nextJS
         server.get('*' , (req,res,next) =>{
             return handle(req,res,next);
+        })
+
+        server.post('/api/blog/post/',async(req,res,next) =>{
+            try {
+                await uploadBlogs.single("image")(req, res, async function (err) {
+                    if (err instanceof multer.MulterError) {
+                        return res.json({error: "Max file size 2MB allowed!"});
+                    } else if (err) {
+                        return res.json({error: "Extension must be jpg,png,gif,jpeg"})
+                    } else if (!req.file) {
+                        return res.json({error: "file is required"})
+                    } else{
+                        console.log(1, "call")
+                        return await handle(req, res, next);
+                    }
+                })
+            }catch (e) {
+                console.log(e);
+                res.status(400);
+            }
         })
 
         // Post auth informations

@@ -103,15 +103,17 @@ function Index(props) {
         axios
             .post("http://localhost:3000/api/blog/categories", body)
             .then(r => {
-                console.log(r)
                 setMessage(r.data);
-                // update locally the state
-                setCategory([...category, body]);
-                // reset values
-                setBody({
-                    title: "",
-                    description: ""
-                })
+
+                if (!r.data.error) {
+                    // update locally the state
+                    setCategory([...category, body]);
+                    // reset values
+                    setBody({
+                        title: "",
+                        description: ""
+                    })
+                }
             });
 
     }
@@ -156,57 +158,68 @@ function Index(props) {
                         />
                     )
                 }
-                <h1>Categories</h1>
-                <hr/>
-                <div className={"mb-3"}>
-                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCat">
-                        Ajouter une catégorie
-                    </button>
-                    <Link href={"/np-admin/blog/"}>
-                        <a className={"btn btn-primary ms-2"}>Liste des articles</a>
-                    </Link>
-                </div>
-
-                <hr/>
-
-                <Modal
-                    target={"addCat"}
-                    label={"exampleModalLabel"}
-                    title={"Modal title"}
-                    btn={"Ajouter"}
-                    submit={handleSubmit}
-                >
-                    <div className="mb-3">
-                        <Input
-                            name={"title"}
-                            onChange={handleChange}
-                            type={"text"}
-                            label={"title"}
-                            value={body.title}
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <Textarea
-                            name={"description"}
-                            label={"description"}
-                            onChange={handleChange}
-                            value={body.description}
-                        />
-                    </div>
-                </Modal>
-
-                <Modal
-                    target={"delete"}
-                    label={"exampleModalLabel"}
-                    title={"Delete"}
-                    btn={"delete"}
-                    submit={handleDelete}
-                >
-                    are you sure?
-                </Modal>
-
                 <div className="row">
-                    <div className="col-4">
+
+                    <div className="col-12">
+                        <h1>Categories</h1>
+                        <hr/>
+                    </div>
+
+                    <div className={"row col-12 mb-3 gx-1"}>
+                        <div className="col-12 col-md-3 mb-1">
+                            <button type="button" className="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#addCat">
+                                Ajouter une catégorie
+                            </button>
+                        </div>
+                        <div className="col-12 col-md-3 mb-3">
+                            <Link href={"/np-admin/blog/"}>
+                                <a className={"btn btn-primary w-100"}>Liste des articles</a>
+                            </Link>
+                        </div>
+                        <hr/>
+                    </div>
+
+                    <div className="col-12">
+                        <Modal
+                            target={"addCat"}
+                            label={"exampleModalLabel"}
+                            title={"Modal title"}
+                            btn={"Ajouter"}
+                            submit={handleSubmit}
+                        >
+                            <div className="mb-3">
+                                <Input
+                                    name={"title"}
+                                    onChange={handleChange}
+                                    type={"text"}
+                                    label={"title"}
+                                    value={body.title}
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <Textarea
+                                    name={"description"}
+                                    label={"description"}
+                                    onChange={handleChange}
+                                    value={body.description}
+                                />
+                            </div>
+                        </Modal>
+                    </div>
+
+                    <div className="col-12">
+                        <Modal
+                            target={"delete"}
+                            label={"exampleModalLabel"}
+                            title={"Delete"}
+                            btn={"delete"}
+                            submit={handleDelete}
+                        >
+                            are you sure?
+                        </Modal>
+                    </div>
+
+                    <div className="col-12 col-md-6">
                         <table className="table">
                             <thead>
                             <th>#</th>
@@ -246,7 +259,8 @@ function Index(props) {
                             </tbody>
                         </table>
                     </div>
-                    <div className="col-8">
+
+                    <div className="col-12 col-md-6">
                         {
                             editCategory.title && (
                                 <div className="p-3 border-1">
@@ -268,7 +282,7 @@ function Index(props) {
                                         />
                                     </div>
                                     <div>
-                                        <a className="btn btn-success" onClick={handleSubmitEdit}>Save</a>
+                                        <a className="btn btn-success me-1" onClick={handleSubmitEdit}>Save</a>
                                         <a className="btn btn-danger" onClick={handleCloseEdit}>Close</a>
                                     </div>
                                 </div>

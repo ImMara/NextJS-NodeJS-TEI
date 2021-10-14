@@ -1,4 +1,7 @@
 import {deletePost, getPost, patchPost} from "../../../../../server/queries/post.queries";
+const path = require("path");
+const sharp = require('sharp');
+const fs = require('fs');
 
 export default async (req, res, next) => {
     switch (req.method) {
@@ -71,6 +74,8 @@ export default async (req, res, next) => {
 
                 // GET POST WITH ID
                 const post = await getPost(id);
+
+                fs.unlink(path.join(__dirname, `../../../../../../public/images/blogs/resized/${post.image}`), (err => err && console.error(err)))
 
                 // DELETE POST WITH ID
                 await deletePost(id);

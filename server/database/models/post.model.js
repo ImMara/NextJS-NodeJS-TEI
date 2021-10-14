@@ -29,6 +29,9 @@ const postSchema = schema({
         maxLength:[125,"short description is too long"],
         required: true
     },
+    image:{
+        type: String,
+    },
     body: {
         type: String,
         minLength:[25,"body must be at least 50 characters"],

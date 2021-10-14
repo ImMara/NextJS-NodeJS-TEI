@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from "../../../templates/components/Navbar/Navbar";
 import CategoriesWidget from "../../../templates/components/CategoriesWidget/CategoriesWidget";
 import CarouselFeatured from "../../../templates/components/CarouselFeatured/CarouselFeatured";
@@ -8,6 +8,7 @@ import {getFeatured, getPost, getPosts} from "../../../server/queries/post.queri
 import Comments from "../../../templates/components/Comments/Comments";
 import FormComment from "../../../templates/components/FormComment/FormComment";
 import {getCategories} from "../../../server/queries/category.queries";
+import {useSettingsContext} from "../../../context/settings";
 
 export async function getServerSideProps(context) {
 
@@ -29,6 +30,7 @@ export async function getServerSideProps(context) {
 
 function Index(props) {
 
+    const [settings,setSettings] = useState(useSettingsContext());
 
     function createMarkup() {
         return {
@@ -42,7 +44,7 @@ function Index(props) {
             <div className="container text-white">
                 <div className="row g-4 mb-3">
                     <div className="col-12 pt-4 mb-5" style={{height:'400px' }}>
-                        <img alt={""} src="https://picsum.photos/510/500" style={{objectFit:"cover", height:'100%',width:'100%'}} />
+                        <img alt={""} src={"/images/blogs/resized/"+props.post.image} style={{objectFit:"cover", height:'100%',width:'100%'}} />
                     </div>
                     <div className="row mb-3">
                         <div className="col-lg-9 mb-5">
@@ -52,8 +54,15 @@ function Index(props) {
                         <CategoriesWidget categories={props.categories} />
                     </div>
                     <div className="col-md-9">
-                        <Comments/>
-                        <FormComment/>
+                        {
+                            // settings[0].comments &&
+                            props.post.allowComment && (
+                                <>
+                                    <Comments/>
+                                    <FormComment/>
+                                </>
+                            )
+                        }
                     </div>
                 </div>
                 <hr/>

@@ -12,7 +12,12 @@ const Navbar = (props) => {
 
                         <nav className="navbar navbar-expand-lg border-0 navbar-light bg-light">
                             <div className="container-fluid">
-                                <div className="collapse navbar-collapse" id="navbarColor03">
+                                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                    <span className="navbar-toggler-icon"/>
+                                </button>
+                                <div className="collapse navbar-collapse"  id="navbarSupportedContent">
                                     <ul className="navbar-nav me-auto">
 
                                         <li className="nav-item">

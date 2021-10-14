@@ -58,20 +58,32 @@ function Add(props) {
         setBody({...body, [name]: value})
     }
 
+
+    const handleFile = (event) =>{
+        setFileSelected(event.target.files[0])
+    }
+
     const handleBodyEditor = (content) => {
         setBodyEditor(content);
     }
 
     const handleSubmit = (event) => {
 
+        let formData = new FormData();
 
+        for(const key in body){
+            formData.append(key,body[key]);
+            console.log(key , body[key]);
+        }
+
+        formData.append('body',bodyEditor);
+        formData.append('image',fileSelected);
+        console.log(formData);
 
         axios
-            .post('http://localhost:3000/api/blog/post/',{...body,body:bodyEditor})
+            .post('http://localhost:3000/api/blog/post/', formData)
             .then((r) => {
-                console.log(r);
                 setMessage(r.data);
-                setFileSelected(null)
                 if (!r.data.error) {
                     setBody({
                         title: "",
@@ -154,6 +166,15 @@ function Add(props) {
                         </Select>
                     </div>
 
+                    <div className="col-12 mb-3">
+                        <Input
+                            type="file"
+                            name={"image"}
+                            onChange={handleFile}
+                            label="Image"
+                        />
+                    </div>
+
                     <div className="mb-3 col-12">
                         <h6 className="mb-2 py-1">Contenus de l'article</h6>
                         <SunEditor
@@ -177,10 +198,10 @@ function Add(props) {
                                     ["align", "list", "lineHeight"],
                                     ["outdent", "indent"],
 
-                                    ["table", "horizontalRule", "link", "image", "video"],
+                                    ["table", "horizontalRule", "link","video"],
                                     // ['math'] //You must add the 'katex' library at options to use the 'math' plugin.
                                     // ['imageGallery'], // You must add the "imageGalleryUrl".
-                                    ["fullScreen", "showBlocks", "codeView"],
+                                    // ["fullScreen", "showBlocks", "codeView"],
                                     ["preview", "print"],
                                     ["removeFormat"],
 

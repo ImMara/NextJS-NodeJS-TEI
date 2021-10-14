@@ -45,7 +45,7 @@ function Index(props) {
                         <h1>Profile</h1>
                         <hr/>
                     </div>
-                    <div className="col-6">
+                    <div className="col-12 col-lg-6">
                        <Input
                            label={"votre pseudo"}
                            type="text"
@@ -94,7 +94,7 @@ function Index(props) {
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="col-6">
+                    <div className="col-12 col-lg-6">
                         <Input
                             label={"votre email"}
                             type="email"

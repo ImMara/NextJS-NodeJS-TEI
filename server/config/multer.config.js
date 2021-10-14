@@ -15,10 +15,9 @@ exports.uploadBlogs = multer({
     }),
     fileFilter: function (req, file, callback) {
         let ext = path.extname(file.originalname);
-        if(ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
-            const error = { error : "only images are allowed"}
-            return callback(error)
+        if(ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg')       {
+            return callback({error:"wrong extension"})
         }
-        callback(null, true)
+        return callback(null, true)
     },
 })

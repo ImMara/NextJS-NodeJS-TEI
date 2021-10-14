@@ -217,11 +217,14 @@ function Index(props) {
                         />
                     )
                 }
-                <h1>Administration des utilisateurs</h1>
-                <hr/>
                 <div className="row">
 
-                    <div className="col-6">
+                    <div className="col-12">
+                        <h1>Administration des utilisateurs</h1>
+                        <hr/>
+                    </div>
+
+                    <div className="col-12 col-lg-6">
                         <h2>Utilisateurs</h2>
                         <hr/>
                         <div className="mb-3">
@@ -288,13 +291,13 @@ function Index(props) {
                         <hr/>
                         <table className="table">
                             <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>username</th>
-                                    <th>email</th>
-                                    <th>role</th>
-                                    <th>action</th>
-                                </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>username</th>
+                                <th>email</th>
+                                <th>role</th>
+                                <th>action</th>
+                            </tr>
                             </thead>
                             <tbody>
                             {
@@ -323,24 +326,24 @@ function Index(props) {
                                         <td>
                                             {
                                                 authUser && (
-                                                 user._id !== authUser.sub ? (
-                                                     user.delete &&(
-                                                    <a
-                                                        onClick={()=>{
-                                                            setUserId(user._id);
-                                                            setUserIndex(index);
-                                                        }}
-                                                        className={"btn btn-danger"}
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#deleteUser"
-                                                    >Delete</a>
-                                                )) : (
-                                                    <Link href="/np-admin/profile">
-                                                        <a
-                                                            className={"btn btn-primary"}
-                                                        >Profile</a>
-                                                    </Link>
-                                                ))
+                                                    user._id !== authUser.sub ? (
+                                                        user.delete &&(
+                                                            <a
+                                                                onClick={()=>{
+                                                                    setUserId(user._id);
+                                                                    setUserIndex(index);
+                                                                }}
+                                                                className={"btn btn-danger"}
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#deleteUser"
+                                                            >Delete</a>
+                                                        )) : (
+                                                        <Link href="/np-admin/profile">
+                                                            <a
+                                                                className={"btn btn-primary"}
+                                                            >Profile</a>
+                                                        </Link>
+                                                    ))
                                             }
                                         </td>
                                     </tr>
@@ -350,7 +353,7 @@ function Index(props) {
                         </table>
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-12 col-lg-6">
                         <h2>Roles</h2>
                         <hr/>
                         <div className="mb-3">
@@ -374,26 +377,26 @@ function Index(props) {
                             btn={"Ajouter"}
                             submit={handleSubmitNewRole}
                         >
-                          <Input
-                              label={"titre du role"}
-                              type={"text"}
-                              name={"title"}
-s                              value={bodyRole.title}
-                              onChange={handleChangeRole}
-                          />
-                          <Select
-                              name={"access"}
-                              label={"autorisation"}
-                              multiple={true}
-                              value={bodyRole.access}
-                              onChange={handleChangeRoleMulti}
-                          >
-                              <option value="blog">blog</option>
-                              <option value="page">page</option>
-                              <option value="menu">menu</option>
-                              <option value="users">users</option>
-                              <option value="settings">settings</option>
-                          </Select>
+                            <Input
+                                label={"titre du role"}
+                                type={"text"}
+                                name={"title"}
+                                s                              value={bodyRole.title}
+                                onChange={handleChangeRole}
+                            />
+                            <Select
+                                name={"access"}
+                                label={"autorisation"}
+                                multiple={true}
+                                value={bodyRole.access}
+                                onChange={handleChangeRoleMulti}
+                            >
+                                <option value="blog">blog</option>
+                                <option value="page">page</option>
+                                <option value="menu">menu</option>
+                                <option value="users">users</option>
+                                <option value="settings">settings</option>
+                            </Select>
                         </Modal>
 
                         <Modal
@@ -438,12 +441,12 @@ s                              value={bodyRole.title}
                         <hr/>
                         <table className="table">
                             <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>role</th>
-                                    <th>access</th>
-                                    <th>action</th>
-                                </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>role</th>
+                                <th>access</th>
+                                <th>action</th>
+                            </tr>
                             </thead>
                             <tbody>
                             {
@@ -458,23 +461,23 @@ s                              value={bodyRole.title}
                                             {
                                                 role.delete && (
                                                     <>
-                                                    <button
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#updateRole"
-                                                        onClick={()=> {
-                                                            setBodyRole(role)
-                                                            setRoleIndex(index)
-                                                        }}
-                                                        className={"btn btn-success"}
-                                                    >Update</button>
-                                                    <a
-                                                    onClick={()=> {
-                                                            setRoleIndex(index)
-                                                            setRoleId(role._id)
-                                                        }}
-                                                    className={"btn btn-danger"}
-                                                    data-bs-toggle="modal" data-bs-target="#deleteRole"
-                                                    >Delete</a>
+                                                        <button
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#updateRole"
+                                                            onClick={()=> {
+                                                                setBodyRole(role)
+                                                                setRoleIndex(index)
+                                                            }}
+                                                            className={"btn btn-success"}
+                                                        >Update</button>
+                                                        <a
+                                                            onClick={()=> {
+                                                                setRoleIndex(index)
+                                                                setRoleId(role._id)
+                                                            }}
+                                                            className={"btn btn-danger"}
+                                                            data-bs-toggle="modal" data-bs-target="#deleteRole"
+                                                        >Delete</a>
                                                     </>
                                                 )
                                             }
@@ -486,7 +489,9 @@ s                              value={bodyRole.title}
                         </table>
                     </div>
 
+
                 </div>
+
             </Layout>
         </>
     );

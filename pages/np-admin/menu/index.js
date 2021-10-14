@@ -160,61 +160,73 @@ function Index(props) {
                         />
                     )
                 }
-                <h1>Menu</h1>
-                <hr/>
-                <div className={"mb-3"}>
-                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMenu">
-                        Ajouter un liens
-                    </button>
-                </div>
-                <hr/>
-                <Modal
-                    target={"delete"}
-                    label={"exampleModalLabel"}
-                    title={"Delete"}
-                    btn={"delete"}
-                    submit={handleDelete}
-                >
-                    are you sure?
-                </Modal>
-                <Modal
-                    target={"addMenu"}
-                    label={"exampleModalLabel"}
-                    title={"Ajouter un liens"}
-                    btn={"Ajouter"}
-                    submit={handleSubmit}
-                >
-                    <div className="mb-3">
-                        <Input
-                            name={"title"}
-                            onChange={handleChange}
-                            type="text"
-                            label={"titre"}
-                            value={body.title}
-                        />
-                    </div>
-
-                    <div className="mb-3">
-                        <Select
-                            onChange={handleChange}
-                            name={"page_id"}
-                            label={"page"}
-                            value={body.page_id}
-                        >
-                            <option selected value={null}>unset</option>
-                            {
-                                pages.map((page,index) => (
-                                    <>
-                                        <option key={index} value={page._id}>{page.title}</option>
-                                    </>
-                                ))
-                            }
-                        </Select>
-                    </div>
-
-                </Modal>
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-12">
+                        <h1>Menu</h1>
+                        <hr/>
+                    </div>
+
+                    <div className="col-12 row">
+                        <div className={"mb-3 col-12 col-md-4"}>
+                            <button type="button" className="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#addMenu">
+                                Ajouter un liens
+                            </button>
+                        </div>
+                        <div className="col-12">
+                            <hr/>
+                        </div>
+                    </div>
+
+                    <div className="col-12">
+                        <Modal
+                            target={"delete"}
+                            label={"exampleModalLabel"}
+                            title={"Delete"}
+                            btn={"delete"}
+                            submit={handleDelete}
+                        >
+                            are you sure?
+                        </Modal>
+                    </div>
+
+                    <div className="col-12">
+                        <Modal
+                            target={"addMenu"}
+                            label={"exampleModalLabel"}
+                            title={"Ajouter un liens"}
+                            btn={"Ajouter"}
+                            submit={handleSubmit}
+                        >
+                            <div className="mb-3">
+                                <Input
+                                    name={"title"}
+                                    onChange={handleChange}
+                                    type="text"
+                                    label={"titre"}
+                                    value={body.title}
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <Select
+                                    onChange={handleChange}
+                                    name={"page_id"}
+                                    label={"page"}
+                                    value={body.page_id}
+                                >
+                                    <option selected value={null}>unset</option>
+                                    {
+                                        pages.map((page,index) => (
+                                            <>
+                                                <option key={index} value={page._id}>{page.title}</option>
+                                            </>
+                                        ))
+                                    }
+                                </Select>
+                            </div>
+                        </Modal>
+                    </div>
+
+                    <div className="col-12 col-md-6">
                         <table className="table">
                             <thead>
                             <th>#</th>
@@ -233,8 +245,8 @@ function Index(props) {
                                                     <a
                                                         className="btn btn-success"
                                                         onClick={() => {
-                                                        setUpdateMenu(menu);
-                                                        setMenuIndex(index);
+                                                            setUpdateMenu(menu);
+                                                            setMenuIndex(index);
                                                         }}>Update</a>
                                                     <button
                                                         className="btn btn-danger"
@@ -252,7 +264,8 @@ function Index(props) {
                             </tbody>
                         </table>
                     </div>
-                    <div className="col-8">
+
+                    <div className="col-12 col-md-6">
                         {
                             updateMenu.title && (
                                 <div className="p-3 border-1">

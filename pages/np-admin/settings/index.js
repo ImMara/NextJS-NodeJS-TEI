@@ -12,7 +12,7 @@ function Index(props) {
 
     const handleChange = (event) => {
         const name = event.target.name;
-        const value = event.target.value;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
 
         setBody({...body,[name]:value});
     }
@@ -45,9 +45,11 @@ function Index(props) {
                         <input className="form-control" id="url" type="text" onChange={handleChange} defaultValue={setting&&setting[0].url} name="url"/>
                     </div>
 
-                    <div className="mb-3 col-6">
-                        <input id="comments" className="form-check-input" onChange={handleChange} type="checkbox" name="comments"/>
-                        <label htmlFor="comments" className="form-check-label"> comments </label>
+                    <div className="mb-3 d-flex align-items-center col-6">
+                        <div className="mt-4">
+                            <input id="comments" className="form-check-input" onChange={handleChange} type="checkbox" name="comments"/>
+                            <label htmlFor="comments" className="ms-1 form-check-label"> comments </label>
+                        </div>
                     </div>
 
                     <div className="mb-3 col-12">
