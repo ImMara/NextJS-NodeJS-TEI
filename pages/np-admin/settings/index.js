@@ -19,7 +19,7 @@ function Index(props) {
     }
 
     const handleSubmit = (event) => {
-        axios.patch(`${process.env.SETTINGS_URL}/api/settings/` + setting[0]._id, body)
+        axios.patch(`/api/settings/` + setting[0]._id, body)
             .then(r  =>console.log(r));
     }
 

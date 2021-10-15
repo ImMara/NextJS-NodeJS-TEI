@@ -44,7 +44,7 @@ function Add(props) {
 
     const handleSubmit = async () => {
         axios
-            .post(`${process.env.SETTINGS_URL}/api/page`, {...body,body:bodyEditor})
+            .post(`/api/page`, {...body,body:bodyEditor})
             .then(r => console.log(r))
     }
 

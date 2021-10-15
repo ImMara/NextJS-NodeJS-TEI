@@ -69,7 +69,7 @@ function Index(props) {
     // handle submit new user
     const handleSubmitUser = (event) => {
         axios
-            .post(`${process.env.SETTINGS_URL}/api/users`,bodyUser)
+            .post(`/api/users`,bodyUser)
             .then(r =>{
                 console.log(r);
                 setMessage(r.data);
@@ -89,7 +89,7 @@ function Index(props) {
     const handleDelete = (event) => {
         // delete user in db
         axios
-            .delete(`${process.env.SETTINGS_URL}/api/users/`+userId)
+            .delete(`/api/users/`+userId)
             .then(r =>{
                 console.log(r);
                 setMessage(r.data);
@@ -107,7 +107,7 @@ function Index(props) {
         const value = await target.type === 'checkbox' ? target.checked : target.value;
         const name = await target.name;
 
-        axios.patch(`${process.env.SETTINGS_URL}/api/users/`+user._id, {[name]:value})
+        axios.patch(`/api/users/`+user._id, {[name]:value})
             .then(r =>{
                 console.log(r);
                 setMessage(r.data);
@@ -147,7 +147,7 @@ function Index(props) {
         const handleSubmitNewRole = () =>{
             // post new role to db
             axios
-                .post(`${process.env.SETTINGS_URL}/api/settings/role`,bodyRole)
+                .post(`/api/settings/role`,bodyRole)
                 .then(r => {
                     console.log(r)
                     setMessage(r.data);
@@ -165,7 +165,7 @@ function Index(props) {
         const handleDeleteRole = () =>{
             // delete role in db
             axios
-                .delete(`${process.env.SETTINGS_URL}/api/settings/role/`+roleId)
+                .delete(`/api/settings/role/`+roleId)
                 .then(r => {
                     console.log(r)
                     setMessage(r.data);
@@ -185,7 +185,7 @@ function Index(props) {
         const handleSubmitUpdateRole = (event) => {
             // update the db with body values
             axios
-                .patch(`${process.env.SETTINGS_URL}/api/settings/role/`+bodyRole._id,bodyRole)
+                .patch(`/api/settings/role/`+bodyRole._id,bodyRole)
                 .then(r => {
                     console.log(r);
                     setMessage(r.data);

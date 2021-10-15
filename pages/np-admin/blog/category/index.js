@@ -57,7 +57,7 @@ function Index(props) {
     const handleSubmitEdit = (event) => {
         // update the database with edit state values
         axios
-            .patch(`${process.env.SETTINGS_URL}/api/blog/categories/` + editCategory._id, editCategory)
+            .patch(`/api/blog/categories/` + editCategory._id, editCategory)
             .then((r) => {
                 console.log(r)
                 setMessage(r.data);
@@ -101,7 +101,7 @@ function Index(props) {
     const handleSubmit = (event) => {
         // post new category to db
         axios
-            .post(`${process.env.SETTINGS_URL}/api/blog/categories`, body)
+            .post(`/api/blog/categories`, body)
             .then(r => {
                 setMessage(r.data);
 
@@ -126,7 +126,7 @@ function Index(props) {
     const handleDelete = (event) => {
         // delete category in DB
         axios
-            .delete(`${process.env.SETTINGS_URL}/api/blog/categories/` + categoryId)
+            .delete(`/api/blog/categories/` + categoryId)
             .then(r => {
                 console.log(r)
                 setMessage(r.data);

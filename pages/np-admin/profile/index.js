@@ -29,7 +29,7 @@ function Index(props) {
 
     const handleSubmit = (event) => {
         axios
-            .patch(`${process.env.SETTINGS_URL}/api/users/`+props.user._id,user)
+            .patch(`/api/users/`+props.user._id,user)
             .then(r => {
                 console.log(r)
                 setMessage(r.data);

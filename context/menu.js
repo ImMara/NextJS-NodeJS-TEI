@@ -8,7 +8,7 @@ export function MenuWrapper(props){
     const [menu,setMenu] = useState([]);
 
     useEffect(() => {
-        axios.get(`${process.env.SETTINGS_URL}/api/settings/menu`)
+        axios.get(`/api/settings/menu`)
             .then(r => {
                 setMenu(r.data.data);
             });

@@ -12,7 +12,7 @@ export function SettingsWrapper(props){
     const [settings,setSettings] = useState();
 
     useEffect( ()=>{
-        axios.get(`${process.env.SETTINGS_URL}/api/settings`)
+        axios.get(`/api/settings`)
             .then((response)=>setSettings(response.data.data))
     },[])
 
