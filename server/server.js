@@ -117,9 +117,8 @@ app.prepare()
         // throw err if wrong configuration
         // url of server
 
-        // server.listen(3000, (err)=>{
-        //     if (err) throw err;
-        //     console.log('> Ready on http://localhost:3000');
-        // })
-        http.createServer(app).listen(80)
+        server.listen(80, (err)=>{
+            if (err) throw err;
+            console.log('> Ready on http://localhost:80');
+        })
     })
