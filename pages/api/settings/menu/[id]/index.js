@@ -1,6 +1,4 @@
 import {deleteMenu, getMenu, getMenuWithParent, patchMenu} from "../../../../../server/queries/menu.queries";
-import {deleteCategory, getCategory} from "../../../../../server/queries/category.queries";
-
 
 export default async (req, res, next) => {
     switch (req.method) {

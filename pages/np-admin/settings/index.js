@@ -12,6 +12,7 @@ function Index(props) {
 
     const handleChange = (event) => {
         const name = event.target.name;
+        const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
 
         setBody({...body,[name]:value});

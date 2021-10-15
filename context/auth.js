@@ -1,8 +1,5 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 import Cookies from 'js-cookie';
-import {findUserPerId} from "../server/queries/user.queries";
-import {getCategories} from "../server/queries/category.queries";
-import {hydration} from "../utils/hydration";
 const jwt = require('jsonwebtoken');
 
 const AuthContext = createContext(undefined);

@@ -12,6 +12,8 @@ const {uploadBlogs} = require('./config/multer.config')
 const bodyParser = require("body-parser");
 const path = require("path");
 const multer = require('multer');
+const https = require('https');
+const http = require("http");
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -114,8 +116,10 @@ app.prepare()
         // create server and listen the port
         // throw err if wrong configuration
         // url of server
-        server.listen(3000, (err)=>{
-            if (err) throw err;
-            console.log('> Ready on http://localhost:3000');
-        })
+
+        // server.listen(3000, (err)=>{
+        //     if (err) throw err;
+        //     console.log('> Ready on http://localhost:3000');
+        // })
+        http.createServer(app).listen(80)
     })
