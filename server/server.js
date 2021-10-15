@@ -14,7 +14,6 @@ const path = require("path");
 const multer = require('multer');
 const https = require('https');
 const http = require("http");
-require('dotenv').config();
 
 const { createServer } = require('http')
 const port = parseInt(process.env.PORT, 10) || 80
