@@ -15,8 +15,11 @@ const multer = require('multer');
 const https = require('https');
 const http = require("http");
 
+const { createServer } = require('http')
+const port = parseInt(process.env.PORT, 10) || 3000
+
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev , quiet:true });
+const app = next({ dev });
 const handle = app.getRequestHandler();
 
 app.prepare()
@@ -116,9 +119,9 @@ app.prepare()
         // create server and listen the port
         // throw err if wrong configuration
         // url of server
-
-        server.listen(3000, (err)=>{
-            if (err) throw err;
-            console.log('> Ready on http://localhost:80');
+        createServer(server).listen(port,(err)=>{
+            if (err) throw err
+            console.log(`> Ready on http://localhost:${port}`)
         })
-    })
+})
+
