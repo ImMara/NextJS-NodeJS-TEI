@@ -12,7 +12,7 @@ export function SettingsWrapper(props){
     const [settings,setSettings] = useState();
 
     useEffect( ()=>{
-        axios.get('http://localhost:3000/api/settings')
+        axios.get('http://141.94.220.5:80/api/settings')
             .then((response)=>setSettings(response.data.data))
     },[])
 
