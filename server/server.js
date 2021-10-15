@@ -16,7 +16,7 @@ const https = require('https');
 const http = require("http");
 
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ });
+const app = next({ quiet });
 const handle = app.getRequestHandler();
 
 app.prepare()
