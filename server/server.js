@@ -16,7 +16,7 @@ const https = require('https');
 const http = require("http");
 
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ quiet });
+const app = next({ dev , quiet:true });
 const handle = app.getRequestHandler();
 
 app.prepare()
@@ -117,7 +117,7 @@ app.prepare()
         // throw err if wrong configuration
         // url of server
 
-        server.listen(80, (err)=>{
+        server.listen(3000, (err)=>{
             if (err) throw err;
             console.log('> Ready on http://localhost:80');
         })
