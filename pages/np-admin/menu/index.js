@@ -58,7 +58,7 @@ function Index(props) {
     const handleSubmitUpdate = (event) => {
         // update the database with update state values
         axios
-            .patch("http://localhost:3000/api/settings/menu/" + updateMenu._id, updateMenu)
+            .patch(`${process.env.SETTINGS_URL}/api/settings/menu/` + updateMenu._id, updateMenu)
             .then((r) => {
                 console.log(r);
                 setMessage(r.data);
@@ -104,7 +104,7 @@ function Index(props) {
         const handleSubmit = (event) => {
             // post new menu to db
             axios
-                .post("http://localhost:3000/api/settings/menu",body)
+                .post(`${process.env.SETTINGS_URL}/api/settings/menu`,body)
                 .then(r =>{
                     console.log(r);
                     setMessage(r.data);
@@ -128,7 +128,7 @@ function Index(props) {
         const handleDelete = (event) => {
             // delete menu in db
             axios
-                .delete("http://localhost:3000/api/settings/menu/"+menuId)
+                .delete(`${process.env.SETTINGS_URL}/api/settings/menu/`+menuId)
                 .then(r =>{
                     console.log(r);
                     setMessage(r.data);

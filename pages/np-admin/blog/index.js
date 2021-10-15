@@ -43,7 +43,7 @@ function Index(props) {
     const handleSubmit = () => {
 
         axios
-            .delete("http://localhost:3000/api/blog/post/" + id)
+            .delete(`${process.env.SETTINGS_URL}/api/blog/post/` + id)
             .then(r => {
                 // delete locally
                 posts.splice(index, 1)

@@ -28,7 +28,7 @@ function Index(props) {
 
     // handle delete page
     const handleDelete = () => {
-        axios.delete("http://localhost:3000/api/page/" + pageID)
+        axios.delete(`${process.env.SETTINGS_URL}/api/page/` + pageID)
             .then(r => {
                 console.log(r)
                 setMessage(r.data);

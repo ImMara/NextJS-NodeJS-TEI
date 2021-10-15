@@ -69,7 +69,7 @@ function Index(props) {
     // handle submit new user
     const handleSubmitUser = (event) => {
         axios
-            .post('http://localhost:3000/api/users',bodyUser)
+            .post(`${process.env.SETTINGS_URL}/api/users`,bodyUser)
             .then(r =>{
                 console.log(r);
                 setMessage(r.data);
@@ -89,7 +89,7 @@ function Index(props) {
     const handleDelete = (event) => {
         // delete user in db
         axios
-            .delete('http://localhost:3000/api/users/'+userId)
+            .delete(`${process.env.SETTINGS_URL}/api/users/`+userId)
             .then(r =>{
                 console.log(r);
                 setMessage(r.data);
@@ -107,7 +107,7 @@ function Index(props) {
         const value = await target.type === 'checkbox' ? target.checked : target.value;
         const name = await target.name;
 
-        axios.patch('http://localhost:3000/api/users/'+user._id, {[name]:value})
+        axios.patch(`${process.env.SETTINGS_URL}/api/users/`+user._id, {[name]:value})
             .then(r =>{
                 console.log(r);
                 setMessage(r.data);
@@ -147,7 +147,7 @@ function Index(props) {
         const handleSubmitNewRole = () =>{
             // post new role to db
             axios
-                .post("http://localhost:3000/api/settings/role",bodyRole)
+                .post(`${process.env.SETTINGS_URL}/api/settings/role`,bodyRole)
                 .then(r => {
                     console.log(r)
                     setMessage(r.data);
@@ -165,7 +165,7 @@ function Index(props) {
         const handleDeleteRole = () =>{
             // delete role in db
             axios
-                .delete("http://localhost:3000/api/settings/role/"+roleId)
+                .delete(`${process.env.SETTINGS_URL}/api/settings/role/`+roleId)
                 .then(r => {
                     console.log(r)
                     setMessage(r.data);
@@ -185,7 +185,7 @@ function Index(props) {
         const handleSubmitUpdateRole = (event) => {
             // update the db with body values
             axios
-                .patch('/api/settings/role/'+bodyRole._id,bodyRole)
+                .patch(`${process.env.SETTINGS_URL}/api/settings/role/`+bodyRole._id,bodyRole)
                 .then(r => {
                     console.log(r);
                     setMessage(r.data);

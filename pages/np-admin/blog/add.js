@@ -81,7 +81,7 @@ function Add(props) {
         console.log(formData);
 
         axios
-            .post('http://localhost:3000/api/blog/post/', formData)
+            .post(`${process.env.SETTINGS_URL}/api/blog/post/`, formData)
             .then((r) => {
                 setMessage(r.data);
                 if (!r.data.error) {

@@ -62,7 +62,7 @@ function Index(props) {
 
     const handleSubmit = (event) => {
         axios
-            .patch("http://localhost:3000/api/blog/post/"+props.post._id,{...body,body: bodyEditor})
+            .patch(`${process.env.SETTINGS_URL}/api/blog/post/`+props.post._id,{...body,body: bodyEditor})
             .then(r => {
                 console.log(r)
                 setMessage(r.data);
