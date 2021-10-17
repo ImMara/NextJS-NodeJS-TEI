@@ -29,7 +29,7 @@ function Posts(props) {
                             <p>Latest breaking news, pictures, videos, and special reports</p>
                         </div>
 
-                        <div className="row">
+                        <div className="row" style={{minHeight:'610px'}}>
                         {
                             paginatedData.map((post,index) => (
                                 <Link href={"/post/" + post._id}>
