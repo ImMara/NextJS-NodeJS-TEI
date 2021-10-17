@@ -40,31 +40,29 @@ function Index(props) {
                     <div className="col-lg-9 mb-5">
                         {
                             props.posts.map((post,index)=>(
-                                    <div className="row mb-3">
 
+                                <Link href={"/post/"+post._id}>
+                                    <div className="row mb-3" style={{cursor: "pointer"}}>
                                         <div className="col-md-5" style={{height:"300px"}}>
                                             <img className={"rounded w-100 h-100"} style={{height:"300px",objectFit:"cover"}} src={"/images/blogs/resized/"+post.image} alt=""/>
                                         </div>
-
-                                        <div className="col-md-7 mt-3 mt-md-0" style={{cursor:"pointer"}}>
-                                            <Link href={"/post/"+post._id}>
+                                        <div className="col-md-7 mt-3 mt-md-0">
                                                 <div>
                                                     <a href="#" className="badge bg-danger mb-2"><i className="fas fa-circle me-2 small fw-bold"/>{props.cat}</a>
-                                                    <h3><a className="btn-link stretched-link text-reset">{post.title}</a></h3>
+                                                    <h3 className="btn-link stretched-link text-reset">{post.title}</h3>
                                                     <p>{post.short_description}</p>
                                                     <div className={"d-flex align-items-center"}>
                                                         <h5 className="me-3">{post.author.username}</h5>
-                                                        <span className="small">{post.date}</span>
+                                                        <span className="small">{post.date.substr(0,10)}</span>
                                                     </div>
                                                 </div>
-                                            </Link>
                                         </div>
-
                                     </div>
+                                </Link>
+
                             ))
                         }
                     </div>
-
                     <CategoriesWidget categories={props.categories}/>
                     <hr/>
                     <CarouselFeatured featured={props.featured}/>

@@ -12,7 +12,6 @@ function Last(props) {
                         <FullCard post={props.posts[0]} image={"/images/blogs/resized/"+props.posts[0].image} height="100%"/>
                     )
                 }
-
             </div>
 
             <div className="col-lg-6">
@@ -27,7 +26,7 @@ function Last(props) {
 
                     {
                         props.posts[2] && (
-                            <div className="col-6">
+                            <div className="col-12 col-lg-6">
                                 <FullCard short={true} post={props.posts[2]} image={"/images/blogs/resized/"+props.posts[2].image} height="220px"/>
                             </div>
                         )
@@ -35,7 +34,7 @@ function Last(props) {
 
                     {
                         props.posts[3] && (
-                            <div className="col-6">
+                            <div className="col-12 col-lg-6">
                                 <FullCard short={true} post={props.posts[3]} image={"/images/blogs/resized/"+props.posts[3].image} height="220px"/>
                             </div>
                         )

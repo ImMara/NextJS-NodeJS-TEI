@@ -1,4 +1,5 @@
 import React from 'react';
+import {truncateString} from "../../../utils/functions";
 
 function FullCard(props) {
     return (
@@ -27,7 +28,7 @@ function FullCard(props) {
                             style={{
                                 textShadow:"black 0.1em 0.1em 0.2em"
                             }}
-                            href={"/post/"+props.post._id}>{props.post.title}</a>
+                            href={"/post/"+props.post._id}>{truncateString(props.post.title,45)}</a>
                     </h2>
                     {
                         !props.short && (
@@ -43,7 +44,7 @@ function FullCard(props) {
                         <h5 className="me-3">{props.post.author ? props.post.author.name : "anonymous"}</h5>
                         {
                             !props.short && (
-                                <span className="small">{props.post.date}</span>
+                                <span className="small">{props.post.date.substring(0, 10)}</span>
                             )
                         }
                     </div>

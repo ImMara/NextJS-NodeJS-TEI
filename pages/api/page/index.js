@@ -19,7 +19,7 @@ export default async (req, res, next) => {
                 })
 
                 // create page in mongodb
-                const data = await createPage({...body, slug: slug})
+                const data = await createPage({...body, slug: slug, date:Date.now()});
 
                 // create JS file in system for pages
                 fs.writeFile(`./pages/${slug}.js`,

@@ -198,6 +198,7 @@ function Index(props) {
                             }}
                             autoFocus={true}
                             onChange={handleBodyEditor}
+                            DefaultValue={props.post.body}
                             setContents={bodyEditor}
                         />
                     </div>

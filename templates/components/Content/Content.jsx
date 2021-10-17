@@ -4,7 +4,6 @@ import CarouselFeatured from "../CarouselFeatured/CarouselFeatured";
 import Posts from "../Posts/Posts";
 
 function Content(props) {
-
     return (
         <div className={"row mb-3"}>
             <Posts posts={props.posts}/>

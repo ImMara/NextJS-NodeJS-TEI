@@ -36,13 +36,13 @@ function Posts(props) {
                                     <div className="col-md-6 mb-3" style={{cursor: "pointer"}} key={index}>
                                         <div className="position-relative">
                                             <img className={"rounded"} src={"/images/blogs/resized/"+post.image} style={{height:"200px",width:"100%",objectFit:"cover"}} alt=""/>
-                                            <a href="#" className={"position-absolute bottom-0 start-0 link-dark ms-3 mb-3 badge bg-primary me-2 small fw-bold"}><i className="fas fa-circle me-2 small fw-bold"/>{props.category ? props.category.title : "no category"}</a>
+                                            <a href="#" className={"position-absolute bottom-0 start-0 link-dark ms-3 mb-3 badge bg-primary me-2 small fw-bold"}><i className="fas fa-circle me-2 small fw-bold"/>{post.category ? post.category.title : "no category"}</a>
                                         </div>
                                         <h4 className={"mt-1"}>{post.title}</h4>
                                         <p className={"w-100"}>{post.short_description}</p>
                                         <div className={"d-flex align-items-center"}>
                                             <h5 className="me-3">{ post.author !== null ? post.author.username : "anonymous"}</h5>
-                                            <span className="small">{post.date}</span>
+                                            <span className="small">{post.date.substring(0, 10)}</span>
                                         </div>
                                     </div>
                                 </Link>

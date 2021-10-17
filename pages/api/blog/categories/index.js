@@ -33,13 +33,13 @@ export default async  (req,res,next) => {
                 };
 
                 // CREATE DATA IN DATABASE
-                await createCategory(category);
+                const cat = await createCategory(category);
 
                 // SUCCESS MESSAGE
                 const string = `new category success : ${body.title}`
 
                 // RESPONSE FROM API
-                res.json({success: string,});
+                res.json({success: string,data:cat});
 
             } catch (e) {
 

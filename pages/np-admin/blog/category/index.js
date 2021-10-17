@@ -107,7 +107,7 @@ function Index(props) {
 
                 if (!r.data.error) {
                     // update locally the state
-                    setCategory([...category, body]);
+                    setCategory([...category, r.data.data]);
                     // reset values
                     setBody({
                         title: "",

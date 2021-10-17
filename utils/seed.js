@@ -17,11 +17,11 @@ mongoose
     .then( async () => {
         console.log('MongoDB Connected')
         const newSettings = await createSettings({
-            title:process.env.SETTINGS_TITLE,
-            email:process.env.SETTINGS_TITLE,
-            url:process.env.SETTINGS_TITLE,
-            slogan:process.env.SETTINGS_TITLE,
-            comments:process.env.SETTINGS_TITLE
+            title:"NodePress",
+            email:"nodepress@gmail.com",
+            url:"localhost",
+            slogan:"open source node js cms",
+            comments:false
         })
         const adminRole = await createRole({
             title:"admin",
@@ -34,9 +34,9 @@ mongoose
             delete:false
         })
         const newUser = await createUser({
-            username:process.env.USERNAME,
-            password:process.env.PASSWORD,
-            email:process.env.EMAIL,
+            username:"admin",
+            password:"admin",
+            email:"admin@admin.com",
             role:adminRole._id,
             delete: false,
         })
