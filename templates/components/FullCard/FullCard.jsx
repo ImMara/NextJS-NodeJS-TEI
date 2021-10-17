@@ -13,10 +13,9 @@ function FullCard(props) {
                 height:props.height,
                 border:' 0 solid rgba(0, 0, 0, 0.1)',
                 filter: 'saturate(150%)',
-                background:'linear-gradient(0deg, black, transparent)',
             }}
             >
-            <div className="card-body d-flex align-items-center p-3">
+            <div className="card-body d-flex align-items-center p-3" style={{background:'linear-gradient(0deg, black, transparent)',}}>
                 <div className="w-100 mt-auto text-white">
                     <a href="mb-2">
                         <span
