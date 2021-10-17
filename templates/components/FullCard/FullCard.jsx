@@ -13,6 +13,7 @@ function FullCard(props) {
                 height:props.height,
                 border:' 0 solid rgba(0, 0, 0, 0.1)',
                 filter: 'saturate(150%)',
+                background:'linear-gradient(0deg, black, transparent)',
             }}
             >
             <div className="card-body d-flex align-items-center p-3">
@@ -22,14 +23,14 @@ function FullCard(props) {
                             className="badge bg-danger"
                         >{props.post.category ? props.post.category.name : "no category"}</span>
                     </a>
-                    <h2 className="card-title">
+                    <h4 className="card-title">
                         <a
                             className="btn-link stretched-link text-reset"
                             style={{
                                 textShadow:"black 0.1em 0.1em 0.2em"
                             }}
                             href={"/post/"+props.post._id}>{truncateString(props.post.title,45)}</a>
-                    </h2>
+                    </h4>
                     {
                         !props.short && (
                             // lorem 25
