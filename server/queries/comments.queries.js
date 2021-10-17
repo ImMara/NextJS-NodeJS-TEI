@@ -1,11 +1,12 @@
 const Comments = require('../database/models/comments.model')
 
 exports.createComment = async (data) => {
-    return new Comments(data).save();
+    const newComment = new Comments(data);
+    return newComment.save();
 }
 
 exports.getComments = async () => {
-    return Comments.find();
+    return Comments.find().populate('post_id','title');
 }
 
 exports.getComment = async (id) => {
@@ -13,7 +14,7 @@ exports.getComment = async (id) => {
 }
 
 exports.getCommentsPost = async (id) => {
-    return Comments.find({"post_id":id})
+    return Comments.find({"post_id":id}).populate("post_id","title");
 }
 
 exports.deleteComment = async (id) => {

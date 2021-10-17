@@ -82,8 +82,7 @@ export default  async (req,res,next) => {
 
                 // JSON RESPONSE
                 res.json({
-                    message: string,
-                    data:comment
+                   success: string
                 })
 
             } catch (e) {

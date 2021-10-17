@@ -18,11 +18,19 @@ export default async (req, res,next) => {
                 // BODY WITH DATA
                 const body = req.body;
 
+                const comment = {
+                    body:body.body,
+                    post_id:body.post_id,
+                    date:Date.now(),
+                    email:body.email,
+                    username:body.username,
+                }
+
                 // CREATE OBJECT IN DATABASE
-                await createComment(body);
+                const newComment = await createComment(comment);
 
                 // SUCCESS MESSAGE
-                const string = `new comment success ${body.body}`;
+                const string = `new comment success ${body.username}`;
 
                 // RESPONSE FROM API
                 res.json({

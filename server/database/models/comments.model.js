@@ -6,7 +6,11 @@ const commentsSchema = schema({
         type: String,
         required:true,
         maxLength:[140,"comments must be under 140 characters"],
-        minLength:[10,"comments must be between 10 and 140"]
+        minLength:[3,"comments must be between 10 and 140"]
+    },
+    email:{
+        type: String,
+        required:true,
     },
     date: {
         type: Date,
@@ -17,10 +21,9 @@ const commentsSchema = schema({
         ref:"post",
         required: true
     },
-    author: {
-        type:schema.Types.ObjectId,
-        ref:"user",
-        required: true
+    username: {
+        type:String,
+        required:true,
     }
 })
 

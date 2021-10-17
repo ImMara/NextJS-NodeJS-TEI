@@ -96,6 +96,10 @@ app.prepare()
             return handle(req,res,next);
         })
 
+        server.post('/api/blog/comments',(req,res,next)=>{
+            return handle(req,res,next);
+        })
+
         // All route and handle by nextJS under security middleware
         server.post('*', ensureAuthenticated, (req,res,next)=>{
             return handle(req,res,next);

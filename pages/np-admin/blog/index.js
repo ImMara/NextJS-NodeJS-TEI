@@ -101,7 +101,7 @@ function Index(props) {
                     {
                         posts.map((post, index) => (
                             <tr>
-                                <th scope="row">{index}</th>
+                                <td scope="row">{index}</td>
                                 <td>{post.title}</td>
                                 <td className={"table-none"}>{post.allowComment.toString()}</td>
                                 <td className={"table-none"}>

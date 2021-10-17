@@ -9,6 +9,7 @@ import Comments from "../../../templates/components/Comments/Comments";
 import FormComment from "../../../templates/components/FormComment/FormComment";
 import {getCategories} from "../../../server/queries/category.queries";
 import {useSettingsContext} from "../../../context/settings";
+import {getComments, getCommentsPost} from "../../../server/queries/comments.queries";
 
 export async function getServerSideProps(context) {
 
@@ -17,13 +18,15 @@ export async function getServerSideProps(context) {
     const post = await getPost(id);
     const categories = await getCategories();
     const featured = await getFeatured();
+    const comments = await getCommentsPost(id);
 
     return {
         // cleaning the object as json for nextJS hydrate security
         props: {
             post: hydration(post),
             categories: hydration(categories),
-            featured:hydration(featured)
+            featured:hydration(featured),
+            comments:hydration(comments)
         }, // will be passed to the page component as props
     }
 }
@@ -31,6 +34,7 @@ export async function getServerSideProps(context) {
 function Index(props) {
 
     const [settings,setSettings] = useState(useSettingsContext());
+    const [comments,setComments] = useState(props.comments);
 
     function createMarkup() {
         return {
@@ -58,8 +62,8 @@ function Index(props) {
                             // settings[0].comments &&
                             props.post.allowComment && (
                                 <>
-                                    <Comments/>
-                                    <FormComment/>
+                                    <Comments comments={comments}/>
+                                    <FormComment id={props.post._id} comments={comments} setComments={setComments} />
                                 </>
                             )
                         }
