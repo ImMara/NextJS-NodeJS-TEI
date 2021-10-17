@@ -1,4 +1,4 @@
-import {deletePost, getPost, patchPost} from "../../../../../server/queries/post.queries";
+import {createPost, deletePost, getPost, patchPost} from "../../../../../server/queries/post.queries";
 const path = require("path");
 const sharp = require('sharp');
 const fs = require('fs');
@@ -40,13 +40,34 @@ export default async (req, res, next) => {
                 const id = req.query.id;
 
                 // GET BODY WITH DATA
-                const body = req.body;
+                const body = await req.body;
 
                 // GET POST WITH ID
                 const post = await getPost(id);
 
                 // UPDATE POST
-                await patchPost(id,body);
+                if(req.file){
+
+                    await fs.unlink(path.join(__dirname, `../../../../../../public/images/blogs/resized/${post.image}`), (err => err && console.error(err)))
+
+                    const {filename: image} = req.file;
+                    await sharp(req.file.path)
+                        .resize(800)
+                        .webp({quality: 90})
+                        .toFile(path.resolve(req.file.destination, "resized", image))
+                    fs.unlinkSync(req.file.path);
+
+                    await patchPost(id,{
+                        ...body,
+                        image: req.file.filename,
+                    })
+
+                }
+                if(req.file === undefined){
+                    await patchPost(id,{
+                        ...body, image:post.image
+                    })
+                }
 
                 // MESSAGE
                 const string = `Update success`
@@ -75,7 +96,7 @@ export default async (req, res, next) => {
                 // GET POST WITH ID
                 const post = await getPost(id);
 
-                fs.unlink(path.join(__dirname, `../../../../../../public/images/blogs/resized/${post.image}`), (err => err && console.error(err)))
+                await fs.unlink(path.join(__dirname, `../../../../../../public/images/blogs/resized/${post.image}`), (err => err && console.error(err)))
 
                 // DELETE POST WITH ID
                 await deletePost(id);

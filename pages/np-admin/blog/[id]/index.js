@@ -38,16 +38,20 @@ function Index(props) {
 
     const [body,setBody] = useState({
         title:props.post.title,
-        body:props.post.body,
         category:props.post.category,
         short_description:props.post.short_description,
         allowComment: props.post.allowComment,
         status:props.post.status,
         featured:props.post.featured,
     });
+    const [fileSelected,setFileSelected] = useState();
 
     const [message,setMessage] = useState();
-    const [bodyEditor,setBodyEditor] = useState();
+    const [bodyEditor,setBodyEditor] = useState(props.post.body);
+
+    const handleFile = (event) =>{
+        setFileSelected(event.target.files[0])
+    }
 
     const handleChange = (event) => {
         const target = event.target;
@@ -61,11 +65,21 @@ function Index(props) {
     }
 
     const handleSubmit = (event) => {
+
+        let formData = new FormData();
+
+        for(const key in body){
+            formData.append(key,body[key]);
+        }
+
+        formData.append('body',bodyEditor);
+        formData.append('image',fileSelected);
+
         axios
-            .patch(`/api/blog/post/`+props.post._id,{...body,body: bodyEditor})
+            .patch(`/api/blog/post/${props.post._id}`, formData)
             .then(r => {
-                console.log(r)
                 setMessage(r.data);
+                console.log(r.data);
             });
     }
     const defaultFonts = [
@@ -133,6 +147,15 @@ function Index(props) {
                         </Select>
                     </div>
 
+                    <div className="col-12 mb-3">
+                        <Input
+                            type="file"
+                            name={"image"}
+                            onChange={handleFile}
+                            label="Image"
+                        />
+                    </div>
+
                     <div className="mb-3 col-12">
                         <h6 className="mb-2 py-1">Contenus de l'article</h6>
                         <SunEditor
@@ -157,7 +180,7 @@ function Index(props) {
                                     ["align", "list", "lineHeight"],
                                     ["outdent", "indent"],
 
-                                    ["table", "horizontalRule", "link", "image", "video"],
+                                    ["table", "horizontalRule", "link", "video"],
                                     // ['math'] //You must add the 'katex' library at options to use the 'math' plugin.
                                     // ['imageGallery'], // You must add the "imageGalleryUrl".
                                     ["fullScreen", "showBlocks", "codeView"],
@@ -174,7 +197,6 @@ function Index(props) {
                                 imageSizeOnlyPercentage: true,
                             }}
                             autoFocus={true}
-                            defaultValue={body.body}
                             onChange={handleBodyEditor}
                             setContents={bodyEditor}
                         />

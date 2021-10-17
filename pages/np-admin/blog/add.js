@@ -73,12 +73,10 @@ function Add(props) {
 
         for(const key in body){
             formData.append(key,body[key]);
-            console.log(key , body[key]);
         }
 
         formData.append('body',bodyEditor);
         formData.append('image',fileSelected);
-        console.log(formData);
 
         axios
             .post(`/api/blog/post/`, formData)
