@@ -15,28 +15,34 @@ function Dashboard(props) {
                     </div>
                     <div className="col-4">
                         <Link href={"/np-admin/blog/"}>
-                            <a className="btn btn-primary w-100 p-3">Blog</a>
+
+                            <a className="btn btn-primary w-100 p-3"><i className="fab fa-blogger-b me-2"/>Blog</a>
                         </Link>
                     </div>
                     <div className="col-4">
                         <Link href={"/np-admin/page/"}>
-                            <a className="btn btn-primary w-100 p-3">Page</a>
+                            <a className="btn btn-primary w-100 p-3"> <i className="far fa-file me-2"/>Page</a>
                         </Link>
 
                     </div>
                     <div className="col-4">
                         <Link href={"/np-admin/menu/"}>
-                            <a className="btn btn-primary w-100 p-3">Menu</a>
+                            <a className="btn btn-primary w-100 p-3"><i className="fas fa-ellipsis-h me-2"/>Menu</a>
                         </Link>
                     </div>
                     <div className="col-4">
                         <Link href={"/np-admin/users/"}>
-                            <a className="btn btn-primary w-100 p-3">Users</a>
+                            <a className="btn btn-primary w-100 p-3"><i className="fas fa-users me-2"/>Users</a>
                         </Link>
                     </div>
                     <div className="col-4">
                         <Link href={"/np-admin/settings/"}>
-                            <a className="btn btn-primary w-100 p-3">Settings</a>
+                            <a className="btn btn-primary w-100 p-3"><i className="fas fa-sliders-h me-2"/>Settings</a>
+                        </Link>
+                    </div>
+                    <div className="col-4">
+                        <Link href={"/np-admin/profile/"}>
+                            <a className="btn btn-primary w-100 p-3"><i className="far fa-id-badge me-2"/>Profile</a>
                         </Link>
                     </div>
                 </div>
