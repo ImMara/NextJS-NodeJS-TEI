@@ -12,7 +12,6 @@ function FullCard(props) {
                 backgroundSize:"cover",
                 height:props.height,
                 border:' 0 solid rgba(0, 0, 0, 0.1)',
-                filter: 'saturate(150%)',
             }}
             >
             <div className="card-body d-flex align-items-center p-3" style={{background:'linear-gradient(0deg, black, transparent)',}}>
