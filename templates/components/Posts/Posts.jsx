@@ -29,14 +29,27 @@ function Posts(props) {
                             <p>Latest breaking news, pictures, videos, and special reports</p>
                         </div>
 
-                        <div className="row" style={{minHeight:'610px'}}>
+                        <div className={"mb-3"}>
+                            {itemsPerPage < posts.length &&
+                            (
+                                <Pagination
+                                    currentPage={currentPage}
+                                    itemsPerPage={itemsPerPage}
+                                    length={posts.length}
+                                    onPageChanged={handlePageChange}
+                                />
+                            )
+                            }
+                        </div>
+
+                        <div className="row position-relative" style={{minHeight:'850px'}}>
                         {
                             paginatedData.map((post,index) => (
                                 <Link href={"/post/" + post._id}>
-                                    <div className="col-md-6 mb-3" style={{cursor: "pointer"}} key={index}>
+                                    <div className="col-md-6 mb-3" style={{cursor: "pointer"}}  key={index}>
                                         <div className="position-relative">
-                                            <img className={"rounded"} src={"/images/blogs/resized/"+post.image} style={{height:"200px",width:"100%",objectFit:"cover"}} alt=""/>
                                             <a href="#" className={"position-absolute p-2 bottom-0 start-0 link-light ms-3 mb-3 badge bg-primary me-2 small fw-bold"}><i className="fas fa-circle me-2 small fw-bold"/>{post.category ? post.category.title : "no category"}</a>
+                                            <img className={"rounded"} src={"/images/blogs/resized/"+post.image} style={{height:"200px",width:"100%",objectFit:"cover"}} alt=""/>
                                         </div>
                                         <h4 className={"mt-1"}>{post.title}</h4>
                                         <p className={"w-100"}>{post.short_description}</p>
@@ -48,16 +61,19 @@ function Posts(props) {
                                 </Link>
                             ))
                         }
-                        {itemsPerPage < posts.length &&
-                            (
-                                <Pagination
-                                    currentPage={currentPage}
-                                    itemsPerPage={itemsPerPage}
-                                    length={posts.length}
-                                    onPageChanged={handlePageChange}
-                                />
-                            )
-                        }
+                            <div>
+                                {itemsPerPage < posts.length &&
+                                (
+                                    <Pagination
+                                        currentPage={currentPage}
+                                        itemsPerPage={itemsPerPage}
+                                        length={posts.length}
+                                        onPageChanged={handlePageChange}
+                                    />
+                                )
+                                }
+                            </div>
+
                         </div>
         </div>
     );

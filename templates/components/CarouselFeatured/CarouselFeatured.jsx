@@ -31,8 +31,8 @@ function CarouselFeatured(props) {
                             {
                                 featured.map((post,index) =>
                                     (
-                                            <div className={index === 0 ? "carousel-item active":"carousel-item"} >
-                                                <img src={"/images/blogs/resized/"+post.image} style={{height:"200px", objectFit:"cover",}} className="d-block w-100" alt="..."/>
+                                            <div className={index === 0 ? "carousel-item active":"carousel-item"}  style={{background:'linear-gradient(0deg, black, transparent)'}}>
+                                                <img src={"/images/blogs/resized/"+post.image} style={{height:"200px", objectFit:"cover",background: "rgba(0, 0, 0, 0) linear-gradient(0deg, black, transparent) repeat scroll 0% 0%",}} className="d-block w-100" alt="..."/>
                                                 <div className="carousel-caption d-none d-md-block" style={{
                                                     textShadow:"black 0.1em 0.1em 0.2em",
                                                     cursor:"pointer",
