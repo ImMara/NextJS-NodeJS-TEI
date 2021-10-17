@@ -49,7 +49,7 @@ function Index(props) {
                                         <div className="col-md-7 mt-3 mt-md-0">
                                                 <div>
                                                     <a href="#" className="badge bg-danger mb-2"><i className="fas fa-circle me-2 small fw-bold"/>{props.cat}</a>
-                                                    <h3 className="btn-link stretched-link text-reset">{post.title}</h3>
+                                                    <h4>{post.title}</h4>
                                                     <p>{post.short_description}</p>
                                                     <div className={"d-flex align-items-center"}>
                                                         <h5 className="me-3">{post.author.username}</h5>
