@@ -248,6 +248,7 @@ function Index(props) {
                             label="exampleModalLabel"
                             btn={"Ajouter"}
                             submit={handleSubmitUser}
+                            color="success"
                         >
 
                             <Input
@@ -376,6 +377,7 @@ function Index(props) {
                             label="exampleModalLabel"
                             btn={"Ajouter"}
                             submit={handleSubmitNewRole}
+                            color="success"
                         >
                             <Input
                                 label={"titre du role"}
@@ -405,6 +407,7 @@ function Index(props) {
                             label="update role"
                             btn={"update"}
                             submit={handleSubmitUpdateRole}
+                            color="success"
                         >
                             <Input
                                 label={"titre du role"}

@@ -240,7 +240,7 @@ function Index(props) {
                     </div>
 
                     <div className="mb-3">
-                        <button className="btn btn-danger" onClick={handleSubmit}>Modifier l'article</button>
+                        <button className="btn btn-success" onClick={handleSubmit}>Modifier l'article</button>
                         <Link href={"/np-admin/blog/"}>
                             <a className="btn btn-primary ms-2">Retour</a>
                         </Link>

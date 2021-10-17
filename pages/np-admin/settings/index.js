@@ -4,11 +4,13 @@ import {useState} from "react";
 import axios from "axios";
 import {useSettingsContext} from "../../../context/settings";
 import Layout from "../../../components/layout/Layout";
+import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
 
 function Index(props) {
 
     const [body,setBody] = useState();
     const setting = useSettingsContext();
+    const [message,setMessage] = useState();
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -20,13 +22,21 @@ function Index(props) {
 
     const handleSubmit = (event) => {
         axios.patch(`/api/settings/` + setting[0]._id, body)
-            .then(r  =>console.log(r));
+            .then(r  =>setMessage(r.data));
     }
 
     return (
         <>
         <Navbar/>
             <Layout>
+                {
+                    message && (
+                        <Alerts
+                            style={message.error ? "danger" : "success"}
+                            message={message.error || message.success}
+                        />
+                    )
+                }
                 <h1>Settings</h1>
                 <hr/>
                 <div className={"row"}>

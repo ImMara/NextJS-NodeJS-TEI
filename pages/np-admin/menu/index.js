@@ -167,7 +167,7 @@ function Index(props) {
                     </div>
 
                     <div className="col-12 row">
-                        <div className={"mb-3 col-12 col-md-4"}>
+                        <div className={"mb-3 col-12 col-md-3"}>
                             <button type="button" className="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#addMenu">
                                 Ajouter un liens
                             </button>
@@ -196,6 +196,7 @@ function Index(props) {
                             title={"Ajouter un liens"}
                             btn={"Ajouter"}
                             submit={handleSubmit}
+                            color={"success"}
                         >
                             <div className="mb-3">
                                 <Input

@@ -7,6 +7,7 @@ import Layout from "../../../components/layout/Layout";
 import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
 import dynamic from "next/dynamic";
 import 'suneditor/dist/css/suneditor.min.css';
+import Link from "next/link";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
     ssr: false,
@@ -45,7 +46,7 @@ function Add(props) {
     const handleSubmit = async () => {
         axios
             .post(`/api/page`, {...body,body:bodyEditor})
-            .then(r => console.log(r))
+            .then(r => setMessage(r.data))
     }
 
     const defaultFonts = [
@@ -139,11 +140,18 @@ function Add(props) {
                         height="500"
                     />
                 </div>
+                <div>
+                    <a
+                        className="btn btn-success"
+                        onClick={handleSubmit}
+                    >Ajouter une page</a>
+                    <Link href={"/np-admin/page/"}>
+                        <a className="btn ms-1 btn-primary">
+                            retour
+                        </a>
+                    </Link>
+                </div>
 
-                <a
-                    className="btn btn-primary"
-                    onClick={handleSubmit}
-                >add</a>
             </Layout>
 
         </>

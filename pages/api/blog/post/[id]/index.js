@@ -79,6 +79,11 @@ export default async (req, res, next) => {
 
             } catch (e) {
 
+                if (req.file) {
+                    const {filename: image} = req.file;
+                    fs.unlinkSync(path.resolve(req.file.destination, "resized", image))
+                }
+
                 // API RETURNS ERROR
                 res.json({error: e})
 

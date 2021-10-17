@@ -149,7 +149,7 @@ function Index(props) {
                     </div>
 
                     <a
-                    className="btn btn-primary"
+                    className="btn btn-success"
                     onClick={handleSubmit}
                     >Update</a>
             </div>

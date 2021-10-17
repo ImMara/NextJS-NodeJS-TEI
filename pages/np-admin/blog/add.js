@@ -257,7 +257,7 @@ function Add(props) {
                     </div>
 
                     <div className="mb-3">
-                        <button className="btn btn-danger" onClick={handleSubmit}>Ajouter un article</button>
+                        <button className="btn btn-success" onClick={handleSubmit}>Ajouter un article</button>
                         <Link href={"/np-admin/blog/"}>
                             <a className="btn btn-primary ms-2">Retour</a>
                         </Link>

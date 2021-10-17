@@ -112,9 +112,7 @@ function Index(props) {
                                 <td className={"table-none"}>{post.status.toString()}</td>
                                 <td className={"table-none"}>{post.category && post.category.title}</td>
                                 <td>
-                                    <Link href={"/np-admin/blog/" + post._id}>
-                                        <a className="btn btn-success rounded-start rounded-0">update</a>
-                                    </Link>
+                                    <a href={"/np-admin/blog/" + post._id} className="btn btn-success rounded-start rounded-0">update</a>
                                     <button
                                         type="button"
                                         className="btn btn-danger rounded-end rounded-0 px-3"

@@ -186,6 +186,7 @@ function Index(props) {
                             title={"Modal title"}
                             btn={"Ajouter"}
                             submit={handleSubmit}
+                            color="success"
                         >
                             <div className="mb-3">
                                 <Input

@@ -2,10 +2,15 @@
 import  Head  from 'next/head';
 import {MenuWrapper} from "../context/menu";
 import {AuthWrapper} from "../context/auth";
-import {SettingsWrapper} from "../context/settings";
+import {SettingsWrapper, useSettingsContext} from "../context/settings";
 import "/styles/globals.css";
+import {useContext} from "react";
 
 function MyApp({ Component, pageProps }) {
+
+    const settings = useSettingsContext();
+    console.log(settings);
+
   return (
     <>
       <Head>
@@ -15,6 +20,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
               integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
               crossOrigin="anonymous" referrerPolicy="no-referrer"/>
+          <title></title>
       </Head>
 
         <AuthWrapper>

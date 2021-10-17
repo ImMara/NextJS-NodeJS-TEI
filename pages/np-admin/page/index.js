@@ -47,7 +47,7 @@ function Index(props) {
             <h1>Pages</h1>
             <hr/>
             <div className="mb-5">
-                <a href="/np-admin/page/add" className="btn btn-danger">add</a>
+                <a href="/np-admin/page/add" className="btn btn-primary">Ajouter une page</a>
             </div>
             <hr/>
             {
