@@ -359,7 +359,7 @@ function Index(props) {
                     </div>
 
                     <div className="col-12 col-lg-6">
-                        <h2>Roles</h2>
+                        <h2>Rôles </h2>
                         <hr/>
                         <div className="mb-3">
                             <a
