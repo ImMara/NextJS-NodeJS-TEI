@@ -74,13 +74,13 @@ function Index(props) {
                         !message && !message.success && (
                             <>
                                 <div className="col-12">
-                                    <h1>Comments</h1>
+                                    <h1>Commentaire</h1>
                                     <hr/>
                                 </div>
                                 <div className="col-12 row gy-0 gx-0">
                                     <div className="col-4 mb-3">
                                         <Link href={"/np-admin/blog/"}>
-                                            <a className="btn btn-primary">Return</a>
+                                            <a className="btn btn-primary">Retour</a>
                                         </Link>
                                     </div>
                                     <hr/>
@@ -89,7 +89,7 @@ function Index(props) {
                                     <div>
                                         <div className="mb-2">
                                             <h5 className="m-0">{comment.username}</h5>
-                                            <span className="me-3 small">{comment.date}</span>
+                                            <span className="me-3 small">{comment.date.substr(0,10)}</span>
                                         </div>
                                         <p>
                                             {comment.body}
@@ -103,7 +103,7 @@ function Index(props) {
                                             data-bs-toggle="modal"
                                             onClick={handleBtn}
                                             data-bs-target="#delete-post">
-                                            delete
+                                            Supprimer
                                         </button>
                                     </div>
                                 </div>
