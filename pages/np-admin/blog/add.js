@@ -67,6 +67,15 @@ function Add(props) {
         setBodyEditor(content);
     }
 
+    const scrollToTop = () =>{
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+            /* you can also use 'auto' behaviour
+               in place of 'smooth' */
+        });
+    };
+
     const handleSubmit = (event) => {
 
         let formData = new FormData();
@@ -90,6 +99,7 @@ function Add(props) {
                         allowComment: false
                     })
                     setBodyEditor(null)
+                    scrollToTop();
                 }
             })
     }
