@@ -128,7 +128,7 @@ function Index(props) {
                         />
                     </div>
                     <div className="col-12 py-3">
-                        <a className="btn btn-primary" onClick={handleSubmit}>update</a>
+                        <a className="btn btn-primary" onClick={handleSubmit}>Modifier</a>
                     </div>
                 </div>
             </Layout>
