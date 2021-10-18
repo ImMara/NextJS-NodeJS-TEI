@@ -284,7 +284,7 @@ function Index(props) {
                                 onChange={handleChangeUser}
                                 value={bodyUser.role}
                             >
-                                <option selected >unset</option>
+                                <option>unset</option>
                                 {roles.map((role,index) =>(
                                     <option value={role._id} key={index}>{role.title}</option>
                                 ))}

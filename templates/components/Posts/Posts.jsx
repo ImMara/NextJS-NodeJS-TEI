@@ -26,7 +26,7 @@ function Posts(props) {
         <div className="col-lg-9 mb-5">
             <div className="mb-5">
                 <h2 className={"m-0"}><i className="bi bi-hourglass-top me-2"/>L'actu en continu </h2>
-                <p>le site dédié aux jeux vidéo sur Consoles et PC. Découvrez l'actualité des jeux vidéo .</p>
+                <p>le webzine de toutes les actualités High-Tech et Geek : les nouvelles technologies, les produits mobiles, musique et la culture geek.</p>
             </div>
 
             <div className={"d-flex flex-column justify-content-between"}>
