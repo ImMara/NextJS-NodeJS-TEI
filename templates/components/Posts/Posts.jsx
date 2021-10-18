@@ -8,7 +8,7 @@ function Posts(props) {
     const [loading, setLoading] = useState(true);
 
     //pagination
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(2);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
