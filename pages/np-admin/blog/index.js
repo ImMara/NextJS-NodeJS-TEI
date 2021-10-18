@@ -8,6 +8,7 @@ import {hydration} from "../../../utils/hydration";
 import axios from "axios";
 import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
 import Layout from "../../../components/layout/Layout";
+import Pagination from "../../../components/shared/Pagination/Pagination";
 
 export async function getStaticProps(context) {
 
@@ -53,6 +54,19 @@ function Index(props) {
     }
 
     /* END LOGIC*/
+    //pagination
+    const [currentPage, setCurrentPage] = useState(2);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const itemsPerPage = 5;
+    const paginatedData = Pagination.getData(
+        posts,
+        currentPage,
+        itemsPerPage
+    );
 
     /* RENDER HTML */
 
@@ -84,6 +98,16 @@ function Index(props) {
         return (
             <div className="table-responsive bg-light rounded p-2">
                 <table className="table table-hover">
+                    {itemsPerPage < posts.length &&
+                    (
+                        <Pagination
+                            currentPage={currentPage}
+                            itemsPerPage={itemsPerPage}
+                            length={posts.length}
+                            onPageChanged={handlePageChange}
+                        />
+                    )
+                    }
                     <thead>
                     <tr>
                         <th>#</th>
@@ -97,7 +121,7 @@ function Index(props) {
                     </thead>
                     <tbody>
                     {
-                        posts.map((post, index) => (
+                        paginatedData.map((post, index) => (
                             <tr>
                                 <td scope="row">{index}</td>
                                 <td>{post.title}</td>
@@ -131,6 +155,16 @@ function Index(props) {
                     }
                     </tbody>
                 </table>
+                {itemsPerPage < posts.length &&
+                (
+                    <Pagination
+                        currentPage={currentPage}
+                        itemsPerPage={itemsPerPage}
+                        length={posts.length}
+                        onPageChanged={handlePageChange}
+                    />
+                )
+                }
             </div>
         )
     }
