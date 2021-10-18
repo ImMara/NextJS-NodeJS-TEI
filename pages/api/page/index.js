@@ -56,7 +56,7 @@ export async function getStaticProps(context) {
     );
 }
 
-export default ${slug.replace(/-/, '').replace(/’/,'').replace(/'/,'')}};
+export default ${slug.replace(/-/, '').replace(/’/,'').replace(/'/,'')};
 `
                     , (err) => {
                         if (err) throw err;
