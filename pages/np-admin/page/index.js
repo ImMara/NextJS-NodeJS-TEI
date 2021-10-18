@@ -87,11 +87,11 @@ function Index(props) {
                                         setPageIndex(index);
                                     }}
                                     data-bs-toggle="modal" data-bs-target="#delete"
-                                >Delete</button>
+                                >Supprimer</button>
                                 <Link href={"/np-admin/page/"+page._id}>
                                     <a
                                         className="btn btn-success"
-                                    >Update</a>
+                                    >Modifier</a>
                                 </Link>
                             </td>
                         </tr>
