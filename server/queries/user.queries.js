@@ -14,7 +14,7 @@ exports.createUser = async (user) => {
                 password: hashedPassword
             },
             role:user.role,
-            delete:user.delete
+            delete:true
         })
 
         return newUser.save();

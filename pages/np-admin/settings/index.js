@@ -58,7 +58,7 @@ function Index(props) {
 
                     <div className="mb-3 d-flex align-items-center col-6">
                         <div className="mt-4">
-                            <input id="comments" className="form-check-input" onChange={handleChange} type="checkbox" name="comments"/>
+                            <input id="comments" className="form-check-input" onChange={handleChange} defaultValue={setting&&setting[0].comments} type="checkbox" name="comments"/>
                             <label htmlFor="comments" className="ms-1 form-check-label"> comments </label>
                         </div>
                     </div>

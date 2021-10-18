@@ -73,15 +73,17 @@ function Index(props) {
             .then(r =>{
                 console.log(r);
                 setMessage(r.data);
-                // update locally the state
-                setUsers([...users,r.data.data]);
-                // reset values
-                setBodyUser({
-                    username:"",
-                    email:"",
-                    password:"",
-                    role:"",
-                })
+                if(r.data.error){
+                    // update locally the state
+                    setUsers([...users,r.data.data]);
+                    // reset values
+                    setBodyUser({
+                        username:"",
+                        email:"",
+                        password:"",
+                        role:"",
+                    })
+                }
             })
     }
 

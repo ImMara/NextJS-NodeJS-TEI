@@ -300,7 +300,7 @@ function Index(props) {
                                     <div className="mb-3">
                                         <a
                                             onClick={handleSubmitUpdate}
-                                            className="px-4 btn btn-outline-info"
+                                            className="px-4 btn btn-success"
                                         >save</a>
                                         <a
                                             className="ms-2 px-4 btn btn-danger"

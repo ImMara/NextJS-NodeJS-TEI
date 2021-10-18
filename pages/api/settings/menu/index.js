@@ -29,8 +29,10 @@ export default async (req, res, next) => {
 
                 const data = await createMenu(body);
 
+                const string = "add success"
+
                 res.json({
-                    success:"test",
+                    success:string,
                     data:data
                 });
 

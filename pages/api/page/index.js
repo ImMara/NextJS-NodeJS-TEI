@@ -7,16 +7,12 @@ const slugify = require('slugify');
 export default async (req, res, next) => {
     switch (req.method) {
         case 'POST':
-            //TODO: needs regex for title
             try {
                 // getting body from request
                 const body = req.body;
 
                 // transform title into slug
-                const slug = slugify(body.title, {
-                    lower: true,
-                    strict: true
-                })
+                const slug = slugify(body.title);
 
                 // create page in mongodb
                 const data = await createPage({...body, slug: slug, date:Date.now()});
@@ -67,9 +63,11 @@ export default ${body.title.replace(/\s/g, '')};
                         console.log('page build done!');
                     })
 
+                const string = "add page success";
+
                 // return json for success messages
                 return res.json({
-                    status: 200,
+                    success: string,
                     data: data,
                 })
 

@@ -23,7 +23,7 @@ export default async (req, res, next) =>{
 
                 // RESPONSE FROM API
                 res.json({
-                    message: string,
+                    success: string,
                     data: settings
                 })
 

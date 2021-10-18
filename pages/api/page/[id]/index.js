@@ -25,7 +25,7 @@ export default async (req, res, next) => {
 
                 res.json({
                     data:body,
-                    message:string
+                    success:string
                 })
 
             } catch (e) {
@@ -82,7 +82,7 @@ export default async (req, res, next) => {
 
                 // RESPONSE FROM API
                 res.json({
-                    message: string,
+                    success: string,
                 })
 
             } catch (e) {

@@ -5,6 +5,7 @@ import {hydration} from "../../../utils/hydration";
 import Input from "../../../components/bootstrap-5/input/Input";
 import Textarea from "../../../components/bootstrap-5/input/Textarea";
 import axios from "axios";
+import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
 
 export async function getServerSideProps(context) {
 
@@ -40,6 +41,14 @@ function Index(props) {
         <>
             <Navbar/>
             <Layout>
+                {
+                    message && (
+                        <Alerts
+                            style={message.error ? "danger" : "success"}
+                            message={message.error || message.success}
+                        />
+                    )
+                }
                 <div className="row mb-3 mt-1">
                     <div className="col-12 mb-2">
                         <h1>Profile</h1>

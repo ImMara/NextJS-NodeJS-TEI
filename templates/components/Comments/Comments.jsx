@@ -14,13 +14,12 @@ function Comments(props) {
                         <div>
                             <div className="mb-2">
                                 <h5 className="m-0">{comment.username}</h5>
-                                <span className="me-3 small">{comment.date}</span>
+                                <span className="me-3 small">{comment.date.substr(0,10)}</span>
                             </div>
                             <p>
                                 {comment.body}
                             </p>
                         </div>
-                        <hr className={"w-100"}/>
                     </div>
                 ))
             }

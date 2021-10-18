@@ -2,7 +2,7 @@ import {findUserPerEmail} from "../../../server/queries/user.queries";
 
 export default async (req,res,next) =>{
     try{
-        const { email, password } = req.body;
+        const { email, password } = await req.body;
         const user = await findUserPerEmail(email);
         if (user) {
             const match = await user.comparePassword(password);
