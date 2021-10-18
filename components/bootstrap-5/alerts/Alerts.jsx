@@ -14,6 +14,7 @@ function Alerts(props) {
     return (
         <div className={`alert alert-${alertTypes()}`} role="alert">
             {props.message}
+            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"/>
         </div>
     );
 }

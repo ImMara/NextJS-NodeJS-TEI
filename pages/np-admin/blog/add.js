@@ -121,7 +121,6 @@ function Add(props) {
         <>
             <Navbar/>
             <Layout>
-
                 <div className="mb-3 col row">
                     <h1>Ajouter un article</h1>
                 </div>
