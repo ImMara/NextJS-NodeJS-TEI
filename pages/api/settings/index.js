@@ -8,10 +8,7 @@ export default async (req, res, next) => {
                 // GET SETTINGS
                 const settings = await getSettings();
 
-                const string = "settings updated";
-
                 res.json({
-                    success:string,
                     data:settings
                 });
 

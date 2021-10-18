@@ -54,13 +54,10 @@ body {
 .secondCard{
   height: 220px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .table-none{
     display: table-cell;
   }
-
-}
-@media (min-width: 992px) {
   .firstCard{
     height: 100%;
   }

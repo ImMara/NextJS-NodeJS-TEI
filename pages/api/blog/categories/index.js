@@ -1,4 +1,5 @@
 import {getCategories,createCategory} from '../../../../server/queries/category.queries';
+import {slugify} from "../../../../utils/functions";
 
 export default async  (req,res,next) => {
     switch (req.method) {
@@ -28,7 +29,7 @@ export default async  (req,res,next) => {
 
                 // CREATE OBJECT WITH BODY
                 const category = {
-                    title: body.title,
+                    title: slugify(body.title),
                     description: body.description,
                 };
 
@@ -36,7 +37,7 @@ export default async  (req,res,next) => {
                 const cat = await createCategory(category);
 
                 // SUCCESS MESSAGE
-                const string = `new category success : ${body.title}`
+                const string = `Création d'une nouvelle catégorie : ${body.title}`
 
                 // RESPONSE FROM API
                 res.json({success: string,data:cat});

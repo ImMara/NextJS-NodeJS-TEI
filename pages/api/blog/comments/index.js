@@ -30,7 +30,7 @@ export default async (req, res,next) => {
                 const newComment = await createComment(comment);
 
                 // SUCCESS MESSAGE
-                const string = `new comment success ${body.username}`;
+                const string = `Création d'un nouveau commentaire : ${body.username}`;
 
                 // RESPONSE FROM API
                 res.json({

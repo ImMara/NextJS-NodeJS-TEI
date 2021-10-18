@@ -46,7 +46,7 @@ export default  async (req,res,next) => {
                 await patchComment(id,body);
 
                 // MESSAGE
-                const string = `update success`
+                const string = `mise à jour du commentaire ${comment.title}`
 
                 // RESPONSE FROM API
                 res.json({
@@ -78,7 +78,7 @@ export default  async (req,res,next) => {
                 await deleteComment(id);
 
                 // SUCCESS MESSAGE
-                const string = `Delete success`
+                const string = `Supression du commentaire ${comment.title}`
 
                 // JSON RESPONSE
                 res.json({

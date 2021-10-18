@@ -44,7 +44,7 @@ export default async(req,res,next) => {
                 const updated = await updateSpecificFields(id,body);
 
                 // MESSAGE
-                const string = `update success`
+                const string = `mise à jour de l'utilisateur : ${updated.username}`
 
                 // RESPONSE FROM API
                 res.json({
@@ -72,7 +72,7 @@ export default async(req,res,next) => {
                 await deleteUser(id);
 
                 // SUCCESS MESSAGE
-                const string = `Delete success`
+                const string = `Supression de l'utilisateur : ${id}`
 
                 // JSON RESPONSE
                 res.json({success: string,})

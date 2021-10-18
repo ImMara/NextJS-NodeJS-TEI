@@ -29,7 +29,7 @@ export default async (req, res, next) => {
 
                 const data = await createMenu(body);
 
-                const string = "add success"
+                const string = `Création d'un nouveau menu : ${data.title}`
 
                 res.json({
                     success:string,

@@ -34,7 +34,7 @@ export default async (req, res, next) => {
                 const role = await createRole(body);
 
                 // SUCCESS MESSAGE
-                const string = `new role success ${body.title}`
+                const string =  `Création d'un nouveau rôle : ${body.loca}`
 
                 // RESPONSE FROM API
                 res.json({

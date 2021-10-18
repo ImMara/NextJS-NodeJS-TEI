@@ -21,7 +21,7 @@ export default async (req, res, next) => {
                 await patchPage(id,body);
 
                 // MESSAGE
-                const string = `update success`
+                const string = `mise à jour de la page : ${page.title}`
 
                 res.json({
                     data:body,
@@ -78,7 +78,7 @@ export default async (req, res, next) => {
                 await deletePage(id);
 
                 // MESSAGE
-                const string = `delete success`;
+                const string = `Supression de la page : ${page.slug}`;
 
                 // RESPONSE FROM API
                 res.json({

@@ -15,7 +15,7 @@ export default async (req, res, next) => {
                 const menu = await patchMenu(id,body);
 
                 // MESSAGE
-                const string = `Update success`;
+                const string = `mise à jour du menu : ${menu.title}`;
 
                 // RESPONSE FROM API
                 res.json({
@@ -46,7 +46,7 @@ export default async (req, res, next) => {
                 await deleteMenu(id);
 
                 // SUCCESS MESSAGE
-                const string = `Delete success`
+                const string = `Supression du menu : ${menu.title}`
 
                 // JSON RESPONSE
                 res.json({

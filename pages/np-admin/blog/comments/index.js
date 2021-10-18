@@ -6,6 +6,7 @@ import Navbar from "../../../../components/admin/navbar/Navbar";
 import Link from 'next/link';
 import {truncateString} from "../../../../utils/functions";
 import axios from "axios";
+import Modal from "../../../../components/bootstrap-5/modal/Modal";
 
 export async function getStaticProps(context) {
 
@@ -21,12 +22,21 @@ export async function getStaticProps(context) {
 function Index(props) {
 
     const [comments,setComments]= useState(props.comments);
+    const [index,setIndex] = useState(null);
+    const [message,setMessage] = useState("");
+    const [id,setId] = useState(null);
 
-    const handleDelete = () => {
+    const handleBtn = (id,index) =>{
+        setId(id);
+        setIndex(index);
+    }
+
+    const handleDelete = (event) =>{
         axios
-            .delete('/api/blog/comments/' + id )
-            .then(r => {
-
+            .delete('/api/blog/comments/'+id)
+            .then(r =>{
+                comments.splice(index,1);
+                setMessage(r.data);
             })
     }
 
@@ -47,16 +57,23 @@ function Index(props) {
                         </div>
                         <hr/>
                     </div>
+                    <Modal
+                        target={"delete-post"}
+                        label={"exampleModalLabel"}
+                        title={"Supprimer le commentaire"}
+                        btn={"Supprimer"}
+                        submit={handleDelete}
+                    >Êtes-vous sûr ?</Modal>
                     <div className="col-12">
                         <table className="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Commentaire</th>
-                                    <th>Titre de l'article</th>
-                                    <th>Date</th>
-                                    <th>Utilisateur</th>
-                                    <th>Email</th>
+                                    <th className={"table-none"}>Titre de l'article</th>
+                                    <th className={"table-none"}>Date</th>
+                                    <th className={"table-none"}>Utilisateur</th>
+                                    <th className={"table-none"}>Email</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -66,17 +83,29 @@ function Index(props) {
                                         <tr>
                                             <td>{index}</td>
                                             <td>{truncateString(comment.body,15)}</td>
-                                            <td>{comment.post_id &&( comment.post_id.title ) }</td>
-                                            <td>{comment.date.substr(0,10)}</td>
-                                            <td>{comment.username}</td>
-                                            <td>{comment.email}</td>
+                                            <td className={"table-none"}>{comment.post_id &&( comment.post_id.title ) }</td>
+                                            <td className={"table-none"}>{comment.date.substr(0,10)}</td>
+                                            <td className={"table-none"}>{comment.username}</td>
+                                            <td className={"table-none"}>{comment.email}</td>
                                             <td>
-                                                <a className={"btn btn-danger"}>Supprimer</a>
-                                                <Link href={"/np-admin/blog/comments/"+comment._id}>
-                                                    <a className={"btn btn-primary"}>Voir</a>
-                                                </Link>
+                                                <div className="row gy-1 gx-1">
+                                                    <div className="col-12 col-xxl-8">
+                                                        <button
+                                                            type="button"
+                                                            className="btn btn-danger w-100 px-3"
+                                                            data-bs-toggle="modal"
+                                                            onClick={() => handleBtn(comment._id, index)}
+                                                            data-bs-target="#delete-post">
+                                                            Supprimer
+                                                        </button>
+                                                    </div>
+                                                    <div className="col-12 col-xxl-4">
+                                                        <Link href={"/np-admin/blog/comments/"+comment._id}>
+                                                            <a className={"btn btn-primary w-100"}>Voir</a>
+                                                        </Link>
+                                                    </div>
+                                                </div>
                                             </td>
-
                                         </tr>
                                     ))
                                 }

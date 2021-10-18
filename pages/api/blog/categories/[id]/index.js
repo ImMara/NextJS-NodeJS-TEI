@@ -48,7 +48,7 @@ export default async (req,res,next) => {
                 await patchCategory(id,body);
 
                 // MESSAGE
-                const string = `Update success`
+                const string = `mise à jour de la categorie : ${category.title}`
 
                 // RESPONSE FROM API
                 res.json({success:string});
@@ -77,7 +77,7 @@ export default async (req,res,next) => {
                 await deleteCategory(id);
 
                 // SUCCESS MESSAGE
-                const string = `Delete success`
+                const string = `Supression de la catégorie : ${category.title}`
 
                 // JSON RESPONSE
                 res.json({success: string,})

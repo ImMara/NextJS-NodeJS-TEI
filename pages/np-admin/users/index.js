@@ -73,7 +73,7 @@ function Index(props) {
             .then(r =>{
                 console.log(r);
                 setMessage(r.data);
-                if(r.data.error){
+                if(!r.data.error){
                     // update locally the state
                     setUsers([...users,r.data.data]);
                     // reset values
@@ -240,11 +240,11 @@ function Index(props) {
 
                         <Modal
                             target={"deleteUser"}
-                            title={"supprimer un utilisateur"}
+                            title={"Supprimer un utilisateur"}
                             label="exampleModalLabel"
-                            btn={"delete"}
+                            btn={"Supprimer"}
                             submit={handleDelete}
-                        >are you sure?</Modal>
+                        >Êtes-vous sûr ?</Modal>
 
                         <Modal
                             target={"addUser"}
@@ -434,12 +434,12 @@ function Index(props) {
 
                         <Modal
                             target={'deleteRole'}
-                            title={"supprimer un role"}
+                            title={"Supprimer un rôle"}
                             label={"delete modal"}
-                            btn={"Delete"}
+                            btn={"Supprimer"}
                             submit={handleDeleteRole}
                         >
-                            Are you sure?
+                            Êtes-vous sûr ?
                         </Modal>
 
                         <hr/>

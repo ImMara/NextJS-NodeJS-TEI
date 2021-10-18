@@ -1,8 +1,8 @@
 import {createPage, getPages,} from "../../../server/queries/page.queries";
+import {slugify} from "../../../utils/functions";
 
 const fs = require('fs');
 const path = require('path');
-const slugify = require('slugify');
 
 export default async (req, res, next) => {
     switch (req.method) {
@@ -63,7 +63,7 @@ export default ${slug.replace(/-/, '').replace(/’/,'').replace(/'/,'')};
                         console.log('page build done!');
                     })
 
-                const string = "add page success";
+                const string = `Création d'une nouvelle page : ${slug}`;
 
                 // return json for success messages
                 return res.json({

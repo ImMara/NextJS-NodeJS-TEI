@@ -138,11 +138,13 @@ function Index(props) {
                             defaultValue={body.body}
                         />
                     </div>
+                    <div>
+                        <a
+                            className="btn btn-success"
+                            onClick={handleSubmit}
+                        >Modifier</a>
+                    </div>
 
-                    <a
-                        className="btn btn-success"
-                        onClick={handleSubmit}
-                    >Modifier</a>
                 </div>
             </Layout>
         </>

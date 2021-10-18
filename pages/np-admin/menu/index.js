@@ -181,11 +181,11 @@ function Index(props) {
                         <Modal
                             target={"delete"}
                             label={"exampleModalLabel"}
-                            title={"Delete"}
+                            title={"Supprimer un menu"}
                             btn={"delete"}
                             submit={handleDelete}
                         >
-                            are you sure?
+                            Êtes-vous sûr ?
                         </Modal>
                     </div>
 
@@ -243,20 +243,28 @@ function Index(props) {
                                                 <td>{index}</td>
                                                 <td>{menu.title}</td>
                                                 <td>
-                                                    <a
-                                                        className="btn btn-success"
-                                                        onClick={() => {
-                                                            setUpdateMenu(menu);
-                                                            setMenuIndex(index);
-                                                        }}>Modifier</a>
-                                                    <button
-                                                        className="btn btn-danger"
-                                                        onClick={() => {
-                                                            setMenuId(menu._id);
-                                                            setMenuIndex(index);
-                                                        }}
-                                                        data-bs-toggle="modal" data-bs-target="#delete"
-                                                    >Supprimer</button>
+                                                    <div className="row gx-1 gy-1">
+                                                        <div className="col-12 col-lg-6">
+                                                            <a
+                                                                className="btn btn-success w-100"
+                                                                onClick={() => {
+                                                                    setUpdateMenu(menu);
+                                                                    setMenuIndex(index);
+                                                                }}>Modifier</a>
+                                                        </div>
+                                                        <div className="col-12 col-lg-6">
+                                                            <button
+                                                                className="btn btn-danger w-100"
+                                                                onClick={() => {
+                                                                    setMenuId(menu._id);
+                                                                    setMenuIndex(index);
+                                                                }}
+                                                                data-bs-toggle="modal" data-bs-target="#delete"
+                                                            >Supprimer</button>
+                                                        </div>
+                                                    </div>
+
+
                                                 </td>
                                             </tr>
                                         </>

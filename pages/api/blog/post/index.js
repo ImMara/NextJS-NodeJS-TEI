@@ -54,7 +54,7 @@ export default async (req,res,next,error) => {
                 }
 
                 // SUCCESS MESSAGE
-                const string = `new post success ${body.title}`;
+                const string = `Création d'un nouvelle article :  ${body.title}`;
 
                 //  RESPONSE FROM API
                 res.json({

@@ -33,7 +33,7 @@ export default async (req,res,next) => {
                 const user = await createUser(body);
 
                 // SUCCESS MESSAGE
-                const string = `new user success`
+                const string =  `Création d'un nouvelle utilisateur : ${user.email}`;
 
                 // RESPONSE FROM API
                 res.json({

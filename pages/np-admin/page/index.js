@@ -61,11 +61,11 @@ function Index(props) {
             <Modal
                 target={"delete"}
                 label={"exampleModalLabel"}
-                title={"Delete"}
-                btn={"delete"}
+                title={"Supprimer une page"}
+                btn={"Supprimer"}
                 submit={handleDelete}
             >
-                are you sure?
+                Êtes-vous sûr?
             </Modal>
             <table className="table">
                 <thead>
@@ -80,19 +80,24 @@ function Index(props) {
                             <td>{index}</td>
                             <td>{page.title}</td>
                             <td>
-                                <button
-                                    className="btn btn-danger"
-                                    onClick={()=>{
-                                        setPagesID(page._id);
-                                        setPageIndex(index);
-                                    }}
-                                    data-bs-toggle="modal" data-bs-target="#delete"
-                                >Supprimer</button>
-                                <Link href={"/np-admin/page/"+page._id}>
-                                    <a
-                                        className="btn btn-success"
-                                    >Modifier</a>
-                                </Link>
+                                <div className="row gx-1 gy-1">
+                                    <div className="col-12 col-lg-3">
+                                        <button
+                                            className="btn btn-danger w-100"
+                                            onClick={()=>{
+                                                setPagesID(page._id);
+                                                setPageIndex(index);
+                                            }}
+                                            data-bs-toggle="modal" data-bs-target="#delete"
+                                        >Supprimer</button>
+                                    </div>
+                                    <div className="col-12 col-lg-3">
+                                            <a
+                                                href={"/np-admin/page/"+page._id}
+                                                className="btn btn-success w-100"
+                                            >Modifier</a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     ))

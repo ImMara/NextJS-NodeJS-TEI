@@ -41,34 +41,37 @@ function Index(props) {
                 <hr/>
                 <div className={"row"}>
 
-                    <div className="mb-3 col-6">
+                    <div className="mb-3 col-12 col-md-6">
                         <label htmlFor="title" className="form-label">Titre</label>
                         <input className="form-control" id="title" type="text" onChange={handleChange} defaultValue={setting&&setting[0].title} name="title"/>
                     </div>
 
-                    <div className="mb-3 col-6">
+                    <div className="mb-3 col-12 col-md-6">
                         <label htmlFor="email" className="form-label">Email</label>
                         <input className="form-control" id="email" type="email" onChange={handleChange} defaultValue={setting&&setting[0].email} name="email"/>
                     </div>
 
-                    <div className="mb-3 col-6">
+                    <div className="mb-3 col-12 col-md-6">
                         <label htmlFor="url" className="form-label">URL</label>
                         <input className="form-control" id="url" type="text" onChange={handleChange} defaultValue={setting&&setting[0].url} name="url"/>
                     </div>
 
-                    <div className="mb-3 d-flex align-items-center col-6">
+                    <div className="mb-3 d-flex align-items-center col-12 col-md-6">
                         <div className="mt-4">
                             <input id="comments" className="form-check-input" onChange={handleChange} defaultValue={setting&&setting[0].comments} type="checkbox" name="comments"/>
                             <label htmlFor="comments" className="ms-1 form-check-label">Commentaire</label>
                         </div>
                     </div>
 
-                    <div className="mb-3 col-12">
+                    <div className="mb-3 col-12 col-md-6">
                         <label htmlFor="slogan" className="form-label">Slogan</label>
                         <textarea className="form-control" id="slogan" onChange={handleChange} name="slogan" defaultValue={setting&&setting[0].slogan} cols="30" rows="10"/>
                     </div>
-
-                    <a className="btn btn-primary" onClick={handleSubmit}>Modifier</a>
+                    <div className="col-12 row gy-0 gx-2">
+                        <div className="col-12 col-md-2">
+                            <a className="btn btn-primary w-100" onClick={handleSubmit}>Modifier</a>
+                        </div>
+                    </div>
                 </div>
             </Layout>
         </>

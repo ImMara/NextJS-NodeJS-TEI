@@ -60,18 +60,18 @@ function Index(props) {
         return (
             <>
                 <div className="row">
-                    <div className="col-12 row">
-                        <div className="col-12 col-md-4 mb-1">
+                    <div className="col-12 gy-1 gx-1 row">
+                        <div className="col-12 col-lg-4">
                             <a  href={"/np-admin/blog/add"} className="btn btn-primary w-100">Ajouter un article</a>
                         </div>
-                        <div className="col-12 col-md-4 mb-1">
+                        <div className="col-12 col-lg-4">
                             <Link href={"/np-admin/blog/category"}>
-                                <a className="btn btn-primary mx-md-2 w-100">Ajouter une catégorie</a>
+                                <a className="btn btn-primary w-100">Ajouter une catégorie</a>
                             </Link>
                         </div>
-                        <div className="col-12 col-md-4 mb-1">
+                        <div className="col-12 col-lg-4">
                             <Link href={"/np-admin/blog/comments"}>
-                                <a className="btn btn-primary mx-md-2 w-100">Voir tous les commentaires</a>
+                                <a className="btn btn-primary w-100">Voir tous les commentaires</a>
                             </Link>
                         </div>
                     </div>
@@ -110,15 +110,21 @@ function Index(props) {
                                 <td className={"table-none"}>{post.status.toString()}</td>
                                 <td className={"table-none"}>{post.category && post.category.title}</td>
                                 <td>
-                                    <a href={"/np-admin/blog/" + post._id} className="btn btn-success rounded-start rounded-0">Modifier</a>
-                                    <button
-                                        type="button"
-                                        className="btn btn-danger rounded-end rounded-0 px-3"
-                                        data-bs-toggle="modal"
-                                        onClick={() => handleBtn(post._id, index)}
-                                        data-bs-target="#delete-post">
-                                        Supprimer
-                                    </button>
+                                    <div className="row gy-1 gx-1">
+                                        <div className="col-12 col-xxl-6">
+                                            <a href={"/np-admin/blog/" + post._id} className="btn btn-success w-100">Modifier</a>
+                                        </div>
+                                        <div className="col-12 col-xxl-6">
+                                            <button
+                                                type="button"
+                                                className="btn btn-danger px-3 w-100"
+                                                data-bs-toggle="modal"
+                                                onClick={() => handleBtn(post._id, index)}
+                                                data-bs-target="#delete-post">
+                                                Supprimer
+                                            </button>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         ))
@@ -138,10 +144,10 @@ function Index(props) {
                 <Modal
                     target={"delete-post"}
                     label={"exampleModalLabel"}
-                    title={"delete post"}
-                    btn={"delete"}
+                    title={"Supprimer un article"}
+                    btn={"Supprimer"}
                     submit={handleSubmit}
-                >are you sure?</Modal>
+                >Êtes-vous sûr ?</Modal>
                 {topBar()}
                 <hr/>
                 {

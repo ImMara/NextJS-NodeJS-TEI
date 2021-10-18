@@ -72,20 +72,20 @@ function Index(props) {
                     <Modal
                         target={"delete-post"}
                         label={"exampleModalLabel"}
-                        title={"delete post"}
+                        title={"Supprimer le commentaire"}
                         btn={"delete"}
                         submit={handleDelete}
-                    >are you sure?</Modal>
+                    >Êtes-vous sûr ?</Modal>
                     <div className="col-12">
                         <table className="table">
                             <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Commentaire</th>
-                                <th>Titre de l'article</th>
-                                <th>Date</th>
-                                <th>Utilisateur</th>
-                                <th>Email</th>
+                                <th className={"table-none"}>Titre de l'article</th>
+                                <th className={"table-none"}>Date</th>
+                                <th className={"table-none"}>Utilisateur</th>
+                                <th className={"table-none"}>Email</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -95,22 +95,28 @@ function Index(props) {
                                     <tr>
                                         <td>{index}</td>
                                         <td>{truncateString(comment.body,15)}</td>
-                                        <td>{comment.post_id.title}</td>
-                                        <td>{comment.date}</td>
-                                        <td>{comment.username}</td>
-                                        <td>{comment.email}</td>
+                                        <td className={"table-none"} >{comment.post_id.title}</td>
+                                        <td className={"table-none"}>{comment.date}</td>
+                                        <td className={"table-none"}>{comment.username}</td>
+                                        <td className={"table-none"}>{comment.email}</td>
                                         <td>
-                                            <Link href={"/np-admin/blog/comments/"+comment._id}>
-                                                <a className={"btn btn-primary"}>Voir</a>
-                                            </Link>
-                                            <button
-                                                type="button"
-                                                className="btn btn-danger rounded-end rounded-0 px-3"
-                                                data-bs-toggle="modal"
-                                                onClick={() => handleBtn(comment._id, index)}
-                                                data-bs-target="#delete-post">
-                                                Supprimer
-                                            </button>
+                                            <div className="row gy-1 gx-1">
+                                                <div className="col-12 col-xxl-8">
+                                                    <button
+                                                        type="button"
+                                                        className="btn btn-danger w-100 px-3"
+                                                        data-bs-toggle="modal"
+                                                        onClick={() => handleBtn(comment._id, index)}
+                                                        data-bs-target="#delete-post">
+                                                        Supprimer
+                                                    </button>
+                                                </div>
+                                                <div className="col-12 col-xxl-4">
+                                                    <Link href={"/np-admin/blog/comments/"+comment._id}>
+                                                        <a className={"btn btn-primary w-100"}>Voir</a>
+                                                    </Link>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))

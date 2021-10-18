@@ -70,7 +70,7 @@ export default async (req, res, next) => {
                 }
 
                 // MESSAGE
-                const string = `Update success`
+                const string = `mise à jour de l'article : ${post.title}`
 
                 // RESPONSE FROM API
                 res.json({
@@ -107,7 +107,7 @@ export default async (req, res, next) => {
                 await deletePost(id);
 
                 // SUCCESS MESSAGE
-                const string = `Delete success`;
+                const string = `Supression de l'article : ${post.title}`;
 
                 // JSON RESPONSE
                 res.json({success: string})

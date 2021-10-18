@@ -40,7 +40,7 @@ export default async (req, res, next) => {
                 const role = await patchRole(id,body);
 
                 // MESSAGE
-                const string = `Update success`
+                const string = `mise à jour du rôle : ${role.title}`
 
                 // RESPONSE FROM API
                 res.json({
@@ -64,11 +64,13 @@ export default async (req, res, next) => {
                 // GET ID FROM URL
                 const id = req.query.id;
 
+                const role = await getRole(id);
+
                 // DELETE ROLE WITH ID
                 await deleteRole(id);
 
                 // SUCCESS MESSAGE
-                const string = `Delete success`
+                const string = `Supression du rôle : ${role.title}`
 
                 // JSON RESPONSE
                 res.json({success: string,})
