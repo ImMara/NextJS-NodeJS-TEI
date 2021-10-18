@@ -174,7 +174,7 @@ function Add(props) {
                     </div>
 
                     <div className="mb-3 col-12">
-                        <h6 className="mb-2 py-1">Contenus de l'article</h6>
+                        <h6 className="mb-2 py-1">Contenu de l'article</h6>
                         <SunEditor
                             lang="fr"
                             name="body"
