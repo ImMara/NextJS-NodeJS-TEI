@@ -110,14 +110,14 @@ function Index(props) {
                                 <td className={"table-none"}>{post.status.toString()}</td>
                                 <td className={"table-none"}>{post.category && post.category.title}</td>
                                 <td>
-                                    <a href={"/np-admin/blog/" + post._id} className="btn btn-success rounded-start rounded-0">update</a>
+                                    <a href={"/np-admin/blog/" + post._id} className="btn btn-success rounded-start rounded-0">Modifier</a>
                                     <button
                                         type="button"
                                         className="btn btn-danger rounded-end rounded-0 px-3"
                                         data-bs-toggle="modal"
                                         onClick={() => handleBtn(post._id, index)}
                                         data-bs-target="#delete-post">
-                                        delete
+                                        Supprimer
                                     </button>
                                 </td>
                             </tr>
