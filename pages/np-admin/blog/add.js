@@ -151,7 +151,7 @@ function Add(props) {
                     <div className="mb-3 col-xl-6">
                         <Select
                             name={"category"}
-                            label="Categorie d'article"
+                            label="Catégorie de l'article"
                             value={body.category}
                             onChange={handleChange}
                         >
