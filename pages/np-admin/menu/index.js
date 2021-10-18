@@ -248,7 +248,7 @@ function Index(props) {
                                                         onClick={() => {
                                                             setUpdateMenu(menu);
                                                             setMenuIndex(index);
-                                                        }}>Update</a>
+                                                        }}>Modifier</a>
                                                     <button
                                                         className="btn btn-danger"
                                                         onClick={() => {
@@ -256,7 +256,7 @@ function Index(props) {
                                                             setMenuIndex(index);
                                                         }}
                                                         data-bs-toggle="modal" data-bs-target="#delete"
-                                                    >delete</button>
+                                                    >Supprimer</button>
                                                 </td>
                                             </tr>
                                         </>
