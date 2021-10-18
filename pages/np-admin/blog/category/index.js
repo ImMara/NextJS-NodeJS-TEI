@@ -183,7 +183,7 @@ function Index(props) {
                         <Modal
                             target={"addCat"}
                             label={"exampleModalLabel"}
-                            title={"Modal title"}
+                            title={"Ajouter une catégorie"}
                             btn={"Ajouter"}
                             submit={handleSubmit}
                             color="success"
@@ -191,7 +191,6 @@ function Index(props) {
                             <div className="mb-3">
                                 <Input
                                     name={"title"}
-                                    title={"Ajouter une catégorie"}
                                     onChange={handleChange}
                                     type={"text"}
                                     label={"Titre"}
