@@ -147,7 +147,7 @@ function Add(props) {
                     >Ajouter une page</a>
                     <Link href={"/np-admin/page/"}>
                         <a className="btn ms-1 btn-primary">
-                            retour
+                            Retour
                         </a>
                     </Link>
                 </div>
