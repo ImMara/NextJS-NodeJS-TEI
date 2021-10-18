@@ -66,7 +66,7 @@ function Index(props) {
                         </div>
                         <div className="col-12 col-md-4 mb-1">
                             <Link href={"/np-admin/blog/category"}>
-                                <a className="btn btn-primary mx-md-2 w-100">Ajouter une categorie</a>
+                                <a className="btn btn-primary mx-md-2 w-100">Ajouter une catégorie</a>
                             </Link>
                         </div>
                         <div className="col-12 col-md-4 mb-1">
