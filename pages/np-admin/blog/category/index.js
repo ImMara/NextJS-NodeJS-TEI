@@ -191,6 +191,7 @@ function Index(props) {
                             <div className="mb-3">
                                 <Input
                                     name={"title"}
+                                    title={"Ajouter une catégorie"}
                                     onChange={handleChange}
                                     type={"text"}
                                     label={"Titre"}
