@@ -10,7 +10,7 @@ function Dashboard(props) {
             <Layout>
                 <div className="row gy-1 gx-1">
                     <div className="col-12">
-                        <h1>dashboard</h1>
+                        <h1>Dashboard</h1>
                         <hr/>
                     </div>
                     <div className="col-4">
