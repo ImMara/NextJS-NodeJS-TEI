@@ -32,17 +32,17 @@ function Dashboard(props) {
                     </div>
                     <div className="col-4">
                         <Link href={"/np-admin/users/"}>
-                            <a className="btn btn-primary w-100 p-3"><i className="fas fa-users me-2"/>Users</a>
+                            <a className="btn btn-primary w-100 p-3"><i className="fas fa-users me-2"/>Utilisateurs</a>
                         </Link>
                     </div>
                     <div className="col-4">
                         <Link href={"/np-admin/settings/"}>
-                            <a className="btn btn-primary w-100 p-3"><i className="fas fa-sliders-h me-2"/>Settings</a>
+                            <a className="btn btn-primary w-100 p-3"><i className="fas fa-sliders-h me-2"/>Paramètres</a>
                         </Link>
                     </div>
                     <div className="col-4">
                         <Link href={"/np-admin/profile/"}>
-                            <a className="btn btn-primary w-100 p-3"><i className="far fa-id-badge me-2"/>Profile</a>
+                            <a className="btn btn-primary w-100 p-3"><i className="far fa-id-badge me-2"/>Profil</a>
                         </Link>
                     </div>
                 </div>
