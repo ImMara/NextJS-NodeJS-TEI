@@ -114,7 +114,7 @@ function Index(props) {
                             onChange={handleChange}
                         />
                         <Input
-                            label={"votre password"}
+                            label={"changer votre password"}
                             name={"password"}
                             type="password"
                             onChange={handleChange}
