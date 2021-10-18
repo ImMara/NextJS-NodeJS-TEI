@@ -14,7 +14,7 @@ function CarouselFeatured(props) {
             (
                 <div className="col-12 mt-5 mb-3">
                     <div className="mb-4 d-md-flex justify-content-between align-items-center">
-                        <h2 className="m-0">Billets de Blogs populaires</h2>
+                        <h2 className="m-0">Blogs populaires</h2>
 
                     </div>
                     <div id="carouselExampleCaptions"  className="carousel slide" data-bs-ride="carousel">
