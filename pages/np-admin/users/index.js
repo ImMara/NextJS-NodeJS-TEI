@@ -374,7 +374,7 @@ function Index(props) {
 
                         <Modal
                             target={"addRoleModal"}
-                            title={"Ajouter un role"}
+                            title={"Ajouter un rôle"}
                             label="exampleModalLabel"
                             btn={"Ajouter"}
                             submit={handleSubmitNewRole}
@@ -404,7 +404,7 @@ function Index(props) {
 
                         <Modal
                             target="updateRole"
-                            title="Update role"
+                            title="Modifier un rôle"
                             label="update role"
                             btn={"update"}
                             submit={handleSubmitUpdateRole}
