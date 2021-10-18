@@ -155,7 +155,7 @@ function Add(props) {
                             value={body.category}
                             onChange={handleChange}
                         >
-                            <option>Open this select menu</option>
+                            <option>ouvrir le menu de sélection</option>
                             {
                                 category.map(c => (
                                     <option value={c._id}>{c.title}</option>
