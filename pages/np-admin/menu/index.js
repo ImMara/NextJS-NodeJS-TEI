@@ -193,7 +193,7 @@ function Index(props) {
                         <Modal
                             target={"addMenu"}
                             label={"exampleModalLabel"}
-                            title={"Ajouter un liens"}
+                            title={"Ajouter un lien"}
                             btn={"Ajouter"}
                             submit={handleSubmit}
                             color={"success"}
@@ -203,7 +203,7 @@ function Index(props) {
                                     name={"title"}
                                     onChange={handleChange}
                                     type="text"
-                                    label={"titre"}
+                                    label={"Titre"}
                                     value={body.title}
                                 />
                             </div>
@@ -211,7 +211,7 @@ function Index(props) {
                                 <Select
                                     onChange={handleChange}
                                     name={"page_id"}
-                                    label={"page"}
+                                    label={"Page"}
                                     value={body.page_id}
                                 >
                                     <option selected value={null}>unset</option>
