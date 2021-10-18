@@ -96,7 +96,7 @@ function Add(props) {
                     onChange={handleChange}
                 />
                 <div className="mb-3">
-                    <h6 className="mb-2 py-1">Contenu de l'article</h6>
+                    <h6 className="mb-2 py-1">Contenu de la page</h6>
                     <SunEditor
                         lang="fr"
                         name="body"
