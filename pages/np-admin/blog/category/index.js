@@ -283,7 +283,7 @@ function Index(props) {
                                     </div>
                                     <div>
                                         <a className="btn btn-success me-1" onClick={handleSubmitEdit}>Modifier</a>
-                                        <a className="btn btn-danger" onClick={handleCloseEdit}>Supprimer</a>
+                                        <a className="btn btn-danger" onClick={handleCloseEdit}>Fermer</a>
                                     </div>
                                 </div>
                             )
