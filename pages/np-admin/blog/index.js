@@ -55,7 +55,7 @@ function Index(props) {
 
     /* END LOGIC*/
     //pagination
-    const [currentPage, setCurrentPage] = useState(2);
+    const [currentPage, setCurrentPage] = useState(1);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
@@ -97,17 +97,17 @@ function Index(props) {
     const table = () => {
         return (
             <div className="table-responsive bg-light rounded p-2">
+                {itemsPerPage < posts.length &&
+                (
+                    <Pagination
+                        currentPage={currentPage}
+                        itemsPerPage={itemsPerPage}
+                        length={posts.length}
+                        onPageChanged={handlePageChange}
+                    />
+                )
+                }
                 <table className="table table-hover">
-                    {itemsPerPage < posts.length &&
-                    (
-                        <Pagination
-                            currentPage={currentPage}
-                            itemsPerPage={itemsPerPage}
-                            length={posts.length}
-                            onPageChanged={handlePageChange}
-                        />
-                    )
-                    }
                     <thead>
                     <tr>
                         <th>#</th>

@@ -51,16 +51,15 @@ function Add(props) {
 
     /* START LOGIC */
 
+    const handleFile = (event) =>{
+        setFileSelected(event.target.files[0])
+    }
+
     const handleChange = (event) => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
         setBody({...body, [name]: value})
-    }
-
-
-    const handleFile = (event) =>{
-        setFileSelected(event.target.files[0])
     }
 
     const handleBodyEditor = (content) => {

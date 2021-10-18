@@ -8,6 +8,7 @@ import {truncateString} from "../../../../../utils/functions";
 import Modal from "../../../../../components/bootstrap-5/modal/Modal";
 import Alerts from "../../../../../components/bootstrap-5/alerts/Alerts";
 import axios from "axios";
+import Pagination from "../../../../../components/shared/Pagination/Pagination";
 
 export async function getServerSideProps(context) {
 
@@ -43,7 +44,20 @@ function Index(props) {
                 setMessage(r.data);
             })
     }
+    //pagination
+    const [currentPage, setCurrentPage] = useState(1);
 
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const itemsPerPage = 7;
+
+    const paginatedData = Pagination.getData(
+        comments,
+        currentPage,
+        itemsPerPage
+    );
     return (
         <>
             <Navbar/>
@@ -77,6 +91,16 @@ function Index(props) {
                         submit={handleDelete}
                     >Êtes-vous sûr ?</Modal>
                     <div className="col-12">
+                        {itemsPerPage < comments.length &&
+                        (
+                            <Pagination
+                                currentPage={currentPage}
+                                itemsPerPage={itemsPerPage}
+                                length={comments.length}
+                                onPageChanged={handlePageChange}
+                            />
+                        )
+                        }
                         <table className="table">
                             <thead>
                             <tr>
@@ -123,6 +147,16 @@ function Index(props) {
                             }
                             </tbody>
                         </table>
+                        {itemsPerPage < comments.length &&
+                        (
+                            <Pagination
+                                currentPage={currentPage}
+                                itemsPerPage={itemsPerPage}
+                                length={comments.length}
+                                onPageChanged={handlePageChange}
+                            />
+                        )
+                        }
                     </div>
                 </div>
             </Layout>
