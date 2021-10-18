@@ -301,11 +301,11 @@ function Index(props) {
                                         <a
                                             onClick={handleSubmitUpdate}
                                             className="px-4 btn btn-success"
-                                        >save</a>
+                                        >Modifier</a>
                                         <a
                                             className="ms-2 px-4 btn btn-danger"
                                             onClick={handleCloseUpdate}
-                                        >close</a>
+                                        >Fermer</a>
                                     </div>
                                 </div>
                             )}
