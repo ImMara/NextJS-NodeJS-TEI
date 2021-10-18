@@ -40,23 +40,23 @@ function FormComment(props) {
 
     return (
         <div>
-            <h3>Leave a reply</h3>
-            <small>Your email address will not be published. Required fields are marked *</small>
+            <h3>Laisser un commentaire </h3>
+            <small>Votre adresse e-mail ne sera pas publiée. Les champs obligatoires sont indiqués avec *</small>
             <form className="row g-3 mt-2">
                 <div className="col-md-6">
-                    <label className="form-label">Name *</label>
+                    <label className="form-label">Nom *</label>
                     <input type="text" name="username" value={body.username} onChange={handleChange} className="form-control bg-dark border-secondary text-white" aria-label="First Name"/>
                 </div>
                 <div className="col-md-6">
-                    <label className="form-label">Email *</label>
+                    <label className="form-label">E-mail *</label>
                     <input type="email" value={body.email} name="email" onChange={handleChange} className="form-control bg-dark border-secondary text-white"/>
                 </div>
                 <div className="col-12">
-                    <label className="form-label">Your Comment *</label>
+                    <label className="form-label">Commentaire *</label>
                     <textarea name="body" value={body.body} onChange={handleChange} className="form-control bg-dark border-secondary text-white" rows="3"/>
                 </div>
                 <div className="col-12">
-                    <button type="submit" onClick={handleSubmit} className="btn btn-primary">Post comment</button>
+                    <button type="submit" onClick={handleSubmit} className="btn btn-primary">Laisser un commentaire</button>
                 </div>
             </form>
         </div>

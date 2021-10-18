@@ -25,8 +25,8 @@ function Posts(props) {
     return (
         <div className="col-lg-9 mb-5">
                         <div className="mb-5">
-                            <h2 className={"m-0"}><i className="bi bi-hourglass-top me-2"/>Today's top highlights</h2>
-                            <p>Latest breaking news, pictures, videos, and special reports</p>
+                            <h2 className={"m-0"}><i className="bi bi-hourglass-top me-2"/>L'actu en continu </h2>
+                            <p>le site dédié aux jeux vidéo sur Consoles et PC. Découvrez l'actualité des jeux vidéo .</p>
                         </div>
 
                         <div className={"mb-3"}>

@@ -14,7 +14,7 @@ function CarouselFeatured(props) {
             (
                 <div className="col-12 mt-5 mb-3">
                     <div className="mb-4 d-md-flex justify-content-between align-items-center">
-                        <h2 className="m-0">Featured Articles</h2>
+                        <h2 className="m-0">Billets de Blogs populaires</h2>
 
                     </div>
                     <div id="carouselExampleCaptions"  className="carousel slide" data-bs-ride="carousel">
@@ -31,18 +31,28 @@ function CarouselFeatured(props) {
                             {
                                 featured.map((post,index) =>
                                     (
-                                            <div className={index === 0 ? "carousel-item active":"carousel-item"}  style={{background:'linear-gradient(0deg, black, transparent)'}}>
-                                                <img src={"/images/blogs/resized/"+post.image} style={{height:"200px", objectFit:"cover",background: "rgba(0, 0, 0, 0) linear-gradient(0deg, black, transparent) repeat scroll 0% 0%",}} className="d-block w-100" alt="..."/>
-                                                <div className="carousel-caption d-none d-md-block" style={{
-                                                    textShadow:"black 0.1em 0.1em 0.2em",
-                                                    cursor:"pointer",
-                                                }}>
-                                                    <Link href={"/post/"+post._id}>
-                                                        <div>
-                                                            <h5>{post.title}</h5>
-                                                            <p>{post.short_description}</p>
-                                                        </div>
-                                                    </Link>
+                                            <div className={index === 0 ? "carousel-item active":"carousel-item"} >
+                                                <div>
+                                                    <div style={{
+                                                        height:"200px",
+                                                        backgroundImage:`linear-gradient(0deg, rgba(0, 0, 0, 0.70),rgba(0, 0, 0, 0.70)),url('/images/blogs/resized/${post.image}')`,
+
+                                                    }}>
+                                                        {/*<img src={"/images/blogs/resized/"+post.image} style={{height:"200px", objectFit:"cover",zIndex:"1"}} className="d-block w-100" alt="..."/>*/}
+                                                    </div>
+
+                                                    <div className="carousel-caption d-none d-md-block" style={{
+                                                        textShadow:"black 0.1em 0.1em 0.2em",
+                                                        cursor:"pointer",
+                                                    }}>
+                                                        <Link href={"/post/"+post._id}>
+                                                            <div>
+                                                                <h5>{post.title}</h5>
+                                                                <p>{post.short_description}</p>
+                                                            </div>
+                                                        </Link>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                     )

@@ -29,7 +29,7 @@ function CategoriesWidget(props) {
                     </div>
             </div>
             <div>
-                <h4 className={"mt-4 mb-3"}>Trending topics</h4>
+                <h4 className={"mt-4 mb-3"}>Tendances</h4>
                 {
                     props.categories.map((cat,index)=>(
                         <Link href={"/category/"+cat.title}>
