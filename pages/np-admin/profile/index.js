@@ -105,7 +105,7 @@ function Index(props) {
                     </div>
                     <div className="col-12 col-lg-6">
                         <Input
-                            label={"votre email"}
+                            label={"Email"}
                             type="email"
                             name="email"
                             defaultValue={props.user.local.email}
@@ -114,7 +114,7 @@ function Index(props) {
                             onChange={handleChange}
                         />
                         <Input
-                            label={"Changer votre password"}
+                            label={"Changer votre mot de passe"}
                             name={"password"}
                             type="password"
                             onChange={handleChange}
