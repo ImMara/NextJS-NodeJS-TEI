@@ -78,7 +78,7 @@ export default  async (req,res,next) => {
                 await deleteComment(id);
 
                 // SUCCESS MESSAGE
-                const string = `Supression du commentaire ${comment.title}`
+                const string = `Supression du commentaire ${id}`
 
                 // JSON RESPONSE
                 res.json({
