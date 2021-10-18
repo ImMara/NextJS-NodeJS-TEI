@@ -211,9 +211,8 @@ function Index(props) {
                     <div className="col-12">
                         <Modal
                             target={"delete"}
-                            label={"Supprimer une catégorie"}
-                            title={"Delete"}
-                            btn={"delete"}
+                            title={"Supprimer une catégorie"}
+                            btn={"Supprimer"}
                             submit={handleDelete}
                         >
                             Êtes-vous sûr?
