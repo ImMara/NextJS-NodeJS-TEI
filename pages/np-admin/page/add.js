@@ -35,6 +35,14 @@ function Add(props) {
             [name]: value
         })
     }
+    const scrollToTop = () =>{
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+            /* you can also use 'auto' behaviour
+               in place of 'smooth' */
+        });
+    };
 
     const [message, setMessage] = useState();
     const [bodyEditor, setBodyEditor] = useState();
@@ -46,7 +54,10 @@ function Add(props) {
     const handleSubmit = async () => {
         axios
             .post(`/api/page`, {...body,body:bodyEditor})
-            .then(r => setMessage(r.data))
+            .then(r =>{
+                setMessage(r.data)
+                scrollToTop();
+            } )
     }
 
     const defaultFonts = [

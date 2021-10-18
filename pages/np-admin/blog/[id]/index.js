@@ -60,6 +60,15 @@ function Index(props) {
         setBody({...body,[name]:value})
     }
 
+    const scrollToTop = () =>{
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+            /* you can also use 'auto' behaviour
+               in place of 'smooth' */
+        });
+    };
+
     const handleBodyEditor = (content) =>{
         setBodyEditor(content);
     }
@@ -80,6 +89,7 @@ function Index(props) {
             .then(r => {
                 setMessage(r.data);
                 console.log(r.data);
+                scrollToTop();
             });
     }
     const defaultFonts = [

@@ -43,6 +43,14 @@ function Index(props) {
             [name]: value
         })
     }
+    const scrollToTop = () =>{
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+            /* you can also use 'auto' behaviour
+               in place of 'smooth' */
+        });
+    };
 
     const handleSubmit = (event) => {
         axios
@@ -50,6 +58,7 @@ function Index(props) {
             .then((r) => {
                 console.log(r);
                 setMessage(r.data);
+                scrollToTop();
             })
     }
 
