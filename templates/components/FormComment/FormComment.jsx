@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Input from "../../../components/bootstrap-5/input/Input";
 import axios from "axios";
+import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
+import Layout from "../../../components/layout/Layout";
 
 function FormComment(props) {
 
@@ -10,6 +12,7 @@ function FormComment(props) {
         post_id:props.id,
         username:"",
     });
+    const [message, setMessage] = useState("");
 
     const changeComment = (data) =>{
         props.setComments(data);
@@ -28,18 +31,29 @@ function FormComment(props) {
             .post('/api/blog/comments',body)
             .then(r => {
                 console.log(r.data);
-                changeComment([...props.comments,r.data.data]);
-                setBody({
-                    body:"",
-                    email:"",
-                    post_id:props.id,
-                    username:"",
-                })
+                setMessage(r.data);
+                if(!r.data.error){
+                    changeComment([...props.comments,r.data.data]);
+                    setBody({
+                        body:"",
+                        email:"",
+                        post_id:props.id,
+                        username:"",
+                    })
+                }
             })
     }
 
     return (
         <div>
+            {
+                message && (
+                    <Alerts
+                        style={message.error ? "danger" : "success"}
+                        message={message.error || message.success}
+                    />
+                )
+            }
             <h3>Laisser un commentaire </h3>
             <small>Votre adresse e-mail ne sera pas publiée. Les champs obligatoires sont indiqués avec *</small>
             <form className="row g-3 mt-2">

@@ -33,7 +33,6 @@ export async function getServerSideProps(context) {
 
 function Index(props) {
 
-    const [settings,setSettings] = useState(useSettingsContext());
     const [comments,setComments] = useState(props.comments);
 
     function createMarkup() {

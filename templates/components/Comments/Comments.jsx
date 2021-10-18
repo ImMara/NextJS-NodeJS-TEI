@@ -7,7 +7,7 @@ function Comments(props) {
     return (
         <div>
             <hr/>
-            <h5>{comments.length} Comments</h5>
+            <h5>{comments.length} Commentaire(s)</h5>
             {
                 comments.map(comment => (
                     <div className="my-4 d-flex">

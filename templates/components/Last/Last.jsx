@@ -9,7 +9,7 @@ function Last(props) {
             <div className="col-lg-6">
                 {
                     props.posts[0] && (
-                        <FullCard post={props.posts[0]} image={"/images/blogs/resized/"+props.posts[0].image} height="100%"/>
+                        <FullCard post={props.posts[0]} image={"/images/blogs/resized/"+props.posts[0].image} first={true}/>
                     )
                 }
             </div>
@@ -19,7 +19,7 @@ function Last(props) {
                     {
                         props.posts[1] && (
                             <div className="col-12">
-                                <FullCard short={true} post={props.posts[1]} image={"/images/blogs/resized/"+props.posts[1].image} height="320px"/>
+                                <FullCard short={true} post={props.posts[1]} image={"/images/blogs/resized/"+props.posts[1].image} second={true}/>
                             </div>
                         )
                     }

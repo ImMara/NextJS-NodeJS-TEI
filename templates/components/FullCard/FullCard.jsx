@@ -5,7 +5,10 @@ function FullCard(props) {
     return (
         <>
         <div
-            className="card relative"
+            className= {
+                props.first?'card relative firstCard':
+                props.second?'card relative secondCard':"card relative"
+            }
             style={{
                 backgroundImage:'url('+props.image+')',
                 backgroundPosition:'center left',
@@ -14,13 +17,10 @@ function FullCard(props) {
                 border:' 0 solid rgba(0, 0, 0, 0.1)',
             }}
             >
-            <div className="card-body d-flex align-items-center p-3" style={{background:'linear-gradient(0deg, black, transparent)',}}>
+            <div className="card-body d-flex align-items-center p-3"
+                 style={{background:'linear-gradient(0deg, black, transparent)',}}
+            >
                 <div className="w-100 mt-auto text-white">
-                    <a href="mb-2">
-                        <span
-                            className="badge bg-danger"
-                        >{props.post.category ? props.post.category.name : "no category"}</span>
-                    </a>
                     <h4 className="card-title">
                         <a
                             className="btn-link stretched-link text-reset"
@@ -32,7 +32,8 @@ function FullCard(props) {
                     {
                         !props.short && (
                             // lorem 25
-                            <p style={{
+                            <p className={"d-none d-md-block"}
+                                style={{
                                 textShadow:"black 0.1em 0.1em 0.2em"
                             }}>{props.post.short_description}</p>
                         )
@@ -40,10 +41,10 @@ function FullCard(props) {
                     <div className={"d-flex align-items-center"}  style={{
                         textShadow:"black 0.1em 0.1em 0.2em"
                     }}>
-                        <h5 className="me-3">{props.post.author ? props.post.author.name : "anonymous"}</h5>
+                        <h5 className="me-3 d-none d-md-block">{props.post.author ? props.post.author.name : "anonymous"}</h5>
                         {
                             !props.short && (
-                                <span className="small">{props.post.date.substring(0, 10)}</span>
+                                <span className="small d-none d-md-block">{props.post.date.substring(0, 10)}</span>
                             )
                         }
                     </div>

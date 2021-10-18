@@ -34,14 +34,14 @@ export default async (req, res,next) => {
 
                 // RESPONSE FROM API
                 res.json({
-                    message: string,
+                    success:string,
                     data: body,
                 })
 
             }catch (e) {
 
                 // API RETURNS ERROR
-                res.json({error: e})
+                res.json({error: e.message})
 
                 // SERVER RETURNS ERROR
                 console.error(e)

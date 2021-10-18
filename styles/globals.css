@@ -14,11 +14,6 @@ body {
   display:none;
 }
 
-@media (min-width: 768px) {
-  .table-none{
-    display: table-cell;
-  }
-}
  .page-link {
    position: relative;
    display: block;
@@ -51,4 +46,25 @@ body {
   text-decoration: none;
   background-color:  #f8f9fa;
   border-color: #343a40;
+}
+
+.firstCard{
+  height: 220px;
+}
+.secondCard{
+  height: 220px;
+}
+@media (min-width: 768px) {
+  .table-none{
+    display: table-cell;
+  }
+
+}
+@media (min-width: 992px) {
+  .firstCard{
+    height: 100%;
+  }
+  .secondCard{
+    height: 320px;
+  }
 }
