@@ -41,14 +41,14 @@ function CarouselFeatured(props) {
                                                     }}>
                                                     </div>
 
-                                                    <div className="carousel-caption d-none d-md-block" style={{
+                                                    <div className="carousel-caption" style={{
                                                         textShadow:"black 0.1em 0.1em 0.2em",
                                                         cursor:"pointer",
                                                     }}>
                                                         <Link href={"/post/"+post._id}>
                                                             <div>
                                                                 <h5>{post.title}</h5>
-                                                                <p>{post.short_description}</p>
+                                                                <p className={"d-none d-md-block"}>{post.short_description}</p>
                                                             </div>
                                                         </Link>
                                                     </div>
