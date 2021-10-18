@@ -19,7 +19,7 @@ export default async (req, res, next) =>{
                 await patchSettings(id,body);
 
                 // MESSAGE
-                const string = `mise à jour des paramétres`
+                const string = `mise à jour des paramètres`
 
                 // RESPONSE FROM API
                 res.json({
