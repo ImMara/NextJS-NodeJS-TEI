@@ -70,8 +70,8 @@ function Index(props) {
             <table className="table">
                 <thead>
                     <th>#</th>
-                    <th>Title</th>
-                    <th>Action</th>
+                    <th>Titre</th>
+                    <th>Actions</th>
                 </thead>
                 <tbody>
                 {
