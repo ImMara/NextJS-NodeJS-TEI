@@ -206,7 +206,7 @@ function Index(props) {
                     <div className="mb-3 col-12">
                         <Textarea
                             value={body.short_description}
-                            label={"short description"}
+                            label={"Courte description"}
                             name={"short_description"}
                             row={"3"}
                             onChange={handleChange}
