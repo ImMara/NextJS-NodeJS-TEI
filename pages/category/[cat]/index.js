@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Navbar from "../../../templates/components/Navbar/Navbar";
 import CategoriesWidget from "../../../templates/components/CategoriesWidget/CategoriesWidget";
 import CarouselFeatured from "../../../templates/components/CarouselFeatured/CarouselFeatured";
@@ -44,6 +44,10 @@ function Index(props) {
         currentPage,
         itemsPerPage
     );
+
+    useEffect(() =>{
+        setPosts(props.posts);
+    })
 
     return (
         <>

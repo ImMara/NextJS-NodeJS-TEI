@@ -32,6 +32,7 @@ function CategoriesWidget(props) {
                 <h4 className={"mt-4 mb-3"}>Tendances</h4>
                 {
                     props.categories.map((cat,index)=>(
+                        <Link href={"/category/"+cat.title}>
                             <a className={"link-light"} href={"/category/"+cat.title}>
                                 <div key={index}
                                      style={{textShadow:"black 0.1em 0.1em 0.2em"}}
@@ -40,6 +41,8 @@ function CategoriesWidget(props) {
                                     {cat.title}
                                 </div>
                             </a>
+                        </Link>
+
                     ))
                 }
 
