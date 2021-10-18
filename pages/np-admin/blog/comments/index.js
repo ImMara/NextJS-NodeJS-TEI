@@ -5,6 +5,7 @@ import Layout from "../../../../components/layout/Layout";
 import Navbar from "../../../../components/admin/navbar/Navbar";
 import Link from 'next/link';
 import {truncateString} from "../../../../utils/functions";
+import axios from "axios";
 
 export async function getStaticProps(context) {
 
@@ -20,6 +21,14 @@ export async function getStaticProps(context) {
 function Index(props) {
 
     const [comments,setComments]= useState(props.comments);
+
+    const handleDelete = () => {
+        axios
+            .delete('/api/blog/comments/' + id )
+            .then(r => {
+
+            })
+    }
 
     return (
         <>
@@ -57,8 +66,8 @@ function Index(props) {
                                         <tr>
                                             <td>{index}</td>
                                             <td>{truncateString(comment.body,15)}</td>
-                                            <td>{comment.post_id.title}</td>
-                                            <td>{comment.date}</td>
+                                            <td>{comment.post_id &&( comment.post_id.title ) }</td>
+                                            <td>{comment.date.substr(0,10)}</td>
                                             <td>{comment.username}</td>
                                             <td>{comment.email}</td>
                                             <td>
