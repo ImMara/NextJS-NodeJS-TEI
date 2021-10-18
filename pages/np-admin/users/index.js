@@ -338,12 +338,12 @@ function Index(props) {
                                                                 className={"btn btn-danger"}
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#deleteUser"
-                                                            >Delete</a>
+                                                            >Supprimer</a>
                                                         )) : (
                                                         <Link href="/np-admin/profile">
                                                             <a
                                                                 className={"btn btn-primary"}
-                                                            >Profile</a>
+                                                            >Profil</a>
                                                         </Link>
                                                     ))
                                             }
