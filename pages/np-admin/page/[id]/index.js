@@ -80,7 +80,7 @@ function Index(props) {
             <Navbar/>
             <Layout>
                 <div className="mb-3 col row">
-                    <h1>modifier une page</h1>
+                    <h1>Modifier la page</h1>
 
                     {
                         message && (
@@ -93,7 +93,7 @@ function Index(props) {
 
                     <hr/>
                     <div className="mb-3">
-                        <h6 className="mb-2 py-1">Contenus de l'article</h6>
+                        <h6 className="mb-2 py-1">Contenu de l'article</h6>
                         <SunEditor
                             lang="fr"
                             name="body"
@@ -142,7 +142,7 @@ function Index(props) {
                     <a
                         className="btn btn-success"
                         onClick={handleSubmit}
-                    >Update</a>
+                    >Modifier</a>
                 </div>
             </Layout>
         </>
