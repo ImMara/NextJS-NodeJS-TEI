@@ -230,7 +230,6 @@ function Add(props) {
                     </div>
 
                     <div className="form-check mb-3 ms-3 col-6 row">
-                        <h5>Options</h5>
                         <div className="col-12">
                             <Checkbox
                                 value={body.allowComment}
