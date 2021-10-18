@@ -35,10 +35,10 @@ function CarouselFeatured(props) {
                                                 <div>
                                                     <div style={{
                                                         height:"200px",
-                                                        backgroundImage:`linear-gradient(0deg, rgba(0, 0, 0, 0.70),rgba(0, 0, 0, 0.70)),url('/images/blogs/resized/${post.image}')`,
-
+                                                        backgroundImage:`linear-gradient(0deg, rgba(0, 0, 0, 0.60),rgba(0, 0, 0, 0.60)),url('/images/blogs/resized/${post.image}')`,
+                                                        backgroundSize:"cover",
+                                                        backgroundRepeat:'no-repeat'
                                                     }}>
-                                                        {/*<img src={"/images/blogs/resized/"+post.image} style={{height:"200px", objectFit:"cover",zIndex:"1"}} className="d-block w-100" alt="..."/>*/}
                                                     </div>
 
                                                     <div className="carousel-caption d-none d-md-block" style={{

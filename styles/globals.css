@@ -19,31 +19,36 @@ body {
     display: table-cell;
   }
 }
-.pagination > li > a
-{
-  background-color: white;
-  color: purple;
+ .page-link {
+   position: relative;
+   display: block;
+   padding: 0.5rem 0.75rem;
+   margin-left: -1px;
+   line-height: 1.25;
+   color: white;
+   background-color: #1d1e20;
+   border: 1px solid #1d1e20;
+ }
+.page-item.active .page-link {
+  color: white !important;
+  background: #2f3237 !important;
 }
-
-.pagination > li > a:focus,
-.pagination > li > a:hover,
-.pagination > li > span:focus,
-.pagination > li > span:hover
-{
-  color: purple;
-  background-color: #eee;
-  border-color: #ddd;
+.page-item.disabled .page-link {
+  color: #1d1e20;
+  pointer-events: none;
+  cursor: auto;
+  background-color: #1d1e20;
+  border-color: #1d1e20;
 }
-
-.pagination > .active > a
-{
-  color: white;
-  background-color: purple;
-  border: solid 1px purple;
+.page-item.active .page-link {
+  z-index: 1;
+  color: #2f3237;
+  background-color: #1d1e20;
+  border-color: white;
 }
-
-.pagination > .active > a:hover
-{
-  background-color: purple;
-  border: solid 1px purple;
+.page-link:focus, .page-link:hover {
+  color:   #343a40;
+  text-decoration: none;
+  background-color:  #f8f9fa;
+  border-color: #343a40;
 }

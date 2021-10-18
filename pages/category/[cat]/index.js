@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from "../../../templates/components/Navbar/Navbar";
 import CategoriesWidget from "../../../templates/components/CategoriesWidget/CategoriesWidget";
 import CarouselFeatured from "../../../templates/components/CarouselFeatured/CarouselFeatured";
@@ -7,6 +7,7 @@ import {getCategories, getCategoryByName} from "../../../server/queries/category
 import {getFeatured, getPost, getPostsByCategory} from "../../../server/queries/post.queries";
 import {hydration} from "../../../utils/hydration";
 import Link from "next/link";
+import Pagination from "../../../components/shared/Pagination/Pagination";
 
 export async function getServerSideProps(context) {
 
@@ -28,6 +29,22 @@ export async function getServerSideProps(context) {
 }
 
 function Index(props) {
+
+    const [posts,setPosts]= useState(props.posts);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const itemsPerPage = 10;
+
+    const paginatedData = Pagination.getData(
+        posts,
+        currentPage,
+        itemsPerPage
+    );
+
     return (
         <>
             <Navbar/>
@@ -38,8 +55,20 @@ function Index(props) {
                         <h1>Catégorie : <strong>{props.cat}</strong></h1>
                     </div>
                     <div className="col-lg-9 mb-5">
+                        <div className={"mb-3"}>
+                            {itemsPerPage < posts.length &&
+                            (
+                                <Pagination
+                                    currentPage={currentPage}
+                                    itemsPerPage={itemsPerPage}
+                                    length={posts.length}
+                                    onPageChanged={handlePageChange}
+                                />
+                            )
+                            }
+                        </div>
                         {
-                            props.posts.map((post,index)=>(
+                            paginatedData.map((post,index)=>(
 
                                 <Link href={"/post/"+post._id}>
                                     <div className="row mb-3" style={{cursor: "pointer"}}>
@@ -48,7 +77,7 @@ function Index(props) {
                                         </div>
                                         <div className="col-md-7 mt-3 mt-md-0">
                                                 <div>
-                                                    <a href="#" className="badge bg-danger mb-2"><i className="fas fa-circle me-2 small fw-bold"/>{props.cat}</a>
+                                                    <a href="#" className="badge link-light bg-primary p-2 mb-2"><i className="fas fa-circle me-2 small fw-bold"/>{props.cat}</a>
                                                     <h4>{post.title}</h4>
                                                     <p>{post.short_description}</p>
                                                     <div className={"d-flex align-items-center"}>
@@ -62,6 +91,18 @@ function Index(props) {
 
                             ))
                         }
+                        <div>
+                            {itemsPerPage < posts.length &&
+                            (
+                                <Pagination
+                                    currentPage={currentPage}
+                                    itemsPerPage={itemsPerPage}
+                                    length={posts.length}
+                                    onPageChanged={handlePageChange}
+                                />
+                            )
+                            }
+                        </div>
                     </div>
                     <CategoriesWidget categories={props.categories}/>
                     <hr/>
