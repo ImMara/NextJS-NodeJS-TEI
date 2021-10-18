@@ -1,5 +1,6 @@
 import React from 'react';
 import {truncateString} from "../../../utils/functions";
+import Link from "next/link";
 
 function FullCard(props) {
     return (
@@ -21,13 +22,16 @@ function FullCard(props) {
                  style={{background:'linear-gradient(0deg, black, transparent)',}}
             >
                 <div className="w-100 mt-auto text-white">
+
                     <h4 className="card-title">
+                        <Link href={"/post/"+props.post._id}>
                         <a
                             className="btn-link stretched-link text-reset"
                             style={{
                                 textShadow:"black 0.1em 0.1em 0.2em"
                             }}
-                            href={"/post/"+props.post._id}>{truncateString(props.post.title,45)}</a>
+                            >{truncateString(props.post.title,45)}</a>
+                        </Link>
                     </h4>
                     {
                         !props.short && (

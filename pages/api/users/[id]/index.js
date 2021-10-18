@@ -41,7 +41,7 @@ export default async(req,res,next) => {
                 const body = await req.body;
 
                 // UPDATE USER
-                await updateSpecificFields(id,body);
+                const updated = await updateSpecificFields(id,body);
 
                 // MESSAGE
                 const string = `update success`
@@ -49,6 +49,7 @@ export default async(req,res,next) => {
                 // RESPONSE FROM API
                 res.json({
                     success: string,
+                    data:updated
                 })
 
             } catch (e) {

@@ -111,6 +111,7 @@ function Index(props) {
 
         axios.patch(`/api/users/`+user._id, {[name]:value})
             .then(r =>{
+                users[index] = r.data.data;
                 console.log(r);
                 setMessage(r.data);
             })
@@ -313,6 +314,7 @@ function Index(props) {
                                             {
                                                 user.delete ? (
                                                     <Select
+                                                        Defaultvalue={user.role}
                                                         name={"role"}
                                                         onChange={(event)=>handleChangeUserRole(event,user,index)}
                                                     >

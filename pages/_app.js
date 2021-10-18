@@ -4,12 +4,8 @@ import {MenuWrapper} from "../context/menu";
 import {AuthWrapper} from "../context/auth";
 import {SettingsWrapper, useSettingsContext} from "../context/settings";
 import "/styles/globals.css";
-import {useContext} from "react";
 
 function MyApp({ Component, pageProps }) {
-
-    const settings = useSettingsContext();
-    console.log(settings);
 
   return (
     <>
