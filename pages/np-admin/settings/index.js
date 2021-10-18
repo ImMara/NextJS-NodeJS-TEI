@@ -52,7 +52,7 @@ function Index(props) {
                     </div>
 
                     <div className="mb-3 col-6">
-                        <label htmlFor="url" className="form-label">URl</label>
+                        <label htmlFor="url" className="form-label">URL</label>
                         <input className="form-control" id="url" type="text" onChange={handleChange} defaultValue={setting&&setting[0].url} name="url"/>
                     </div>
 
