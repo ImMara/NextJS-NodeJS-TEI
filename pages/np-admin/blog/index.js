@@ -91,8 +91,8 @@ function Index(props) {
                         <th scope="col" className={"table-none"}>Commentaire</th>
                         <th scope="col" className={"table-none"}></th>
                         <th scope="col" className={"table-none"}>Publié</th>
-                        <th scope="col" className={"table-none"}>Categorie</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" className={"table-none"}>Catégorie </th>
+                        <th scope="col">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
