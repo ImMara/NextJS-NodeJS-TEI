@@ -144,7 +144,7 @@ function Add(props) {
                     <a
                         className="btn btn-success"
                         onClick={handleSubmit}
-                    >Ajouter une page</a>
+                    >Ajouter</a>
                     <Link href={"/np-admin/page/"}>
                         <a className="btn ms-1 btn-primary">
                             Retour
