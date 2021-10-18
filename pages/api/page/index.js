@@ -48,7 +48,7 @@ export async function getStaticProps(context) {
         <>
             <Navbar/>
             <BasicLayout>
-                <div className="container text-white" dangerouslySetInnerHTML={createMarkup()}>
+                <div className="container text-white p-3 mt-3" dangerouslySetInnerHTML={createMarkup()}>
     
                 </div>
             </BasicLayout>
