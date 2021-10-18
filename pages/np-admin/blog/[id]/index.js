@@ -124,7 +124,7 @@ function Index(props) {
                         <Input
                             type="text"
                             name={"title"}
-                            label={"title"}
+                            label={"Titre"}
                             value={body.title}
                             placeholder={"titre de votre article"}
                             onChange={handleChange}
@@ -134,7 +134,7 @@ function Index(props) {
                     <div className="mb-3 col-xl-6">
                         <Select
                             name={"category"}
-                            label="category"
+                            label="Catégorie"
                             value={body.category}
                             onChange={handleChange}
                         >
@@ -157,7 +157,7 @@ function Index(props) {
                     </div>
 
                     <div className="mb-3 col-12">
-                        <h6 className="mb-2 py-1">Contenus de l'article</h6>
+                        <h6 className="mb-2 py-1">Contenu de l'article</h6>
                         <SunEditor
                             lang="fr"
                             name="body"
@@ -217,7 +217,7 @@ function Index(props) {
                         <div className="col-12">
                             <Checkbox
                                 value={body.allowComment}
-                                label="comments"
+                                label="Commentaires"
                                 name={"allowComments"}
                                 onChange={handleChange}
                             />
@@ -225,7 +225,7 @@ function Index(props) {
                         <div className="col-12">
                             <Checkbox
                                 value={body.status}
-                                label="publié"
+                                label="Publier"
                                 name={"status"}
                                 onChange={handleChange}
                             />
@@ -233,7 +233,7 @@ function Index(props) {
                         <div className="col-12">
                             <Checkbox
                                 value={body.featured}
-                                label="featured"
+                                label="En vedette"
                                 name={"featured"}
                                 onChange={handleChange}
                             />
