@@ -6,7 +6,7 @@ exports.createComment = async (data) => {
 }
 
 exports.getComments = async () => {
-    return Comments.find().populate('post_id','title');
+    return Comments.find().populate('post_id','title').sort({"date":-1});
 }
 
 exports.getComment = async (id) => {
@@ -14,7 +14,7 @@ exports.getComment = async (id) => {
 }
 
 exports.getCommentsPost = async (id) => {
-    return Comments.find({"post_id":id}).populate("post_id","title");
+    return Comments.find({"post_id":id}).populate("post_id","title").sort({"date":-1});
 }
 
 exports.deleteComment = async (id) => {

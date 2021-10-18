@@ -32,7 +32,7 @@ function FullCard(props) {
                     {
                         !props.short && (
                             // lorem 25
-                            <p className={"d-none d-md-block"}
+                            <p className={"d-none d-lg-block"}
                                 style={{
                                 textShadow:"black 0.1em 0.1em 0.2em"
                             }}>{props.post.short_description}</p>
@@ -41,10 +41,14 @@ function FullCard(props) {
                     <div className={"d-flex align-items-center"}  style={{
                         textShadow:"black 0.1em 0.1em 0.2em"
                     }}>
-                        <h5 className="me-3 d-none d-md-block">{props.post.author ? props.post.author.name : "anonymous"}</h5>
+                        {
+                            props.first && (
+                                <h5 className="me-3 d-none d-lg-block">{props.post.author !== null ? props.post.author.username : "anonymous"}</h5>
+                            )
+                        }
                         {
                             !props.short && (
-                                <span className="small d-none d-md-block">{props.post.date.substring(0, 10)}</span>
+                                <span className="small d-none d-lg-block">{props.post.date.substring(0, 10)}</span>
                             )
                         }
                     </div>

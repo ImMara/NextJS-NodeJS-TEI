@@ -35,7 +35,7 @@ export default async (req, res,next) => {
                 // RESPONSE FROM API
                 res.json({
                     success:string,
-                    data: body,
+                    data: newComment,
                 })
 
             }catch (e) {
