@@ -36,7 +36,7 @@ function Index(props) {
             <Layout>
                 <div className="row gy-0 gx-0">
                     <div className="col-12">
-                        <h1>Comments</h1>
+                        <h1>Commentaires</h1>
                         <hr/>
                     </div>
                     <div className="col-12 row gy-0 gx-0">
@@ -52,12 +52,12 @@ function Index(props) {
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Comment</th>
-                                    <th>post title</th>
-                                    <th>date</th>
-                                    <th>username</th>
-                                    <th>email</th>
-                                    <th>actions</th>
+                                    <th>Commentaire</th>
+                                    <th>Titre de l'article</th>
+                                    <th>Date</th>
+                                    <th>Utilisateur</th>
+                                    <th>Email</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,7 +71,7 @@ function Index(props) {
                                             <td>{comment.username}</td>
                                             <td>{comment.email}</td>
                                             <td>
-                                                <a className={"btn btn-danger"}>delete</a>
+                                                <a className={"btn btn-danger"}>Supprimer</a>
                                                 <Link href={"/np-admin/blog/comments/"+comment._id}>
                                                     <a className={"btn btn-primary"}>Voir</a>
                                                 </Link>
