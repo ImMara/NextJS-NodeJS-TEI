@@ -90,13 +90,13 @@ function Add(props) {
                 }
                 <hr/>
                 <Input
-                    label="title"
+                    label="Titre"
                     name={"title"}
                     type={"text"}
                     onChange={handleChange}
                 />
                 <div className="mb-3">
-                    <h6 className="mb-2 py-1">Contenus de l'article</h6>
+                    <h6 className="mb-2 py-1">Contenu de l'article</h6>
                     <SunEditor
                         lang="fr"
                         name="body"
