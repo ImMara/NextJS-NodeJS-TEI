@@ -60,7 +60,7 @@ const Navbar = (props) => {
                                             user && user.role.access.includes('users') && (
                                                 <li className="nav-item">
                                                     <Link href="/np-admin/users">
-                                                        <a className="nav-link" >Users</a>
+                                                        <a className="nav-link" >Utilisateurs</a>
                                                     </Link>
                                                 </li>
                                             )
@@ -70,7 +70,7 @@ const Navbar = (props) => {
                                             user && user.role.access.includes('settings') && (
                                                 <li className="nav-item">
                                                     <Link href="/np-admin/settings">
-                                                        <a className="nav-link" >Settings</a>
+                                                        <a className="nav-link" >Paramètres</a>
                                                     </Link>
                                                 </li>
                                             )
@@ -83,7 +83,7 @@ const Navbar = (props) => {
                                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
                                                role="button" aria-haspopup="true" aria-expanded="false">{user && user.username}</a>
                                             <div className="dropdown-menu">
-                                                <a className="dropdown-item" href="/np-admin/profile">Profile</a>
+                                                <a className="dropdown-item" href="/np-admin/profile">Profil</a>
                                                 <div className="dropdown-divider"/>
                                                 <a className="dropdown-item" href="/api/auth/logout">Logout</a>
                                             </div>
