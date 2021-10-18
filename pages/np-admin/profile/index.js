@@ -51,12 +51,12 @@ function Index(props) {
                 }
                 <div className="row mb-3 mt-1">
                     <div className="col-12 mb-2">
-                        <h1>Profile</h1>
+                        <h1>Profil</h1>
                         <hr/>
                     </div>
                     <div className="col-12 col-lg-6">
                        <Input
-                           label={"votre pseudo"}
+                           label={"Pseudo"}
                            type="text"
                            name="username"
                            defaultValue={props.user.username}
@@ -65,7 +65,7 @@ function Index(props) {
                            onChange={handleChange}
                        />
                        <Input
-                            label={"votre nom"}
+                            label={"Nom"}
                             type="text"
                             name={"first_name"}
                             defaultValue={props.user.first_name}
@@ -74,7 +74,7 @@ function Index(props) {
                        />
                        <Input
                             type="text"
-                            label={"votre prenom"}
+                            label={"Prénom"}
                             name={"last_name"}
                             defaultValue={props.user.last_name}
                             placeholder="votre prenom"
@@ -82,7 +82,7 @@ function Index(props) {
                        />
                         <Input
                             type="text"
-                            label={"votre site"}
+                            label={"Site"}
                             name={"website"}
                             defaultValue={props.user.website}
                             placeholder="votre site"
@@ -90,14 +90,14 @@ function Index(props) {
                         />
                         <Input
                             name="address"
-                            label={"votre adresse"}
+                            label={"Adresse"}
                             defaultValue={props.user.address}
                             placeholder="votre adresse"
                             onChange={handleChange}
                         />
                         <Input
                             name="postalCode"
-                            label={"votre postal code"}
+                            label={"Code postal"}
                             defaultValue={props.user.postalCode}
                             placeholder="votre postal code"
                             onChange={handleChange}
@@ -114,14 +114,14 @@ function Index(props) {
                             onChange={handleChange}
                         />
                         <Input
-                            label={"changer votre password"}
+                            label={"Changer votre password"}
                             name={"password"}
                             type="password"
                             onChange={handleChange}
                         />
                         <Textarea
                             defaultValue={props.user.description}
-                            label="description"
+                            label="Description"
                             name="description"
                             row="12"
                             onChange={handleChange}
