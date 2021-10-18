@@ -381,7 +381,7 @@ function Index(props) {
                             color="success"
                         >
                             <Input
-                                label={"titre du role"}
+                                label={"Titre du rôle"}
                                 type={"text"}
                                 name={"title"}
                                 value={bodyRole.title}
