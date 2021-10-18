@@ -231,8 +231,8 @@ function Index(props) {
                         <table className="table">
                             <thead>
                             <th>#</th>
-                            <th>titre</th>
-                            <td>action</td>
+                            <th>Titre</th>
+                            <td>Actions</td>
                             </thead>
                             <tbody>
                             {
@@ -274,14 +274,14 @@ function Index(props) {
                                         <Input
                                             name="title"
                                             onChange={handleUpdateChange}
-                                            label={"title"}
+                                            label={"Titre"}
                                             type="text"
                                             value={updateMenu.title}
                                         />
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="page_id" className="form-label">page</label>
+                                        <label htmlFor="page_id" className="form-label">Page</label>
                                         <select name="page_id" onChange={handleChange} id="page_id"
                                                 className="form-control">
                                             {
