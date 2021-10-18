@@ -389,7 +389,7 @@ function Index(props) {
                             />
                             <Select
                                 name={"access"}
-                                label={"autorisation"}
+                                label={"Accès"}
                                 multiple={true}
                                 value={bodyRole.access}
                                 onChange={handleChangeRoleMulti}
@@ -419,7 +419,7 @@ function Index(props) {
                             />
                             <Select
                                 name={"access"}
-                                label={"autorisation"}
+                                label={"Accès"}
                                 multiple={true}
                                 value={bodyRole.access}
                                 onChange={handleChangeRoleMulti}
@@ -448,7 +448,7 @@ function Index(props) {
                             <tr>
                                 <th>#</th>
                                 <th>Rôle</th>
-                                <th className={"table-none"}>access</th>
+                                <th className={"table-none"}>Accès</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
