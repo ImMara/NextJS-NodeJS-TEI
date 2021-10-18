@@ -46,7 +46,7 @@ export default async (req, res, next) => {
                 await deleteMenu(id);
 
                 // SUCCESS MESSAGE
-                const string = `Supression du menu : ${menu.title}`
+                const string = `Supression du menu : ${id}`
 
                 // JSON RESPONSE
                 res.json({

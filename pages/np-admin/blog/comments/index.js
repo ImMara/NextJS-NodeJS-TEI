@@ -7,6 +7,7 @@ import Link from 'next/link';
 import {truncateString} from "../../../../utils/functions";
 import axios from "axios";
 import Modal from "../../../../components/bootstrap-5/modal/Modal";
+import Alerts from "../../../../components/bootstrap-5/alerts/Alerts";
 
 export async function getStaticProps(context) {
 
@@ -44,6 +45,14 @@ function Index(props) {
         <>
             <Navbar/>
             <Layout>
+                {
+                    message && (
+                        <Alerts
+                            style={message.error ? "danger" : "success"}
+                            message={message.error || message.success}
+                        />
+                    )
+                }
                 <div className="row gy-0 gx-0">
                     <div className="col-12">
                         <h1>Commentaires</h1>
