@@ -271,20 +271,20 @@ function Index(props) {
                                             onChange={handleEditChange}
                                             value={editCategory.title}
                                             type={"text"}
-                                            label={"title"}
+                                            label={"Titre"}
                                         />
                                     </div>
                                     <div className="mb-3">
                                         <Textarea
                                             name={"description"}
-                                            label={"description"}
+                                            label={"Description"}
                                             value={editCategory.description}
                                             onChange={handleEditChange}
                                         />
                                     </div>
                                     <div>
-                                        <a className="btn btn-success me-1" onClick={handleSubmitEdit}>Save</a>
-                                        <a className="btn btn-danger" onClick={handleCloseEdit}>Close</a>
+                                        <a className="btn btn-success me-1" onClick={handleSubmitEdit}>Modifier</a>
+                                        <a className="btn btn-danger" onClick={handleCloseEdit}>Supprimer</a>
                                     </div>
                                 </div>
                             )
