@@ -90,7 +90,7 @@ function Add(props) {
                         short_description: "",
                         allowComment: false
                     })
-                    setBodyEditor("")
+                    setBodyEditor(null)
                 }
             })
     }
