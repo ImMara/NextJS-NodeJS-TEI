@@ -66,10 +66,10 @@ function Index(props) {
                     <Modal
                         target={"delete-post"}
                         label={"exampleModalLabel"}
-                        title={"delete post"}
-                        btn={"delete"}
+                        title={"Supprimer le commentaire"}
+                        btn={"Supprimer"}
                         submit={handleDelete}
-                    >are you sure?</Modal>
+                    >Êtes-vous sûr ?</Modal>
                     {
                         !message && !message.success && (
                             <>

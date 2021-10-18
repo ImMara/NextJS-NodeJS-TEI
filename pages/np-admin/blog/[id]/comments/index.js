@@ -73,7 +73,7 @@ function Index(props) {
                         target={"delete-post"}
                         label={"exampleModalLabel"}
                         title={"Supprimer le commentaire"}
-                        btn={"delete"}
+                        btn={"Supprimer"}
                         submit={handleDelete}
                     >Êtes-vous sûr ?</Modal>
                     <div className="col-12">
