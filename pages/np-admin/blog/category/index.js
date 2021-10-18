@@ -224,8 +224,8 @@ function Index(props) {
                         <table className="table">
                             <thead>
                             <th>#</th>
-                            <th>titre</th>
-                            <td>action</td>
+                            <th>Titre</th>
+                            <td>Actions</td>
                             </thead>
                             <tbody>
                             {category.map((c, index) => (
@@ -239,7 +239,7 @@ function Index(props) {
                                                     <a className="btn btn-success" onClick={() => {
                                                         setEditCategory(c);
                                                         setCategoryIndex(index)
-                                                    }}>update</a>
+                                                    }}>Modifier</a>
 
                                                     <button
                                                         className="btn btn-danger"
@@ -249,7 +249,7 @@ function Index(props) {
                                                         }}
                                                         data-bs-toggle="modal" data-bs-target="#delete"
                                                     >
-                                                        delete
+                                                        Supprimer
                                                     </button>
                                                 </>
                                             )}
