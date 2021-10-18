@@ -81,12 +81,12 @@ function Index(props) {
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Comment</th>
-                                <th>post title</th>
-                                <th>date</th>
-                                <th>username</th>
-                                <th>email</th>
-                                <th>actions</th>
+                                <th>Commentaire</th>
+                                <th>Titre de l'article</th>
+                                <th>Date</th>
+                                <th>Utilisateur</th>
+                                <th>Email</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -109,7 +109,7 @@ function Index(props) {
                                                 data-bs-toggle="modal"
                                                 onClick={() => handleBtn(comment._id, index)}
                                                 data-bs-target="#delete-post">
-                                                delete
+                                                Supprimer
                                             </button>
                                         </td>
                                     </tr>
