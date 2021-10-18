@@ -99,7 +99,7 @@ function Index(props) {
                                     <div>
                                         <button
                                             type="button"
-                                            className="btn btn-danger rounded-end rounded-0 px-3"
+                                            className="btn btn-danger px-3"
                                             data-bs-toggle="modal"
                                             onClick={handleBtn}
                                             data-bs-target="#delete-post">
