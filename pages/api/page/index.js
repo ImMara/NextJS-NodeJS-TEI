@@ -37,7 +37,7 @@ export async function getStaticProps(context) {
         props: {page: hydration(page)}, // will be passed to the page component as props
         }
     }
-    function ${slug.replace(/-/, '').replace(/’/,"").replace(/'/,'')}(props) {
+    function ${slug.replace(/-/, '').replace(/’/,'').replace(/'/,'')}(props) {
         function createMarkup() {
             return {
                 __html: props.page.body
@@ -56,7 +56,7 @@ export async function getStaticProps(context) {
     );
 }
 
-export default ${body.title.replace(/\s/g, '')};
+export default ${slug.replace(/-/, '').replace(/’/,'').replace(/'/,'')}};
 `
                     , (err) => {
                         if (err) throw err;
