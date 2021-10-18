@@ -193,14 +193,14 @@ function Index(props) {
                                     name={"title"}
                                     onChange={handleChange}
                                     type={"text"}
-                                    label={"title"}
+                                    label={"Titre"}
                                     value={body.title}
                                 />
                             </div>
                             <div className="mb-3">
                                 <Textarea
                                     name={"description"}
-                                    label={"description"}
+                                    label={"Description"}
                                     onChange={handleChange}
                                     value={body.description}
                                 />
