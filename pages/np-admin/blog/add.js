@@ -227,7 +227,6 @@ function Add(props) {
                             onChange={handleChange}
                         />
                     </div>
-
                     <div className="form-check mb-3 ms-3 col-6 row">
                         <div className="col-12">
                             <Checkbox
