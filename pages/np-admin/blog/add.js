@@ -230,10 +230,11 @@ function Add(props) {
                     </div>
 
                     <div className="form-check mb-3 ms-3 col-6 row">
+                        <h5>Options</h5>
                         <div className="col-12">
                             <Checkbox
                                 value={body.allowComment}
-                                label="comments"
+                                label="Commentaires"
                                 name={"allowComment"}
                                 onChange={handleChange}
                             />
@@ -241,16 +242,15 @@ function Add(props) {
                         <div className={"col-12"}>
                             <Checkbox
                                 value={body.status}
-                                label="publié"
+                                label="Publier"
                                 name={"status"}
                                 onChange={handleChange}
                             />
                         </div>
                         <div className={"col-12"}>
-                            <h4>Options</h4>
                             <Checkbox
                                 value={body.featured}
-                                label="featured"
+                                label="En vedette"
                                 name={"featured"}
                                 onChange={handleChange}
                             />
