@@ -75,7 +75,7 @@ export default ${slug.replace(/-/, '').replace(/’/,'').replace(/'/,'')};
 
                 // if error return json with error
                 res.json({
-                    status: e
+                    error: e.message,
                 })
 
                 // log server with error for dev
