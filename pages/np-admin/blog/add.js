@@ -85,7 +85,6 @@ function Add(props) {
                 if (!r.data.error) {
                     setBody({
                         title: "",
-                        body: "",
                         category: "",
                         short_description: "",
                         allowComment: false
