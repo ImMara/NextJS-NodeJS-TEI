@@ -245,6 +245,7 @@ function Index(props) {
                             btn={"delete"}
                             submit={handleDelete}
                         >are you sure?</Modal>
+
                         <Modal
                             target={"addUser"}
                             title={"Ajouter un utilisateur"}
@@ -253,33 +254,29 @@ function Index(props) {
                             submit={handleSubmitUser}
                             color="success"
                         >
-
                             <Input
                                 type={"email"}
                                 name="email"
-                                label="email"
+                                label="Email"
                                 onChange={handleChangeUser}
                                 value={bodyUser.email}
                             />
-
                             <Input
                                 type="text"
                                 name="username"
-                                label="username"
+                                label="Pseudo"
                                 onChange={handleChangeUser}
                                 value={bodyUser.username}
                             />
-
                             <Input
                                 type="password"
                                 name="password"
-                                label="password"
+                                label="Mot de passe"
                                 onChange={handleChangeUser}
                                 value={bodyUser.password}
                             />
-
                             <Select
-                                label="role"
+                                label="Rôle"
                                 name={"role"}
                                 onChange={handleChangeUser}
                                 value={bodyUser.role}
@@ -297,10 +294,10 @@ function Index(props) {
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>username</th>
-                                <th className={"table-none"}>email</th>
-                                <th className={"table-none"}>role</th>
-                                <th>action</th>
+                                <th>Pseudo</th>
+                                <th className={"table-none"}>Email</th>
+                                <th className={"table-none"}>Rôle</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -372,7 +369,7 @@ function Index(props) {
                                 data-bs-toggle="modal"
                                 data-bs-target={"#addRoleModal"}
                                 className="btn btn-success"
-                            >Ajouter un role</a>
+                            >Ajouter un rôle </a>
                         </div>
 
                         <Modal
@@ -387,7 +384,7 @@ function Index(props) {
                                 label={"titre du role"}
                                 type={"text"}
                                 name={"title"}
-                                s                              value={bodyRole.title}
+                                value={bodyRole.title}
                                 onChange={handleChangeRole}
                             />
                             <Select
@@ -414,7 +411,7 @@ function Index(props) {
                             color="success"
                         >
                             <Input
-                                label={"titre du role"}
+                                label={"Titre du rôle"}
                                 type={"text"}
                                 name={"title"}
                                 value={bodyRole.title}
@@ -450,9 +447,9 @@ function Index(props) {
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>role</th>
+                                <th>Rôle</th>
                                 <th className={"table-none"}>access</th>
-                                <th>action</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -476,7 +473,7 @@ function Index(props) {
                                                                 setRoleIndex(index)
                                                             }}
                                                             className={"btn btn-success"}
-                                                        >Update</button>
+                                                        >Modifier</button>
                                                         <a
                                                             onClick={()=> {
                                                                 setRoleIndex(index)
@@ -484,7 +481,7 @@ function Index(props) {
                                                             }}
                                                             className={"btn btn-danger"}
                                                             data-bs-toggle="modal" data-bs-target="#deleteRole"
-                                                        >Delete</a>
+                                                        >Supprimer</a>
                                                     </>
                                                 )
                                             }
