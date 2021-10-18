@@ -247,6 +247,7 @@ function Add(props) {
                             />
                         </div>
                         <div className={"col-12"}>
+                            <label htmlFor="check">Options</label>
                             <Checkbox
                                 value={body.featured}
                                 label="featured"
