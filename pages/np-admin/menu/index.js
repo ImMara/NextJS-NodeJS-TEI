@@ -169,7 +169,7 @@ function Index(props) {
                     <div className="col-12 row">
                         <div className={"mb-3 col-12 col-md-3"}>
                             <button type="button" className="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#addMenu">
-                                Ajouter un liens
+                                Ajouter un lien
                             </button>
                         </div>
                         <div className="col-12">
