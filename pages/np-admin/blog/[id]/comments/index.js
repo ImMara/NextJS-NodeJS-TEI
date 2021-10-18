@@ -58,13 +58,13 @@ function Index(props) {
                         )
                     }
                     <div className="col-12">
-                        <h1>Comments</h1>
+                        <h1>Commentaires</h1>
                         <hr/>
                     </div>
                     <div className="col-12 row gy-0 gx-0">
                         <div className="col-4 mb-3">
                             <Link href={"/np-admin/blog/"}>
-                                <a className="btn btn-primary">Return</a>
+                                <a className="btn btn-primary">Retour</a>
                             </Link>
                         </div>
                         <hr/>
