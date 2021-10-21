@@ -8,7 +8,8 @@ export default async (req,res,next) =>{
             const match = await user.comparePassword(password);
             if (match) {
                 await req.login(user);
-                res.redirect('/np-admin/dashboard');
+                // res.redirect('/np-admin/dashboard');
+                res.json({success:"ok"})
             } else {
                 res.json({error : 'wrong password'});
             }
