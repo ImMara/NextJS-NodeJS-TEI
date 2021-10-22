@@ -21,7 +21,7 @@ function Slug(props) {
 
     function createMarkup() {
         return {
-            __html: props.page[0].body
+            __html: props.page[0] && props.page[0].body
         };
     }
 
