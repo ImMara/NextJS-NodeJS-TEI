@@ -20,3 +20,7 @@ exports.deletePage = async (id) => {
 exports.patchPage = async (id, data) => {
     return Page.findByIdAndUpdate(id, {$set: data},{runValidators:true});
 }
+
+exports.getPageBySlug = async (slug) => {
+    return Page.find({slug:slug});
+}

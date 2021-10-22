@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import Layout from "../../components/layout/Layout";
 import {findUserPerEmail} from "../../server/queries/user.queries";
@@ -45,11 +45,19 @@ function Index(props) {
                 console.log(r)
                 setMessage(r.data);
                 if(r.data.success){
-                    // router.push('/np-admin/dashboard')
-                    window.location.href="/np-admin/dashboard"
+                    router.push({
+                        path:'/np-admin/dashboard',
+                        shallow: true,
+                    })
+                    // window.location.href="/np-admin/dashboard"
                 }
             })
     }
+
+    useEffect(() => {
+        // Prefetch the dashboard page
+        router.prefetch('/dashboard')
+    }, [])
 
     return (
         <div className="container">

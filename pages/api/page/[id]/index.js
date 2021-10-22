@@ -71,9 +71,6 @@ export default async (req, res, next) => {
                 // GET PAGE WITH ID
                 const page = await getPage(id);
 
-                // DELETE PAGE IN FOLDER
-                fs.unlink(`./pages/${page.slug+".js"}`,(err=>err && console.log(err)));
-
                 // DELETE PAGE
                 await deletePage(id);
 

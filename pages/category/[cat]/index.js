@@ -74,8 +74,8 @@ function Index(props) {
                         {
                             paginatedData.map((post,index)=>(
 
-                                <Link href={"/post/"+post._id}>
-                                    <div className="row mb-3" style={{cursor: "pointer"}}>
+                                <Link href={"/post/"+post._id} >
+                                    <div className="row mb-3" key={index} style={{cursor: "pointer"}}>
                                         <div className="col-md-5" style={{height:"300px"}}>
                                             <img className={"rounded w-100 h-100"} style={{height:"300px",objectFit:"cover"}} src={"/images/blogs/resized/"+post.image} alt=""/>
                                         </div>
