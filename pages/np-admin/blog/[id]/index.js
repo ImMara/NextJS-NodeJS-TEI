@@ -40,7 +40,7 @@ function Index(props) {
         title:props.post.title,
         category:props.post.category,
         short_description:props.post.short_description,
-        allowComment: props.post.allowComment,
+        allowComments: props.post.allowComment,
         status:props.post.status,
         featured:props.post.featured,
     });
@@ -226,7 +226,7 @@ function Index(props) {
                     <div className="form-check mb-3 ms-3 col-6 row">
                         <div className="col-12">
                             <Checkbox
-                                value={body.allowComment}
+                                value={body.allowComments}
                                 label="Commentaires"
                                 name={"allowComments"}
                                 onChange={handleChange}
