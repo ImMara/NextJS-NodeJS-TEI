@@ -10,7 +10,7 @@ import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
 import Layout from "../../../components/layout/Layout";
 import Pagination from "../../../components/shared/Pagination/Pagination";
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
     // db call to get all posts
     const posts = await getPosts();

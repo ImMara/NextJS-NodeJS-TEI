@@ -10,7 +10,7 @@ import Modal from "../../../components/bootstrap-5/modal/Modal";
 import Link from 'next/link';
 
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
     const pages = await getPages();
 

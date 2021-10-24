@@ -7,7 +7,7 @@ import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
 import {hydration} from "../../../utils/hydration";
 import {getSettings} from "../../../server/queries/settings.queries";
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     // get all CategoriesWidget from db
     const settings = await getSettings();
 

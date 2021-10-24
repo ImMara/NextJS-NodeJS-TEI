@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Navbar from "../../../components/admin/navbar/Navbar";
 import Input from "../../../components/bootstrap-5/input/Input";
 import Textarea from "../../../components/bootstrap-5/input/Textarea";
@@ -12,22 +12,11 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import 'suneditor/dist/css/suneditor.min.css';
 import Layout from "../../../components/layout/Layout";
+import useSWR from 'swr'
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
     ssr: false,
 });
-
-export async function getStaticProps(context) {
-
-    // get all CategoriesWidget from db
-    const category = await getCategories();
-
-    return {
-        // cleaning the object as json for nextJS hydrate security
-        props: {category: hydration(category)}, // will be passed to the page component as props
-    }
-}
-
 
 function Add(props) {
 
@@ -47,6 +36,13 @@ function Add(props) {
     const [bodyEditor, setBodyEditor] = useState();
 
     /* END STATE */
+
+    useEffect(() => {
+        axios.get('/api/blog/categories')
+            .then((response) =>{
+                setCategory(response.data.data);
+            })
+    })
 
     /* START LOGIC */
 
@@ -163,7 +159,7 @@ function Add(props) {
                         >
                             <option>ouvrir le menu de sélection</option>
                             {
-                                category.map(c => (
+                                category && category.map(c => (
                                     <option value={c._id}>{c.title}</option>
                                 ))
                             }
@@ -272,6 +268,5 @@ function Add(props) {
         </>
     );
 }
-
 
 export default Add;

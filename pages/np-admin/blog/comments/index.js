@@ -10,7 +10,7 @@ import Modal from "../../../../components/bootstrap-5/modal/Modal";
 import Alerts from "../../../../components/bootstrap-5/alerts/Alerts";
 import Pagination from "../../../../components/shared/Pagination/Pagination";
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
     // comments from db
     const comments = await getCommentsD();

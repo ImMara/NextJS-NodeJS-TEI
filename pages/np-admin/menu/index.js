@@ -11,7 +11,7 @@ import axios from "axios";
 import Select from "../../../components/bootstrap-5/input/Select";
 
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
     const menus = await getMenus();
     const pages = await getPages();

@@ -13,7 +13,7 @@ import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
 import Link from "next/link";
 
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
     const users = await findAllUsers();
     const roles = await getRoles();

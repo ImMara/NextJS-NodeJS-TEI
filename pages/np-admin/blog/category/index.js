@@ -10,7 +10,7 @@ import Layout from "../../../../components/layout/Layout";
 import Link from 'next/link';
 import Alerts from "../../../../components/bootstrap-5/alerts/Alerts";
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
     // DB call to get all CategoriesWidget
     const category = await getCategories();
