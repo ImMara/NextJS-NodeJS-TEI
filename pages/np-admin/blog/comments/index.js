@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {getComments} from "../../../../server/queries/comments.queries";
+import {getComments, getCommentsD} from "../../../../server/queries/comments.queries";
 import {hydration} from "../../../../utils/hydration";
 import Layout from "../../../../components/layout/Layout";
 import Navbar from "../../../../components/admin/navbar/Navbar";
@@ -13,7 +13,7 @@ import Pagination from "../../../../components/shared/Pagination/Pagination";
 export async function getStaticProps(context) {
 
     // comments from db
-    const comments = await getComments();
+    const comments = await getCommentsD();
 
     // create props
     return {

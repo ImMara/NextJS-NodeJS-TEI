@@ -24,6 +24,10 @@ const commentsSchema = schema({
     username: {
         type:String,
         required:true,
+    },
+    deleted:{
+        type:Boolean,
+        default:false,
     }
 })
 

@@ -73,16 +73,18 @@ export default  async (req,res,next) => {
 
                 // GET COMMENT WITH ID
                 const comment = await getComment(id);
+                const upComment = {body : "* Message supprimer *",deleted:true}
 
                 // DELETE COMMENT WITH ID
-                await deleteComment(id);
+                const commentB = await patchComment(id,upComment);
 
                 // SUCCESS MESSAGE
                 const string = `Supression du commentaire ${id}`
 
                 // JSON RESPONSE
                 res.json({
-                   success: string
+                    data: commentB,
+                    success: string
                 })
 
             } catch (e) {

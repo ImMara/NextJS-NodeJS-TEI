@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {hydration} from "../../../../../utils/hydration";
-import { getCommentsPost } from "../../../../../server/queries/comments.queries";
+import {getCommentsPost, getCommentsPostD} from "../../../../../server/queries/comments.queries";
 import Layout from "../../../../../components/layout/Layout";
 import Navbar from "../../../../../components/admin/navbar/Navbar";
 import Link from "next/link";
@@ -15,7 +15,7 @@ export async function getServerSideProps(context) {
     // id from url
     const id = context.params.id;
     // comments from db with id
-    const comments = await getCommentsPost(id);
+    const comments = await getCommentsPostD(id);
 
     // create props
     return {

@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from "../../../components/admin/navbar/Navbar";
-import {useState} from "react";
 import Input from "../../../components/bootstrap-5/input/Input";
 import Textarea from "../../../components/bootstrap-5/input/Textarea";
 import Select from "../../../components/bootstrap-5/input/Select";
 import Checkbox from "../../../components/bootstrap-5/input/Checkbox";
-import {getCategories, getCategory} from "../../../server/queries/category.queries";
+import {getCategories} from "../../../server/queries/category.queries";
 import axios from "axios";
 import Alerts from "../../../components/bootstrap-5/alerts/Alerts";
 import {hydration} from "../../../utils/hydration";
@@ -40,10 +39,10 @@ function Add(props) {
         category: "",
         short_description: "",
         allowComment: false,
-        status:false,
-        featured:false,
+        status: false,
+        featured: false,
     });
-    const [fileSelected,setFileSelected] = useState();
+    const [fileSelected, setFileSelected] = useState();
     const [message, setMessage] = useState();
     const [bodyEditor, setBodyEditor] = useState();
 
@@ -51,7 +50,7 @@ function Add(props) {
 
     /* START LOGIC */
 
-    const handleFile = (event) =>{
+    const handleFile = (event) => {
         setFileSelected(event.target.files[0])
     }
 
@@ -66,7 +65,7 @@ function Add(props) {
         setBodyEditor(content);
     }
 
-    const scrollToTop = () =>{
+    const scrollToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -79,12 +78,12 @@ function Add(props) {
 
         let formData = new FormData();
 
-        for(const key in body){
-            formData.append(key,body[key]);
+        for (const key in body) {
+            formData.append(key, body[key]);
         }
 
-        formData.append('body',bodyEditor);
-        formData.append('image',fileSelected);
+        formData.append('body', bodyEditor);
+        formData.append('image', fileSelected);
 
         axios
             .post(`/api/blog/post/`, formData)
@@ -203,7 +202,7 @@ function Add(props) {
                                     ["align", "list", "lineHeight"],
                                     ["outdent", "indent"],
 
-                                    ["table", "horizontalRule", "link","video"],
+                                    ["table", "horizontalRule", "link", "video"],
                                     // ['math'] //You must add the 'katex' library at options to use the 'math' plugin.
                                     // ['imageGallery'], // You must add the "imageGalleryUrl".
                                     // ["fullScreen", "showBlocks", "codeView"],

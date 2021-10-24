@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from "../../../../components/admin/navbar/Navbar";
 import Alerts from "../../../../components/bootstrap-5/alerts/Alerts";
 import Input from "../../../../components/bootstrap-5/input/Input";
@@ -8,7 +8,6 @@ import Checkbox from "../../../../components/bootstrap-5/input/Checkbox";
 import Link from "next/link";
 import {getCategories} from "../../../../server/queries/category.queries";
 import {hydration} from "../../../../utils/hydration";
-import {useState} from "react";
 import {getPost} from "../../../../server/queries/post.queries";
 import axios from "axios";
 import dynamic from "next/dynamic";
@@ -28,28 +27,28 @@ export async function getServerSideProps(context) {
     const post = await getPost(id);
 
     return {
-        props: { category: hydration(category) , post : hydration(post) }, // will be passed to the page component as props
+        props: {category: hydration(category), post: hydration(post)}, // will be passed to the page component as props
     }
 }
 
 function Index(props) {
 
-    const [category,setCategory] = useState(props.category);
+    const [category, setCategory] = useState(props.category);
 
-    const [body,setBody] = useState({
-        title:props.post.title,
-        category:props.post.category,
-        short_description:props.post.short_description,
+    const [body, setBody] = useState({
+        title: props.post.title,
+        category: props.post.category,
+        short_description: props.post.short_description,
         allowComments: props.post.allowComment,
-        status:props.post.status,
-        featured:props.post.featured,
+        status: props.post.status,
+        featured: props.post.featured,
     });
-    const [fileSelected,setFileSelected] = useState();
+    const [fileSelected, setFileSelected] = useState();
 
-    const [message,setMessage] = useState();
-    const [bodyEditor,setBodyEditor] = useState(props.post.body);
+    const [message, setMessage] = useState();
+    const [bodyEditor, setBodyEditor] = useState(props.post.body);
 
-    const handleFile = (event) =>{
+    const handleFile = (event) => {
         setFileSelected(event.target.files[0])
     }
 
@@ -57,10 +56,10 @@ function Index(props) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-        setBody({...body,[name]:value})
+        setBody({...body, [name]: value})
     }
 
-    const scrollToTop = () =>{
+    const scrollToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -69,7 +68,7 @@ function Index(props) {
         });
     };
 
-    const handleBodyEditor = (content) =>{
+    const handleBodyEditor = (content) => {
         setBodyEditor(content);
     }
 
@@ -77,12 +76,12 @@ function Index(props) {
 
         let formData = new FormData();
 
-        for(const key in body){
-            formData.append(key,body[key]);
+        for (const key in body) {
+            formData.append(key, body[key]);
         }
 
-        formData.append('body',bodyEditor);
-        formData.append('image',fileSelected);
+        formData.append('body', bodyEditor);
+        formData.append('image', fileSelected);
 
         axios
             .patch(`/api/blog/post/${props.post._id}`, formData)
@@ -116,14 +115,14 @@ function Index(props) {
 
     return (
         <>
-        <Navbar/>
+            <Navbar/>
             <Layout>
                 <h1 className="bg-light mb-3 rounded p-2">Edition de l'article {props.post.title}</h1>
                 <hr/>
                 {
                     message && (
                         <Alerts
-                            style={message.error ? "danger":"success"}
+                            style={message.error ? "danger" : "success"}
                             message={message.error || message.success}
                         />
                     )
@@ -150,7 +149,7 @@ function Index(props) {
                         >
                             <option>Open this select menu</option>
                             {
-                                category.map( (c,i) => (
+                                category.map((c, i) => (
                                     <option key={i} value={c._id}>{c.title}</option>
                                 ))
                             }
@@ -261,7 +260,6 @@ function Index(props) {
         </>
     );
 }
-
 
 
 export default Index;
