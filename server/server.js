@@ -30,7 +30,7 @@ app.prepare()
         // Create server express and export to use it in different files
         const server = express();
         exports.server = server;
-
+        server.use(express.static(path.join(__dirname, '../public')))
         server.use(bodyParser.json({limit:"50mb"}))
         server.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
 
@@ -145,6 +145,7 @@ app.prepare()
         // throw err if wrong configuration
         // url of server
         createServer(server).listen(port,(err)=>{
+
             if (err) throw err
             console.log(`> Ready on http://localhost:${port}`)
         })
